@@ -3,10 +3,10 @@ export const editorial = {
     title: 'About Us',
     intro:
       'A considered perspective on design, technology, and the people who bring them together.',
-    heroImage: '/images/studio-detail.jpg',
+    heroImage: '/images/about-hero.jpg',
     eyebrow: 'The Studio',
     heading: 'Thoughtful Design. Purposeful Technology.',
-    image: '/images/collaboration.jpg',
+    image: '/images/about-the-studio.jpg',
     paragraphs: [
       'KIVORA STUDIO is a digital agency and software development studio based in Surabaya, East Java. We help businesses establish and improve their digital presence through websites, applications, and custom digital solutions.',
       'We believe good work begins with understanding. Before choosing a layout or writing a line of code, we make room for the questions that reveal what a product needs to do, who it serves, and why it matters.',
@@ -32,7 +32,7 @@ export const editorial = {
     ],
     closingEyebrow: 'A shared perspective',
     closingTitle: 'Good Collaboration Makes Better Work.',
-    closingImage: '/images/engineering.jpg',
+    closingImage: '/images/about-shared-perspective.jpg',
     closingCopy:
       'We bring a hands-on, collaborative approach to each project. Clear communication, thoughtful decisions, and a shared understanding of the goals help us create digital experiences that feel coherent from the first impression to the final interaction.',
   },

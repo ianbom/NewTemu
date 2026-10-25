@@ -21,6 +21,11 @@ Unsplash license: https://unsplash.com/license
 | `approach-hero.jpg` | https://images.unsplash.com/photo-1638262052640-82e94d64664a |
 | `approach-quality.jpg` | https://images.unsplash.com/photo-1599499464008-2d7575295f8d |
 | `approach-details.jpg` | https://images.unsplash.com/photo-1780253240775-901a90864401 |
+| `home-about.jpg` | https://images.unsplash.com/photo-1586990409854-e12a7a547108 |
+| `home-what-we-do.jpg` | https://images.unsplash.com/photo-1726594701749-04cfbc6e2007 |
+| `about-hero.jpg` | https://images.unsplash.com/photo-1523325343676-4136d25d013b |
+| `about-the-studio.jpg` | https://images.unsplash.com/photo-1630659508985-fbb56613d08b |
+| `about-shared-perspective.jpg` | https://images.unsplash.com/photo-1629904853716-f0bc54eea481 |
 
 Downloaded as JPEG at width 1920, quality 85. Responsive delivery and optimization use Next.js Image.
 

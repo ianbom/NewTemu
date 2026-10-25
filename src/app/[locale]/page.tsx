@@ -75,7 +75,7 @@ export default async function Home({ params }: LocaleParams) {
           </div>
           <div className="portrait-image">
             <Image
-              src={localizedImage('/images/creative-workspace.jpg', locale)}
+              src={localizedImage('/images/home-about.jpg', locale)}
               alt={t('An architectural workspace filled with natural light')}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -176,7 +176,7 @@ export default async function Home({ params }: LocaleParams) {
           </div>
           <div className="portrait-image">
             <Image
-              src={localizedImage('/images/design-process.jpg', locale)}
+              src={localizedImage('/images/home-what-we-do.jpg', locale)}
               alt={t('A collaborative design session with interface sketches')}
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
