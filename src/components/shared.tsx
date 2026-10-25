@@ -2,6 +2,7 @@
 import { Wordmark } from '@/components/header';
 import { useI18n } from '@/components/i18n-provider';
 import Link from '@/components/localized-link';
+import { whatsappHref } from '@/lib/behavior';
 import { navigation, services, type Project } from '@/lib/data';
 import { localizedImage } from '@/lib/i18n';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
@@ -11,19 +12,17 @@ export function Hero({
   description,
   image = '/images/studio-architecture.jpg',
   eyebrow,
-  contact = false,
   children,
 }: {
   title: React.ReactNode;
   description: string;
   image?: string;
   eyebrow?: string;
-  contact?: boolean;
   children?: React.ReactNode;
 }) {
   const { locale, t } = useI18n();
   return (
-    <section className={`hero ${contact ? 'hero-contact' : ''}`}>
+    <section className="hero">
       <Image
         src={localizedImage(image, locale)}
         alt={t('')}
@@ -70,7 +69,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const { locale, t } = useI18n();
   return (
     <Link
-      href={`/work/${project.slug}`}
+      href="/portfolio"
       className="project-card"
     >
       <div className="project-card-image">
@@ -116,18 +115,20 @@ export function ContactCTA() {
             "Tell us about your idea. We'll help turn it into a thoughtfully designed, carefully developed digital experience.",
           )}
         </p>
-        <Link
-          href="/contact"
+        <a
+          href={whatsappHref(locale)}
+          target="_blank"
+          rel="noopener noreferrer"
           className="button button-light"
         >
           {t("Let's Talk")}
-        </Link>
+        </a>
       </div>
     </section>
   );
 }
 export function Footer() {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   return (
     <footer className="site-footer">
       <div className="container">
@@ -152,7 +153,7 @@ export function Footer() {
           </div>
           <div>
             <h2>{t('Explore')}</h2>
-            {navigation.slice(0, 4).map((item) => (
+            {navigation.slice(2, 4).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -163,7 +164,7 @@ export function Footer() {
           </div>
           <div>
             <h2>{t('The Studio')}</h2>
-            {navigation.slice(4).map((item) => (
+            {navigation.filter((_, index) => index < 2 || index === 4).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -171,7 +172,13 @@ export function Footer() {
                 {t(item.label)}
               </Link>
             ))}
-            <Link href="/contact">{t('Contact Us')}</Link>
+            <a
+              href={whatsappHref(locale)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('Contact Us')}
+            </a>
           </div>
           <div className="footer-contact">
             <h2>{t('Get In Touch')}</h2>
@@ -179,7 +186,11 @@ export function Footer() {
               <Mail size={14} />
               {t('mail@agency.site')}
             </a>
-            <a href="tel:+6285151994724">
+            <a
+              href={whatsappHref(locale)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Phone size={14} />
               +62 851-5199-4724
             </a>
@@ -194,9 +205,9 @@ export function Footer() {
             <h2>{t('Built Around Your Needs')}</h2>
             <p>{t('Websites, applications, and meaningful digital experiences.')}</p>
             <a
-              href="https://wa.me/6285151994724"
+              href={whatsappHref(locale)}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="button button-outline"
             >
               {t('Direct WhatsApp Inquiry')}
@@ -211,12 +222,14 @@ export function Footer() {
           </span>
           <div>
             {[services[0], services[3], services[4]].map((service) => (
-              <Link
-                href={`/contact?type=${encodeURIComponent(service.type)}`}
+              <a
+                href={whatsappHref(locale, service.type)}
+                target="_blank"
+                rel="noopener noreferrer"
                 key={service.title}
               >
                 {t(service.category)}
-              </Link>
+              </a>
             ))}
           </div>
           <span>{t('Design with intention.')}</span>

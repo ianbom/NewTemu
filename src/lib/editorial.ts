@@ -43,7 +43,7 @@ export const editorial = {
     heroImage: '/images/design-process.jpg',
     eyebrow: 'How We Work',
     heading: 'Where Ideas Meet Careful Execution.',
-    image: '/images/engineering.jpg',
+    image: '/images/process-how-we-work.jpg',
     paragraphs: [
       'A good process creates clarity, not unnecessary ceremony. We move from understanding the challenge to exploring the possibilities, then build and refine the solution with intention.',
       'Design and development are connected throughout. We share the work in context, talk through decisions, and make space for feedback before small details become expensive changes.',
@@ -69,17 +69,17 @@ export const editorial = {
     ],
     closingEyebrow: 'Beyond the handover',
     closingTitle: 'Built for the Way Your Business Evolves.',
-    closingImage: '/images/creative-workspace.jpg',
+    closingImage: '/images/process-handover.jpg',
     closingCopy:
       'A clear technical foundation and useful documentation make the next step easier. We think about future changes while keeping the current scope focused, so the work remains understandable and practical to maintain.',
   },
   'our-approach': {
     title: 'Our Approach',
     intro: 'Thoughtful decisions today. Digital experiences with a longer perspective.',
-    heroImage: '/images/creative-workspace.jpg',
+    heroImage: '/images/approach-hero.jpg',
     eyebrow: 'Quality by intention',
     heading: 'Built With Intention. Designed to Last.',
-    image: '/images/design-process.jpg',
+    image: '/images/approach-quality.jpg',
     paragraphs: [
       'A digital product needs more than a strong first impression. It should be understandable to use, reliable in practice, and manageable for the people who look after it.',
       'Our approach brings the visible and the invisible together: considered interfaces, clean architecture, careful performance decisions, and a collaborative relationship with the people behind the business.',
@@ -105,7 +105,7 @@ export const editorial = {
     ],
     closingEyebrow: 'The details matter',
     closingTitle: 'Less Unnecessary Complexity. More Lasting Value.',
-    closingImage: '/images/studio-detail.jpg',
+    closingImage: '/images/approach-details.jpg',
     closingCopy:
       'We make room for careful decisions about structure, content, and technology. By keeping the product focused on what matters, we create a foundation that can be understood, maintained, and thoughtfully improved over time.',
   },

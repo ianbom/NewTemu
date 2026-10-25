@@ -10,9 +10,9 @@ export default function NotFound() {
       <p>{t("Let's get you back to the work.")}</p>
       <Link
         className="button button-light"
-        href="/work"
+        href="/portfolio"
       >
-        {t('Explore Our Work')}
+        {t('Explore Our Portfolio')}
       </Link>
     </section>
   );

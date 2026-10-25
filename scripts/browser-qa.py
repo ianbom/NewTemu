@@ -10,7 +10,6 @@ os.makedirs(OUT, exist_ok=True)
 report = {"routes": [], "checks": []}
 
 LABELS = {
-    "Open project categories": "Buka kategori proyek",
     "Next projects": "Proyek berikutnya",
     "Web Applications": "Aplikasi Web",
     "Healthcare & Services": "Kesehatan & Layanan",
@@ -21,7 +20,7 @@ LABELS = {
     "Enlarge AUREN image 3": "Perbesar gambar AUREN, tampilan 3",
     "Website Design": "Desain Situs Web",
     "Next project": "Proyek berikutnya",
-    "Continue on WhatsApp": "Lanjutkan di WhatsApp",
+    "All Work": "Semua Karya",
     "Open navigation menu": "Buka menu navigasi",
     "02 Our Process": "02 Proses Kerja",
 }
@@ -119,14 +118,9 @@ routes = [
     "/",
     "/about-us",
     "/our-process",
-    "/work",
-    "/work/auren",
     "/services",
-    "/showcase",
+    "/portfolio",
     "/our-approach",
-    "/careers",
-    "/contact",
-    "/work/category/web-applications",
 ]
 for width in [] if os.environ.get("QA_INTERACTIONS_ONLY") else [1440, 1280, 768, 390]:
     viewport(width)
@@ -158,34 +152,33 @@ for width in [] if os.environ.get("QA_INTERACTIONS_ONLY") else [1440, 1280, 768,
         check(data["header"] == 80, str(width) + " 80px header " + route)
         title_size = int(
             float(
-                evaluate("getComputedStyle(document.querySelector('h1')).fontSize").replace(
-                    "px", ""
-                )
+                evaluate(
+                    "getComputedStyle(document.querySelector('h1')).fontSize"
+                ).replace("px", "")
             )
         )
-        expected_size = (
-            (36 if width >= 768 else 30)
-            if route == "/work/auren"
-            else (
-                (60 if width >= 1024 else 48 if width >= 768 else 36)
-                if route == "/contact"
-                else (72 if width >= 1024 else 60 if width >= 768 else 36)
-            )
+        expected_size = 72 if width >= 1024 else 60 if width >= 768 else 36
+        check(
+            title_size == expected_size, str(width) + " reference heading size " + route
         )
-        check(title_size == expected_size, str(width) + " reference heading size " + route)
         if data.get("hero"):
-            expected_hero = (
-                (320 if width < 768 else 450)
-                if route == "/contact"
-                else (844 if width < 768 else 900)
+            expected_hero = 844 if width < 768 else 900
+            check(
+                data["hero"] == expected_hero,
+                str(width) + " reference hero height " + route,
             )
-            check(data["hero"] == expected_hero, str(width) + " reference hero height " + route)
-        if route == "/work/auren":
-            ratio = evaluate(
-                "document.querySelector('.gallery-main').offsetWidth / document.querySelector('.gallery-main').offsetHeight"
-            )
-            check(abs(ratio - 4 / 3) < 0.01, str(width) + " reference project image ratio")
         check(not data["images"], str(width) + " loaded images " + route)
+        check(
+            not any(
+                link
+                and any(
+                    part in link.split("?")[0].split("/")
+                    for part in ["work", "careers", "showcase", "contact"]
+                )
+                for link in data["links"]
+            ),
+            str(width) + " no removed internal destinations " + route,
+        )
         check(
             not any(not link or link == "#" for link in data["links"]),
             str(width) + " no placeholder links " + route,
@@ -203,15 +196,37 @@ for width in [] if os.environ.get("QA_INTERACTIONS_ONLY") else [1440, 1280, 768,
             ),
             str(width) + " transformed copy " + route,
         )
+        contacts = evaluate(
+            """[...document.querySelectorAll('a[href^="https://wa.me/"]')].map(link=>({href:link.href,target:link.target,rel:link.rel}))"""
+        )
+        check(len(contacts) >= 7, str(width) + " contact actions present " + route)
+        for contact in contacts:
+            check(
+                contact["href"].startswith("https://wa.me/6285151994724?text="),
+                str(width) + " direct WhatsApp destination " + route,
+            )
+            check(
+                contact["target"] == "_blank"
+                and {"noopener", "noreferrer"}.issubset(set(contact["rel"].split())),
+                str(width) + " safe external contact action " + route,
+            )
+        check(
+            evaluate("document.querySelector('form') === null"),
+            str(width) + " no contact form " + route,
+        )
         name = "home" if route == "/" else route.strip("/").replace("/", "-")
         if width in [1440, 390]:
-            for position in range(0, int(evaluate("document.documentElement.scrollHeight")), 750):
+            for position in range(
+                0, int(evaluate("document.documentElement.scrollHeight")), 750
+            ):
                 js("window.scrollTo(0," + str(position) + ")")
                 time.sleep(0.035)
             js("window.scrollTo(0,0)")
             time.sleep(0.2)
             capture_screenshot(
-                OUT + "/" + LOCALE + "-" + name + "-" + str(width) + ".png", full=True, max_dim=3000
+                OUT + "/" + LOCALE + "-" + name + "-" + str(width) + ".png",
+                full=True,
+                max_dim=3000,
             )
         report["routes"].append(
             {
@@ -224,28 +239,21 @@ for width in [] if os.environ.get("QA_INTERACTIONS_ONLY") else [1440, 1280, 768,
 
 viewport(1440)
 navigate("/")
-click_name("Open project categories")
-check(evaluate("document.querySelector('.nav-dropdown') !== null"), "Desktop dropdown opens")
-press_key("Escape")
 check(
-    evaluate("document.querySelector('.nav-dropdown') === null"),
-    "Desktop dropdown Escape dismisses",
+    evaluate("document.querySelector('.desktop-navigation a[aria-current]') === null"),
+    "Home navigation has no incorrect active page",
+)
+check(
+    evaluate(
+        "[...document.querySelectorAll('.desktop-navigation a')].some(link=>link.getAttribute('href')==='/' + document.documentElement.lang + '/portfolio')"
+    ),
+    "Desktop navigation exposes portfolio",
 )
 first = evaluate("document.querySelector('.featured-grid h3').innerText")
 click_name("Next projects")
 check(
     evaluate("document.querySelector('.featured-grid h3').innerText") != first,
     "Featured carousel advances",
-)
-click_name("Web Applications", "tab")
-check(
-    "NORDEN" in evaluate("document.querySelector('#showcase-panel').innerText"),
-    "Showcase tab changes project",
-)
-press_key("ArrowRight")
-check(
-    "AUREN" in evaluate("document.querySelector('#showcase-panel').innerText"),
-    "Showcase keyboard navigation",
 )
 click_name("Healthcare & Services")
 check(
@@ -254,155 +262,148 @@ check(
     "Industry selector updates",
 )
 
-navigate("/work")
-check(
-    evaluate("document.querySelectorAll('.portfolio-grid .project-card').length") == 6,
-    "Portfolio six projects per page",
-)
-first = evaluate("document.querySelector('.portfolio-grid h3').innerText")
-click_name("Next page")
-check(
-    evaluate("document.querySelector('.portfolio-grid h3').innerText") != first,
-    "Pagination changes results",
-)
-click_selector(".category-group:nth-child(2)>button")
-check(
-    evaluate("document.querySelectorAll('.portfolio-grid .project-card').length") == 3,
-    "Category filter returns three projects",
-)
-fill("input[type=search]", "NORDEN")
-check(
-    evaluate("document.querySelectorAll('.portfolio-grid .project-card').length") == 1,
-    "Search combines with category",
-)
-fill("input[type=search]", "nothing-matches-this")
-check(evaluate("document.querySelector('.empty-state') !== null"), "Search empty state")
-click_name("Reset Filters")
-check(
-    evaluate("document.querySelectorAll('.portfolio-grid .project-card').length") == 6,
-    "Reset restores results",
-)
-
-navigate("/work/auren")
-before = evaluate("document.querySelector('.gallery-expand img').getAttribute('src')")
-click_name("Next image")
-check(
-    evaluate("document.querySelector('.gallery-expand img').getAttribute('src')") != before,
-    "Project gallery next image",
-)
-click_name("Show image 3")
-check(
-    evaluate(
-        "document.querySelector('.gallery-thumbnails button:nth-child(3)').getAttribute('aria-pressed')"
-    )
-    == "true",
-    "Project thumbnail selection",
-)
-click_name("Enlarge AUREN image 3")
-check(evaluate("document.querySelector('[role=dialog]') !== null"), "Project lightbox opens")
-press_key("Escape")
-check(
-    evaluate("document.querySelector('[role=dialog]') === null"),
-    "Project lightbox Escape dismisses",
-)
-
-navigate("/showcase")
+navigate("/portfolio")
 click_name("Website Design")
-check(evaluate("document.querySelectorAll('.showcase-tile').length") == 6, "Showcase filter")
+check(
+    evaluate("document.querySelectorAll('.showcase-tile').length") == 6,
+    "Portfolio filter",
+)
 click_selector(".showcase-tile")
-check(evaluate("document.querySelector('[role=dialog]') !== null"), "Showcase lightbox opens")
+check(
+    evaluate("document.querySelector('[role=dialog]') !== null"),
+    "Portfolio lightbox opens",
+)
+check(
+    evaluate("document.querySelector('[role=dialog] a') === null"),
+    "Portfolio preview has no project detail action",
+)
 before = evaluate("document.querySelector('[role=dialog] h2').textContent")
 click_name("Next project")
 check(
     evaluate("document.querySelector('[role=dialog] h2').textContent") != before,
-    "Showcase lightbox advances",
+    "Portfolio lightbox advances",
+)
+press_key("ArrowLeft")
+check(
+    evaluate("document.querySelector('[role=dialog] h2').textContent") == before,
+    "Portfolio keyboard navigation moves backward",
 )
 press_key("Escape")
 time.sleep(0.15)
 check(
     evaluate("document.activeElement?.classList.contains('showcase-tile')"),
-    "Showcase lightbox restores focus",
+    "Portfolio lightbox restores focus",
+)
+click_name("Web Applications")
+check(
+    evaluate("document.querySelectorAll('.showcase-tile').length") == 6,
+    "Portfolio application filter",
+)
+click_name("All Work")
+check(
+    evaluate("document.querySelectorAll('.showcase-tile').length") == 12,
+    "Portfolio reset shows all projects",
 )
 
-navigate("/contact?type=Web%20Application&project=NORDEN")
+
+def intercept_whatsapp():
+    js(
+        "window.__whatsappClick=null;document.addEventListener('click',event=>{const link=event.target.closest('a[href^=\"https://wa.me/\"]');if(link){window.__whatsappClick=link.href;event.preventDefault();}},true)"
+    )
+
+
+navigate("/services")
 check(
-    evaluate("document.querySelector('select').value") == "Web Application",
-    "Contact type preselected",
+    evaluate(
+        "document.querySelectorAll('.service-card a[href^=\"https://wa.me/\"]').length"
+    )
+    == 12,
+    "All service images and actions link to WhatsApp",
 )
-check("NORDEN" in evaluate("document.querySelector('textarea').value"), "Contact project prefilled")
-click_name("Continue on WhatsApp")
-check(not evaluate("document.querySelector('form').checkValidity()"), "Contact required validation")
-check(
-    evaluate("document.querySelector('input[name=name]').validationMessage")
-    == ("Mohon lengkapi kolom ini." if LOCALE == "id" else "Please complete this field."),
-    "Required validation uses active language",
-)
-fill("input[name=name]", "Alex & Co")
-fill("input[name=email]", "invalid-email")
-click_name("Continue on WhatsApp")
-check(
-    evaluate("document.querySelector('input[name=email]').validationMessage")
-    == (
-        "Masukkan alamat email yang valid."
-        if LOCALE == "id"
-        else "Please enter a valid email address."
-    ),
-    "Email validation uses active language",
-)
-fill("input[name=email]", "alex@example.com")
-fill("input[name=phone]", "+62 851 1234 5678")
-check(evaluate("document.querySelector('form').checkValidity()"), "Contact valid input accepted")
-js("window.__contactUrl=null;window.open=(url)=>{window.__contactUrl=url;return null}")
-click_name("Continue on WhatsApp")
-check(
-    evaluate("window.__contactUrl?.startsWith('https://wa.me/6285151994724?text=')"),
-    "WhatsApp correct recipient and encoded message",
+message = evaluate(
+    "new URL(document.querySelector('.service-card a').href).searchParams.get('text')"
 )
 check(
-    "Alex & Co" in evaluate("new URL(window.__contactUrl).searchParams.get('text')"),
-    "WhatsApp preserves contact data",
+    ("Halo KIVORA STUDIO" if LOCALE == "id" else "Hello KIVORA STUDIO") in message,
+    "WhatsApp message follows active language",
 )
 check(
-    ("Tinjau" if LOCALE == "id" else "Review")
-    in evaluate("document.querySelector('[role=status]').textContent"),
-    "Contact honest handoff status",
+    ("Situs Web Profil Perusahaan" if LOCALE == "id" else "Company Profile Website")
+    in message,
+    "WhatsApp message preserves service context",
+)
+intercept_whatsapp()
+click_selector(".header-contact")
+check(
+    evaluate("window.__whatsappClick?.startsWith('https://wa.me/6285151994724?text=')"),
+    "Desktop contact click opens WhatsApp destination",
+)
+js("window.__whatsappClick=null")
+root = cdp("DOM.getDocument")["root"]["nodeId"]
+button = cdp("DOM.querySelector", nodeId=root, selector=".header-contact")["nodeId"]
+cdp("DOM.focus", nodeId=button)
+press_key("Enter")
+check(
+    evaluate("window.__whatsappClick?.startsWith('https://wa.me/6285151994724?text=')"),
+    "Contact action supports keyboard activation",
 )
 
 other = "en" if LOCALE == "id" else "id"
-navigate("/contact?type=Web%20Application&project=NORDEN#main")
+navigate("/services?view=2#main")
 click_selector('.desktop-header-actions .language-switcher a[lang="' + other + '"]')
 time.sleep(0.5)
-check(evaluate("document.documentElement.lang") == other, "Desktop language switch changes locale")
 check(
-    evaluate("location.pathname") == "/" + other + "/contact"
-    and evaluate("new URLSearchParams(location.search).get('project')") == "NORDEN"
-    and evaluate("new URLSearchParams(location.search).get('type')") == "Web Application"
+    evaluate("document.documentElement.lang") == other,
+    "Desktop language switch changes locale",
+)
+check(
+    evaluate("location.pathname") == "/" + other + "/services"
+    and evaluate("new URLSearchParams(location.search).get('view')") == "2"
     and evaluate("location.hash") == "#main",
     "Language switch preserves page, query, and hash",
 )
-check(
-    evaluate("document.querySelector('select').value") == "Web Application",
-    "Language switch preserves project type",
-)
 
 viewport(390)
-navigate("/work/auren?view=2#main")
+navigate("/portfolio?view=2#main")
 click_name("Open navigation menu")
 click_selector('.mobile-menu .language-switcher a[lang="' + other + '"]')
 time.sleep(0.5)
-check(evaluate("document.documentElement.lang") == other, "Mobile language switch changes locale")
 check(
-    evaluate("location.pathname") == "/" + other + "/work/auren"
+    evaluate("document.documentElement.lang") == other,
+    "Mobile language switch changes locale",
+)
+check(
+    evaluate("location.pathname") == "/" + other + "/portfolio"
     and evaluate("location.search") == "?view=2",
-    "Mobile language switch preserves project",
+    "Mobile language switch preserves portfolio",
 )
 check(
     evaluate("document.querySelector('[role=dialog]') === null"),
     "Mobile language switch closes menu",
 )
 navigate("/")
+intercept_whatsapp()
+click_selector(".mobile-contact")
+check(
+    evaluate("window.__whatsappClick?.startsWith('https://wa.me/6285151994724?text=')"),
+    "Mobile header contact uses WhatsApp",
+)
 click_name("Open navigation menu")
-check(evaluate("document.querySelector('[role=dialog]') !== null"), "Mobile navigation opens")
+click_selector('.mobile-menu nav:not(.language-switcher) a[href^="https://wa.me/"]')
+check(
+    evaluate("window.__whatsappClick?.startsWith('https://wa.me/6285151994724?text=')"),
+    "Mobile menu contact uses WhatsApp",
+)
+check(
+    evaluate("document.querySelector('[role=dialog]') === null"),
+    "Mobile menu closes after WhatsApp action",
+)
+navigate("/")
+click_name("Open navigation menu")
+check(
+    evaluate("document.querySelector('[role=dialog]') !== null"),
+    "Mobile navigation opens",
+)
 check(
     evaluate("getComputedStyle(document.body).overflow") == "hidden",
     "Mobile navigation scroll lock",
@@ -420,18 +421,27 @@ check(
     evaluate("document.querySelector('[role=dialog]') === null"),
     "Mobile navigation Escape dismisses",
 )
-cdp("Emulation.setEmulatedMedia", features=[{"name": "prefers-reduced-motion", "value": "reduce"}])
+cdp(
+    "Emulation.setEmulatedMedia",
+    features=[{"name": "prefers-reduced-motion", "value": "reduce"}],
+)
 check(
     evaluate("getComputedStyle(document.documentElement).scrollBehavior") == "auto",
     "Reduced-motion scrolling",
 )
 cdp("Emulation.setEmulatedMedia", features=[])
-navigate("/work/not-a-project")
-check(
-    ("tidak ditemukan" if LOCALE == "id" else "out of frame")
-    in evaluate("document.querySelector('main').textContent"),
-    "Unknown project branded not-found",
-)
+for route in [
+    "/careers",
+    "/work",
+    "/work/auren",
+    "/work/category/web-applications",
+    "/portfolio/auren",
+]:
+    navigate(route)
+    check(
+        "404" in evaluate("document.querySelector('main').textContent"),
+        "Removed route branded not-found " + route,
+    )
 events = drain_events()
 errors = [event for event in events if event.get("method") == "Runtime.exceptionThrown"]
 report["runtimeExceptions"] = errors

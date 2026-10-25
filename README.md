@@ -21,7 +21,8 @@ npm start
 
 ## Content
 
-- `src/lib/data.ts`: navigation, projects, categories, services, contact project types.
+- `src/lib/data.ts`: navigation, projects, categories, and services.
+- `src/lib/behavior.ts`: shared WhatsApp destination and localized inquiry messages.
 - `src/lib/editorial.ts`: about, process, and approach copy.
 - `src/lib/messages/id.ts`: reviewed Indonesian copy, keyed by the English source message.
 - `src/lib/i18n.ts`: locale types, translation, localized paths, and artwork selection.
@@ -29,15 +30,17 @@ npm start
 - `scripts/generate-projects.mjs`: regenerate the original local SVG interface studies.
 - `ASSETS.md`: photography sources and asset provenance.
 
-All pages use `/id` or `/en`: the home page, `/about-us`, `/our-process`, `/work`, `/work/[slug]`, `/work/category/[category]`, `/services`, `/showcase`, `/our-approach`, `/careers`, and `/contact`.
+All pages use `/id` or `/en`: the home page, `/about-us`, `/our-process`, `/services`, `/portfolio`, and `/our-approach`.
 
-`/` and the original unprefixed routes permanently redirect to Indonesian. The ID / EN controls preserve the current page, query parameters, and hash. Browser language does not override the selected URL. Category and project-type values stay language-independent; only their visible labels change.
+Portfolio retains the mixed-image gallery, category filters, and keyboard-accessible image previews. There are no separate project detail pages. Careers, Selected Work, project categories, and project detail URLs return 404. Former `/showcase` URLs permanently redirect to `/portfolio` in the corresponding language; the unprefixed gallery redirects to `/id/portfolio`.
+
+`/` and the remaining unprefixed page routes permanently redirect to Indonesian. The former `/contact`, `/id/contact`, and `/en/contact` URLs permanently redirect directly to WhatsApp. The ID / EN controls preserve the current page, query parameters, and hash. Browser language does not override the selected URL. Service-type values stay language-independent; their visible labels and inquiry messages follow the active language.
 
 Set `NEXT_PUBLIC_SITE_URL` to the deployed origin for canonical and alternate-language metadata. Vercel's deployment origin is used when available; local development falls back to `http://localhost:3017`.
 
 Regenerate both artwork languages with `node scripts/generate-projects.mjs`. English artwork remains in `public/images/projects`; Indonesian artwork is generated under `public/images/projects/id`.
 
-Contact forms generate WhatsApp messages or email drafts. No messages are sent, stored, or submitted to a server. Projects are original studio concepts, not commissioned client work. Project technologies describe the intended implementation direction; the portfolio previews are original interface illustrations.
+All contact actions open WhatsApp at `https://wa.me/6285151994724` in a new tab, with a professional message in the active language. Service actions include the service type. There is no contact page or form; visitors review and send messages themselves in WhatsApp. The informational email link remains available. No messages are sent, stored, or submitted to a server. Projects are original studio concepts, not commissioned client work. Project technologies describe the intended implementation direction; the portfolio previews are original interface illustrations.
 
 No analytics, database, external account configuration, or deployment is required. The first build downloads Geist through `next/font`; runtime photography is served locally.
 

@@ -1,7 +1,7 @@
-import { FeaturedProjects, IndustryExplorer, InteractiveShowcase } from '@/components/interactive';
+import { FeaturedProjects, IndustryExplorer } from '@/components/interactive';
 import Link from '@/components/localized-link';
 import { ContactCTA, Hero, SectionHeading } from '@/components/shared';
-import { categorySlug, expertise } from '@/lib/data';
+import { expertise } from '@/lib/data';
 import { getTranslator, localizedImage, type LocaleParams } from '@/lib/i18n';
 import { getLocale } from '@/lib/locale-server';
 import { pageMetadata } from '@/lib/metadata';
@@ -26,9 +26,9 @@ export default async function Home({ params }: LocaleParams) {
       >
         <Link
           className="button button-light"
-          href="/work"
+          href="/portfolio"
         >
-          {t('Explore Our Work')}
+          {t('Explore Our Portfolio')}
         </Link>
       </Hero>
       <section className="section">
@@ -94,7 +94,7 @@ export default async function Home({ params }: LocaleParams) {
             {expertise.map((item) => (
               <Link
                 className="expertise-card"
-                href={`/work/category/${categorySlug(item.category)}`}
+                href="/portfolio"
                 key={item.title}
               >
                 <Image
@@ -121,7 +121,7 @@ export default async function Home({ params }: LocaleParams) {
         <div className="container">
           <SectionHeading
             center
-            eyebrow={t('Selected Work')}
+            eyebrow={t('Portfolio')}
             title={t('A Few Different Perspectives.')}
           >
             {t(
@@ -131,10 +131,10 @@ export default async function Home({ params }: LocaleParams) {
           <FeaturedProjects />
           <div className="center-action">
             <Link
-              href="/work"
+              href="/portfolio"
               className="button button-outline"
             >
-              {t('View All Projects')}
+              {t('View Portfolio')}
             </Link>
           </div>
         </div>
@@ -198,7 +198,6 @@ export default async function Home({ params }: LocaleParams) {
           <IndustryExplorer />
         </div>
       </section>
-      <InteractiveShowcase />
       <ContactCTA />
     </div>
   );

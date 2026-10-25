@@ -14,6 +14,13 @@ Unsplash license: https://unsplash.com/license
 | `design-process.jpg` | https://images.unsplash.com/photo-1553877522-43269d4ea984 |
 | `studio-detail.jpg` | https://images.unsplash.com/photo-1524758631624-e2822e304c36 |
 | `engineering.jpg` | https://images.unsplash.com/photo-1519389950473-47ba0277781c |
+| `process-how-we-work.jpg` | https://images.unsplash.com/photo-1752225494606-ae09aca08bea |
+| `process-handover.jpg` | https://images.unsplash.com/photo-1486406146926-c627a92ad1ab |
+| `services-hero.jpg` | https://images.unsplash.com/photo-1480944657103-7fed22359e1d |
+| `portfolio-hero.jpg` | https://images.unsplash.com/photo-1641300806978-d93bda91ac2f |
+| `approach-hero.jpg` | https://images.unsplash.com/photo-1638262052640-82e94d64664a |
+| `approach-quality.jpg` | https://images.unsplash.com/photo-1599499464008-2d7575295f8d |
+| `approach-details.jpg` | https://images.unsplash.com/photo-1780253240775-901a90864401 |
 
 Downloaded as JPEG at width 1920, quality 85. Responsive delivery and optimization use Next.js Image.
 

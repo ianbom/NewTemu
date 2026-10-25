@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { whatsappUrl } from './src/lib/behavior.ts';
 const config: NextConfig = {
   devIndicators: false,
   experimental: { globalNotFound: true },
@@ -8,18 +9,22 @@ const config: NextConfig = {
       ...[
         'about-us',
         'our-process',
-        'work',
         'services',
-        'showcase',
+        'portfolio',
         'our-approach',
-        'careers',
-        'contact',
       ].map((page) => ({
         source: `/${page}`,
         destination: `/id/${page}`,
         permanent: true,
       })),
-      { source: '/work/:path+', destination: '/id/work/:path+', permanent: true },
+      ...['/contact', '/id/contact', '/en/contact'].map((source) => ({
+        source,
+        destination: whatsappUrl,
+        permanent: true,
+      })),
+      { source: '/showcase', destination: '/id/portfolio', permanent: true },
+      { source: '/id/showcase', destination: '/id/portfolio', permanent: true },
+      { source: '/en/showcase', destination: '/en/portfolio', permanent: true },
     ];
   },
 };

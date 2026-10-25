@@ -9,10 +9,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { categories, categorySlug, navigation } from '@/lib/data';
+import { whatsappHref } from '@/lib/behavior';
+import { navigation } from '@/lib/data';
 import { stripLocale } from '@/lib/i18n';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { ArrowUpRight, ChevronDown, Menu } from 'lucide-react';
+import { ArrowUpRight, Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 export function Wordmark() {
@@ -23,11 +23,10 @@ export function Wordmark() {
   );
 }
 export function Header() {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const path = stripLocale(usePathname());
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [navValue, setNavValue] = useState('');
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 40);
     update();
@@ -35,7 +34,7 @@ export function Header() {
     return () => window.removeEventListener('scroll', update);
   }, []);
   return (
-    <header className={`site-header ${scrolled || path.startsWith('/work/') ? 'solid' : ''}`}>
+    <header className={`site-header ${scrolled ? 'solid' : ''}`}>
       <div className="container header-inner">
         <Link
           className="logo-link"
@@ -44,84 +43,44 @@ export function Header() {
         >
           <Wordmark />
         </Link>
-        <NavigationMenu.Root
+        <nav
           className="desktop-navigation"
           aria-label={t('Main navigation')}
-          value={navValue}
-          onValueChange={setNavValue}
-          onMouseLeave={() => setNavValue('')}
         >
-          <NavigationMenu.List className="nav-list">
+          <ul className="nav-list">
             {navigation.map((item) => (
-              <NavigationMenu.Item
-                key={item.href}
-                value={item.href}
-              >
-                {item.href === '/work' ? (
-                  <>
-                    <div className="work-nav">
-                      <Link
-                        href="/work"
-                        onMouseEnter={() => setNavValue('/work')}
-                        onClick={() => setNavValue('')}
-                        className={path.startsWith('/work') ? 'active' : ''}
-                      >
-                        {t('Selected Work')}
-                      </Link>
-                      <NavigationMenu.Trigger
-                        className="dropdown-trigger"
-                        aria-label={t('Open project categories')}
-                      >
-                        <ChevronDown size={12} />
-                      </NavigationMenu.Trigger>
-                    </div>
-                    <NavigationMenu.Content className="nav-dropdown">
-                      <Link
-                        href="/work"
-                        onClick={() => setNavValue('')}
-                      >
-                        {t('All Projects')}
-                      </Link>
-                      {categories.slice(1).map((category) => (
-                        <Link
-                          key={category}
-                          onClick={() => setNavValue('')}
-                          href={`/work/category/${categorySlug(category)}`}
-                        >
-                          {t(category)}
-                        </Link>
-                      ))}
-                    </NavigationMenu.Content>
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={path === item.href ? 'active' : ''}
-                    aria-current={path === item.href ? 'page' : undefined}
-                  >
-                    {t(item.label)}
-                  </Link>
-                )}
-              </NavigationMenu.Item>
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={path === item.href ? 'active' : ''}
+                  aria-current={path === item.href ? 'page' : undefined}
+                >
+                  {t(item.label)}
+                </Link>
+              </li>
             ))}
-          </NavigationMenu.List>
-        </NavigationMenu.Root>
+          </ul>
+        </nav>
         <div className="desktop-header-actions">
           <LanguageSwitcher />
-          <Link
-            href="/contact"
+          <a
+            href={whatsappHref(locale)}
+            target="_blank"
+            rel="noopener noreferrer"
             className="button button-outline header-contact"
           >
             {t('Contact Us')}
-          </Link>
+          </a>
         </div>
         <div className="mobile-controls">
-          <Link
-            href="/contact"
+          <a
+            href={whatsappHref(locale)}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mobile-contact"
           >
             {t('Contact')}
-          </Link>
+          </a>
           <Dialog
             open={open}
             onOpenChange={setOpen}
@@ -155,14 +114,18 @@ export function Header() {
                     <ArrowUpRight size={20} />
                   </Link>
                 ))}
-                <Link
-                  href="/contact"
+                <a
+                  href={whatsappHref(locale)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
                 >
-                  <span className="menu-number">08</span>
+                  <span className="menu-number">
+                    {String(navigation.length + 1).padStart(2, '0')}
+                  </span>
                   {t('Contact Us')}
                   <ArrowUpRight size={20} />
-                </Link>
+                </a>
               </nav>
               <div className="mobile-menu-bottom">
                 <span>{t('Surabaya, Indonesia')}</span>

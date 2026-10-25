@@ -2,12 +2,11 @@ export const indonesian: Record<string, string> = {
   'About Us': 'Tentang Kami',
   'About KIVORA STUDIO': 'Tentang KIVORA STUDIO',
   'Our Process': 'Proses Kerja',
-  'Selected Work': 'Karya Pilihan',
+  Portfolio: 'Portofolio',
+  'Explore Our Portfolio': 'Jelajahi Portofolio Kami',
+  'View Portfolio': 'Lihat Portofolio',
   'Our Services': 'Layanan Kami',
-  Showcase: 'Galeri Digital',
-  'Digital Showcase': 'Galeri Digital',
   'Our Approach': 'Pendekatan Kami',
-  Careers: 'Karier',
   Contact: 'Kontak',
   'Contact Us': 'Hubungi Kami',
   'The Studio': 'Studio Kami',
@@ -39,7 +38,6 @@ export const indonesian: Record<string, string> = {
   'All Work': 'Semua Karya',
   'View All': 'Lihat Semua',
   'View All Projects': 'Lihat Semua Proyek',
-  'View Project': 'Lihat Proyek',
   'Explore Our Work': 'Jelajahi Karya Kami',
   'Explore our work': 'Jelajahi karya kami',
   'Read Our Story': 'Kenali Studio Kami',
@@ -240,8 +238,6 @@ export const indonesian: Record<string, string> = {
   'Explore industries': 'Jelajahi industri',
   'From a focused company website to a connected business platform, we shape the work around your goals.':
     'Dari situs web perusahaan hingga platform bisnis terintegrasi, kami menyesuaikan solusi dengan tujuan Anda.',
-  'General introductions and collaboration inquiries are welcome. This is not a listing for a specific role.':
-    'Kami terbuka untuk perkenalan dan peluang kolaborasi. Halaman ini bukan pengumuman lowongan untuk posisi tertentu.',
   'Industries & Capabilities': 'Industri & Kapabilitas',
   'Made for your next chapter': 'Untuk Langkah Anda Berikutnya',
   Next: 'Berikutnya',
@@ -249,7 +245,7 @@ export const indonesian: Record<string, string> = {
   'Open Email Draft': 'Buka Draf Email',
   'Original KIVORA STUDIO concept.': 'Konsep orisinal KIVORA STUDIO.',
   'Show image {0}': 'Tampilkan gambar {0}',
-  'Showcase categories': 'Kategori galeri',
+  'Portfolio categories': 'Kategori portofolio',
   "I'd like to discuss a project with a similar direction to {0}.":
     'Saya ingin mendiskusikan proyek dengan arah yang serupa dengan {0}.',
   'Distinctive websites that bring your identity into focus, with considered content, responsive layouts, and a reliable technical foundation.':
@@ -503,26 +499,6 @@ export const indonesian: Record<string, string> = {
     'Desain, pengembangan, dan solusi digital yang dirancang sesuai kebutuhan bisnis Anda.',
   'An ongoing exploration of interfaces, digital products, and different ways of seeing.':
     'Eksplorasi antarmuka, produk digital, dan beragam sudut pandang yang terus berkembang.',
-  'Good work happens when curious minds and considered perspectives come together.':
-    'Karya yang baik lahir dari rasa ingin tahu dan perpaduan perspektif yang matang.',
-  'Collaborative Problem-Solving': 'Pemecahan Masalah Kolaboratif',
-  'Different perspectives make the work stronger. We make room for ideas, clear feedback, and constructive discussion.':
-    'Beragam sudut pandang memperkuat hasil kerja. Kami membuka ruang untuk ide, masukan yang jelas, dan diskusi yang membangun.',
-  'Design & Engineering, Together': 'Desain & Rekayasa, Beriringan',
-  'We value the relationship between a considered interface and the thoughtful systems that support it.':
-    'Kami menghargai keterkaitan antara antarmuka yang dirancang dengan baik dan sistem andal yang mendukungnya.',
-  'A Learning Mindset': 'Semangat Belajar',
-  'Good questions, practical experimentation, and honest reflection help us improve the way we work.':
-    'Pertanyaan yang tepat, eksperimen yang terarah, dan evaluasi yang jujur membantu kami menyempurnakan cara kerja.',
-  'People & Perspectives': 'Manusia & Perspektif',
-  'A Culture of Curiosity & Care.': 'Budaya Kerja yang Terbuka dan Penuh Perhatian.',
-  'We value people who ask thoughtful questions, enjoy working through difficult problems, and care about the details that make digital products better.':
-    'Kami menghargai orang-orang yang mengajukan pertanyaan bermakna, tekun menyelesaikan masalah, dan memperhatikan detail yang meningkatkan kualitas produk digital.',
-  'Introductions & Collaboration': 'Perkenalan & Kolaborasi',
-  'Connect With Our Studio.': 'Terhubung dengan Studio Kami.',
-  'Connect With Our Studio': 'Terhubung dengan Studio Kami',
-  'If our way of thinking resonates with you, introduce yourself. Share your perspective, your work, and what you would like to explore together.':
-    'Jika pendekatan kami sejalan dengan Anda, mari berkenalan. Ceritakan perspektif, karya, dan hal yang ingin Anda eksplorasi bersama kami.',
   'Company Profile Websites': 'Situs Web Profil Perusahaan',
   'Company Profile Website': 'Situs Web Profil Perusahaan',
   'Custom Website Development': 'Pengembangan Situs Web Khusus',
@@ -575,31 +551,6 @@ export const indonesian: Record<string, string> = {
   'Based in East Java': 'Berbasis di Jawa Timur',
   'Design and technology,': 'Desain dan teknologi,',
   'with a considered perspective.': 'dengan perspektif yang matang.',
-  'Tell Us About Your Project': 'Ceritakan Proyek Anda',
-  'A few details are all we need to begin a conversation.':
-    'Beberapa informasi awal membantu kami memahami kebutuhan Anda.',
-  'Full Name': 'Nama Lengkap',
-  'Email Address': 'Alamat Email',
-  'Project Type': 'Jenis Proyek',
-  'Project Description': 'Deskripsi Proyek',
-  'Choose a project type': 'Pilih jenis proyek',
-  'Select a project type': 'Pilih jenis proyek',
-  'Your full name': 'Nama lengkap Anda',
-  'Please complete this field.': 'Mohon lengkapi kolom ini.',
-  'Please enter a valid email address.': 'Masukkan alamat email yang valid.',
-  'Use 7 to 25 characters: digits, spaces, +, parentheses, or hyphens.':
-    'Gunakan 7 hingga 25 karakter: angka, spasi, tanda +, tanda kurung, atau tanda hubung.',
-  'What would you like to build? Tell us about your goals, scope, and anything else we should know.':
-    'Apa yang ingin Anda bangun? Ceritakan tujuan, ruang lingkup, dan informasi lain yang perlu kami ketahui.',
-  'Your details stay in your browser until you send them through WhatsApp or email.':
-    'Informasi Anda tetap berada di browser hingga Anda mengirimkannya melalui WhatsApp atau email.',
-  'Continue on WhatsApp': 'Lanjutkan di WhatsApp',
-  'Prepare Email': 'Siapkan Email',
-  'Send via Email': 'Kirim Melalui Email',
-  'Your email application opens with a prepared draft. Review and send it there.':
-    'Aplikasi email Anda akan terbuka dengan draf yang telah disiapkan. Tinjau dan kirim melalui aplikasi tersebut.',
-  'WhatsApp opens with your project details. Review the message and send it there.':
-    'WhatsApp akan terbuka dengan detail proyek Anda. Tinjau pesan dan kirim melalui WhatsApp.',
   '404 / A different direction': '404 / Halaman Tidak Ditemukan',
   'This page is out of frame.': 'Halaman ini tidak ditemukan.',
   "Let's get you back to the work.": 'Silakan kembali untuk menjelajahi karya kami.',
@@ -628,7 +579,10 @@ export const indonesian: Record<string, string> = {
   'Switch to Indonesian': 'Ganti ke bahasa Indonesia',
   'Switch to English': 'Ganti ke bahasa Inggris',
   'Project inquiry: {0}': 'Permintaan proyek: {0}',
-  'Hello KIVORA STUDIO,': 'Halo KIVORA STUDIO,',
+  'Hello KIVORA STUDIO, I would like to discuss a digital project.':
+    'Halo KIVORA STUDIO, saya ingin berdiskusi mengenai kebutuhan proyek digital.',
+  'Hello KIVORA STUDIO, I would like to discuss {0}.':
+    'Halo KIVORA STUDIO, saya ingin berdiskusi mengenai layanan {0}.',
   Name: 'Nama',
   Email: 'Email',
   'Phone / WhatsApp:': 'Telepon / WhatsApp:',

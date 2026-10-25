@@ -2,14 +2,12 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { test } from 'node:test';
 import ts from 'typescript';
-import { contactLinks, filterProjects } from '../src/lib/behavior.ts';
+import { whatsappHref } from '../src/lib/behavior.ts';
 import {
   categories,
-  categorySlug,
   expertise,
   navigation,
   projects,
-  projectTypes,
   services,
 } from '../src/lib/data.ts';
 import { editorial } from '../src/lib/editorial.ts';
@@ -28,12 +26,12 @@ test('locale paths preserve page, query, hash, and external destinations', () =>
   assert.equal(isLocale('fr'), false);
   assert.equal(isLocale('constructor'), false);
   assert.equal(localeHref('/', 'id'), '/id');
-  assert.equal(localeHref('/en/work/auren?view=2#gallery', 'id'), '/id/work/auren?view=2#gallery');
+  assert.equal(localeHref('/en/portfolio?view=2#gallery', 'id'), '/id/portfolio?view=2#gallery');
   assert.equal(
-    localeHref('/id/contact?type=Web%20Application&project=NORDEN#main', 'en'),
-    '/en/contact?type=Web%20Application&project=NORDEN#main',
+    localeHref('/id/services?type=Web%20Application#main', 'en'),
+    '/en/services?type=Web%20Application#main',
   );
-  assert.equal(stripLocale('/id/work'), '/work');
+  assert.equal(stripLocale('/id/portfolio'), '/portfolio');
   assert.equal(stripLocale('/identity'), '/identity');
   for (const href of [
     'https://wa.me/6285151994724',
@@ -45,42 +43,20 @@ test('locale paths preserve page, query, hash, and external destinations', () =>
   }
 });
 
-test('translations preserve inline spaces, interpolation, and stable filter values', () => {
+test('translations preserve inline spaces and interpolation', () => {
   const t = getTranslator('id');
   assert.equal(t('Contact Us'), 'Hubungi Kami');
-  assert.equal(t(' Full Name '), ' Nama Lengkap ');
-  assert.equal(t('Show image {0}', 3), 'Tampilkan gambar 3');
+  assert.equal(t(' Contact Us '), ' Hubungi Kami ');
+  assert.equal(t('View {0}', 'AUREN'), 'Lihat AUREN');
   assert.equal(t(undefined), '');
   assert.equal(getTranslator('en')('Contact Us'), 'Contact Us');
-  assert.equal(categorySlug('Web Applications'), 'web-applications');
-  assert.equal(filterProjects(projects, 'Web Applications', 'aplikasi', 'id').length, 3);
-  assert.equal(filterProjects(projects, 'All Projects', 'antarmuka', 'id').length, 2);
-  assert.equal(projectTypes.includes('Web Application'), true);
 });
 
-test('both contact languages preserve recipient and user-written content', () => {
-  const values = {
-    name: 'Rina & Tim',
-    email: 'rina@example.com',
-    phone: '',
-    type: 'Web Application',
-    description: 'Kebutuhan khusus & laporan\nTahap kedua',
-  };
+test('WhatsApp URLs remain external when the active language changes', () => {
   for (const locale of ['id', 'en'] as const) {
-    const links = contactLinks(values, locale);
-    const url = new URL(links.whatsapp);
-    const body = url.searchParams.get('text')!;
-    assert.equal(url.pathname, '/6285151994724');
-    assert.ok(body.includes(values.description));
-    assert.ok(body.includes(values.name));
-    assert.ok(
-      body.includes(
-        locale === 'id' ? 'Jenis proyek: Aplikasi Web' : 'Project type: Web Application',
-      ),
-    );
-    assert.ok(body.includes(locale === 'id' ? 'Tidak dicantumkan' : 'Not provided'));
-    assert.ok(links.email.startsWith('mailto:mail@agency.site?subject='));
-    assert.ok(!links.email.includes('\n'));
+    const href = whatsappHref(locale, 'Web Application');
+    assert.equal(localeHref(href, locale), href);
+    assert.equal(localeHref(href, locale === 'id' ? 'en' : 'id'), href);
   }
 });
 
@@ -110,7 +86,7 @@ test('all catalog copy and literal UI messages have reviewed Indonesian translat
     else if (value && typeof value === 'object')
       Object.entries(value).forEach(([key, item]) => catalog(item, key));
   }
-  [navigation, projects, services, expertise, projectTypes, categories, editorial].forEach(
+  [navigation, projects, services, expertise, categories, editorial].forEach(
     (value) => catalog(value),
   );
   for (const file of readdirSync('src', { recursive: true, encoding: 'utf8' }).filter((file) =>

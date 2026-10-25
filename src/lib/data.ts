@@ -5,24 +5,12 @@ export const categories = [
   'E-Commerce',
   'UI/UX Design',
 ] as const;
-export const categorySlug = (category: string) =>
-  category.toLowerCase().replaceAll('/', '-').replaceAll(' ', '-');
 export const navigation = [
   { label: 'About Us', href: '/about-us' },
   { label: 'Our Process', href: '/our-process' },
-  { label: 'Selected Work', href: '/work' },
   { label: 'Our Services', href: '/services' },
-  { label: 'Showcase', href: '/showcase' },
+  { label: 'Portfolio', href: '/portfolio' },
   { label: 'Our Approach', href: '/our-approach' },
-  { label: 'Careers', href: '/careers' },
-];
-export const projectTypes = [
-  'Company Profile Website',
-  'E-Commerce Website',
-  'Web Application',
-  'UI/UX Design',
-  'Custom Software',
-  'Other',
 ];
 export type Project = {
   slug: string;
