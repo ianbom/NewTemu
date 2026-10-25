@@ -1,10 +1,7 @@
 'use client';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { ArrowUpRight, ChevronDown, Menu } from 'lucide-react';
-import { categories, categorySlug, navigation } from '@/lib/data';
+import { useI18n } from '@/components/i18n-provider';
+import { LanguageSwitcher } from '@/components/language-switcher';
+import Link from '@/components/localized-link';
 import {
   Dialog,
   DialogContent,
@@ -12,7 +9,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-
+import { categories, categorySlug, navigation } from '@/lib/data';
+import { stripLocale } from '@/lib/i18n';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { ArrowUpRight, ChevronDown, Menu } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 export function Wordmark() {
   return (
     <span className="wordmark">
@@ -21,7 +23,8 @@ export function Wordmark() {
   );
 }
 export function Header() {
-  const path = usePathname();
+  const { t } = useI18n();
+  const path = stripLocale(usePathname());
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [navValue, setNavValue] = useState('');
@@ -37,13 +40,13 @@ export function Header() {
         <Link
           className="logo-link"
           href="/"
-          aria-label="KIVORA STUDIO home"
+          aria-label={t('KIVORA STUDIO home')}
         >
           <Wordmark />
         </Link>
         <NavigationMenu.Root
           className="desktop-navigation"
-          aria-label="Main navigation"
+          aria-label={t('Main navigation')}
           value={navValue}
           onValueChange={setNavValue}
           onMouseLeave={() => setNavValue('')}
@@ -63,11 +66,11 @@ export function Header() {
                         onClick={() => setNavValue('')}
                         className={path.startsWith('/work') ? 'active' : ''}
                       >
-                        Selected Work
+                        {t('Selected Work')}
                       </Link>
                       <NavigationMenu.Trigger
                         className="dropdown-trigger"
-                        aria-label="Open project categories"
+                        aria-label={t('Open project categories')}
                       >
                         <ChevronDown size={12} />
                       </NavigationMenu.Trigger>
@@ -77,7 +80,7 @@ export function Header() {
                         href="/work"
                         onClick={() => setNavValue('')}
                       >
-                        All Projects
+                        {t('All Projects')}
                       </Link>
                       {categories.slice(1).map((category) => (
                         <Link
@@ -85,7 +88,7 @@ export function Header() {
                           onClick={() => setNavValue('')}
                           href={`/work/category/${categorySlug(category)}`}
                         >
-                          {category}
+                          {t(category)}
                         </Link>
                       ))}
                     </NavigationMenu.Content>
@@ -96,25 +99,28 @@ export function Header() {
                     className={path === item.href ? 'active' : ''}
                     aria-current={path === item.href ? 'page' : undefined}
                   >
-                    {item.label}
+                    {t(item.label)}
                   </Link>
                 )}
               </NavigationMenu.Item>
             ))}
           </NavigationMenu.List>
         </NavigationMenu.Root>
-        <Link
-          href="/contact"
-          className="button button-outline header-contact"
-        >
-          Contact Us
-        </Link>
+        <div className="desktop-header-actions">
+          <LanguageSwitcher />
+          <Link
+            href="/contact"
+            className="button button-outline header-contact"
+          >
+            {t('Contact Us')}
+          </Link>
+        </div>
         <div className="mobile-controls">
           <Link
             href="/contact"
             className="mobile-contact"
           >
-            Contact
+            {t('Contact')}
           </Link>
           <Dialog
             open={open}
@@ -123,7 +129,7 @@ export function Header() {
             <DialogTrigger asChild>
               <button
                 className="icon-button"
-                aria-label="Open navigation menu"
+                aria-label={t('Open navigation menu')}
               >
                 <Menu size={24} />
               </button>
@@ -133,9 +139,10 @@ export function Header() {
                 <Wordmark />
               </DialogTitle>
               <DialogDescription className="sr-only">
-                Explore KIVORA STUDIO and our work.
+                {t('Explore KIVORA STUDIO and our work.')}
               </DialogDescription>
-              <nav aria-label="Mobile navigation">
+              <LanguageSwitcher onChange={() => setOpen(false)} />
+              <nav aria-label={t('Mobile navigation')}>
                 {navigation.map((item, index) => (
                   <Link
                     key={item.href}
@@ -144,7 +151,7 @@ export function Header() {
                     aria-current={path === item.href ? 'page' : undefined}
                   >
                     <span className="menu-number">0{index + 1}</span>
-                    {item.label}
+                    {t(item.label)}
                     <ArrowUpRight size={20} />
                   </Link>
                 ))}
@@ -152,13 +159,14 @@ export function Header() {
                   href="/contact"
                   onClick={() => setOpen(false)}
                 >
-                  <span className="menu-number">08</span>Contact Us
+                  <span className="menu-number">08</span>
+                  {t('Contact Us')}
                   <ArrowUpRight size={20} />
                 </Link>
               </nav>
               <div className="mobile-menu-bottom">
-                <span>Surabaya, Indonesia</span>
-                <a href="mailto:mail@agency.site">mail@agency.site</a>
+                <span>{t('Surabaya, Indonesia')}</span>
+                <a href="mailto:mail@agency.site">{t('mail@agency.site')}</a>
               </div>
             </DialogContent>
           </Dialog>

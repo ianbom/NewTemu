@@ -1,13 +1,14 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { ArrowUpRight, UsersRound, Code2, BookOpen, Mail } from 'lucide-react';
-import { Hero, ContactCTA, SectionHeading } from '@/components/shared';
 import { ShowcaseGallery } from '@/components/interactive';
-import { editorial } from '@/lib/editorial';
+import Link from '@/components/localized-link';
+import { ContactCTA, Hero, SectionHeading } from '@/components/shared';
 import { services } from '@/lib/data';
-
+import { editorial } from '@/lib/editorial';
+import { getTranslator, localizedImage, type Locale } from '@/lib/i18n';
+import { getLocale } from '@/lib/locale-server';
+import { pageMetadata } from '@/lib/metadata';
+import { ArrowUpRight, BookOpen, Code2, Mail, UsersRound } from 'lucide-react';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
 const additional = {
   services: {
     title: 'Our Services',
@@ -27,7 +28,8 @@ const additional = {
     image: '/images/collaboration.jpg',
   },
 };
-function CareersContent() {
+function CareersContent({ locale }: { locale: Locale }) {
+  const t = getTranslator(locale);
   const values = [
     {
       title: 'Collaborative Problem-Solving',
@@ -54,11 +56,12 @@ function CareersContent() {
         <div className="container">
           <SectionHeading
             center
-            eyebrow="People & Perspectives"
-            title="A Culture of Curiosity & Care."
+            eyebrow={t('People & Perspectives')}
+            title={t('A Culture of Curiosity & Care.')}
           >
-            We value people who ask thoughtful questions, enjoy working through difficult problems,
-            and care about the details that make digital products better.
+            {t(
+              'We value people who ask thoughtful questions, enjoy working through difficult problems, and care about the details that make digital products better.',
+            )}
           </SectionHeading>
           <div className="careers-values">
             {values.map((value) => (
@@ -66,8 +69,8 @@ function CareersContent() {
                 <span className="culture-icon">
                   <value.icon size={20} />
                 </span>
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
+                <h3>{t(value.title)}</h3>
+                <p>{t(value.description)}</p>
               </article>
             ))}
           </div>
@@ -79,22 +82,24 @@ function CareersContent() {
             <Mail size={24} />
           </span>
           <SectionHeading
-            eyebrow="Introductions & Collaboration"
-            title="Connect With Our Studio."
+            eyebrow={t('Introductions & Collaboration')}
+            title={t('Connect With Our Studio.')}
           >
-            If our way of thinking resonates with you, introduce yourself. Share your perspective,
-            your work, and what you would like to explore together.
+            {t(
+              'If our way of thinking resonates with you, introduce yourself. Share your perspective, your work, and what you would like to explore together.',
+            )}
           </SectionHeading>
           <a
-            href="mailto:mail@agency.site?subject=Studio%20Introduction"
+            href={`mailto:mail@agency.site?subject=${encodeURIComponent(t('Studio Introduction'))}`}
             className="button button-accent"
           >
-            Connect With Our Studio
+            {t('Connect With Our Studio')}
             <ArrowUpRight size={16} />
           </a>
           <p>
-            General introductions and collaboration inquiries are welcome. This is not a listing for
-            a specific role.
+            {t(
+              'General introductions and collaboration inquiries are welcome. This is not a listing for a specific role.',
+            )}
           </p>
         </div>
       </section>
@@ -104,47 +109,43 @@ function CareersContent() {
 export function generateStaticParams() {
   return [...Object.keys(editorial), ...Object.keys(additional)].map((page) => ({ page }));
 }
-export async function generateMetadata({
+export default async function ContentPage({
   params,
 }: {
-  params: Promise<{ page: string }>;
-}): Promise<Metadata> {
+  params: Promise<{
+    locale: string;
+    page: string;
+  }>;
+}) {
   const { page } = await params;
-  if (page in editorial) {
-    const content = editorial[page as keyof typeof editorial];
-    return { title: content.title, description: content.intro };
-  }
-  const content = additional[page as keyof typeof additional];
-  return { title: content?.title || 'Page Not Found', description: content?.description };
-}
-export default async function ContentPage({ params }: { params: Promise<{ page: string }> }) {
-  const { page } = await params;
-  if (page in editorial) {
+  const locale = await getLocale(params);
+  const t = getTranslator(locale);
+  if (Object.hasOwn(editorial, page)) {
     const content = editorial[page as keyof typeof editorial];
     return (
       <div className={`editorial-page ${page}`}>
         <Hero
-          title={content.title}
-          description={content.intro}
+          title={t(content.title)}
+          description={t(content.intro)}
           image={content.heroImage}
         />
         <section className="section editorial-intro">
           <div className="container split-grid">
             <div>
               <SectionHeading
-                eyebrow={content.eyebrow}
-                title={content.heading}
+                eyebrow={t(content.eyebrow)}
+                title={t(content.heading)}
               />
               <div className="prose">
                 {content.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{t(paragraph)}</p>
                 ))}
               </div>
             </div>
             <div className="editorial-image">
               <Image
-                src={content.image}
-                alt="Design and engineering collaboration in a modern studio"
+                src={localizedImage(content.image, locale)}
+                alt={t('Design and engineering collaboration in a modern studio')}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
               />
@@ -157,15 +158,15 @@ export default async function ContentPage({ params }: { params: Promise<{ page: 
           <div className="container">
             <SectionHeading
               center
-              eyebrow={page === 'our-process' ? 'The Process' : 'Our Principles'}
-              title={content.principleHeading}
+              eyebrow={t(page === 'our-process' ? 'The Process' : 'Our Principles')}
+              title={t(content.principleHeading)}
             />
             <div className="principles-grid">
               {content.principles.map(([title, description], index) => (
                 <article key={title}>
                   <span className="principle-number">0{index + 1}</span>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
+                  <h3>{typeof title === 'string' ? t(title) : title}</h3>
+                  <p>{t(description)}</p>
                 </article>
               ))}
             </div>
@@ -175,23 +176,23 @@ export default async function ContentPage({ params }: { params: Promise<{ page: 
           <div className="container split-grid reversed">
             <div className="landscape-image">
               <Image
-                src={content.closingImage}
-                alt="A considered creative workspace"
+                src={localizedImage(content.closingImage, locale)}
+                alt={t('A considered creative workspace')}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
               />
             </div>
             <div>
               <SectionHeading
-                eyebrow={content.closingEyebrow}
-                title={content.closingTitle}
+                eyebrow={t(content.closingEyebrow)}
+                title={t(content.closingTitle)}
               />
-              <p className="body-copy">{content.closingCopy}</p>
+              <p className="body-copy">{t(content.closingCopy)}</p>
               <Link
                 href="/contact"
                 className="button button-outline"
               >
-                Start a Conversation
+                {t('Start a Conversation')}
               </Link>
             </div>
           </div>
@@ -205,8 +206,8 @@ export default async function ContentPage({ params }: { params: Promise<{ page: 
   return (
     <>
       <Hero
-        title={content.title}
-        description={content.description}
+        title={t(content.title)}
+        description={t(content.description)}
         image={content.image}
       />
       {page === 'showcase' && <ShowcaseGallery />}
@@ -216,11 +217,12 @@ export default async function ContentPage({ params }: { params: Promise<{ page: 
             <div className="container">
               <SectionHeading
                 center
-                eyebrow="Made for your next chapter"
-                title="Considered Solutions. Clear Intentions."
+                eyebrow={t('Made for your next chapter')}
+                title={t('Considered Solutions. Clear Intentions.')}
               >
-                From a focused company website to a connected business platform, we shape the work
-                around your goals.
+                {t(
+                  'From a focused company website to a connected business platform, we shape the work around your goals.',
+                )}
               </SectionHeading>
               <div className="services-grid">
                 {services.map((service, index) => (
@@ -233,22 +235,22 @@ export default async function ContentPage({ params }: { params: Promise<{ page: 
                       className="service-card-image"
                     >
                       <Image
-                        src={service.image}
-                        alt={`${service.title} interface concept`}
+                        src={localizedImage(service.image, locale)}
+                        alt={t('{0} interface concept', t(service.title))}
                         fill
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       />
                       <span className="service-index">0{index + 1}</span>
                     </Link>
-                    <p className="eyebrow">{service.category}</p>
-                    <h2>{service.title}</h2>
-                    <p>{service.description}</p>
-                    <div className="service-details">{service.details}</div>
+                    <p className="eyebrow">{t(service.category)}</p>
+                    <h2>{t(service.title)}</h2>
+                    <p>{t(service.description)}</p>
+                    <div className="service-details">{t(service.details)}</div>
                     <Link
                       href={`/contact?type=${encodeURIComponent(service.type)}`}
                       className="text-link"
                     >
-                      Discuss Your Project
+                      {t('Discuss Your Project')}
                       <ArrowUpRight size={15} />
                     </Link>
                   </article>
@@ -258,26 +260,42 @@ export default async function ContentPage({ params }: { params: Promise<{ page: 
           </section>
           <section className="section carbon bordered service-custom">
             <div className="container split-grid">
-              <h2>Something More Specific in Mind?</h2>
+              <h2>{t('Something More Specific in Mind?')}</h2>
               <div>
                 <p className="body-copy">
-                  API integrations, business process automation, or a custom digital workflow. Tell
-                  us what you need to make possible, and we&apos;ll explore the right approach
-                  together.
+                  {t(
+                    "API integrations, business process automation, or a custom digital workflow. Tell us what you need to make possible, and we'll explore the right approach together.",
+                  )}
                 </p>
                 <Link
                   className="button button-outline"
                   href="/contact?type=Custom%20Software"
                 >
-                  Let&apos;s Discuss It
+                  {t("Let's Discuss It")}
                 </Link>
               </div>
             </div>
           </section>
         </>
       )}
-      {page === 'careers' && <CareersContent />}
+      {page === 'careers' && <CareersContent locale={locale} />}
       <ContactCTA />
     </>
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; page: string }>;
+}) {
+  const { page } = await params;
+  const locale = await getLocale(params);
+  if (Object.hasOwn(editorial, page)) {
+    const content = editorial[page as keyof typeof editorial];
+    return pageMetadata(locale, '/' + page, content.title, content.intro);
+  }
+  if (!Object.hasOwn(additional, page)) notFound();
+  const content = additional[page as keyof typeof additional];
+  return pageMetadata(locale, '/' + page, content.title, content.description);
 }

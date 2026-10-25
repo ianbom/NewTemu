@@ -1,60 +1,68 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowUpRight, Compass, Code2 } from 'lucide-react';
+import { FeaturedProjects, IndustryExplorer, InteractiveShowcase } from '@/components/interactive';
+import Link from '@/components/localized-link';
 import { ContactCTA, Hero, SectionHeading } from '@/components/shared';
-import { FeaturedProjects, InteractiveShowcase, IndustryExplorer } from '@/components/interactive';
 import { categorySlug, expertise } from '@/lib/data';
-
-export default function Home() {
+import { getTranslator, localizedImage, type LocaleParams } from '@/lib/i18n';
+import { getLocale } from '@/lib/locale-server';
+import { pageMetadata } from '@/lib/metadata';
+import { ArrowUpRight, Code2, Compass } from 'lucide-react';
+import Image from 'next/image';
+export default async function Home({ params }: LocaleParams) {
+  const locale = await getLocale(params);
+  const t = getTranslator(locale);
   return (
     <div className="home-page">
       <Hero
         title={
           <>
-            We Craft Digital Experiences
-            <br className="desktop-break" /> for What&apos;s Next.
+            {t('We Craft Digital Experiences')}
+            <br className="desktop-break" />
+            {t(" for What's Next.")}
           </>
         }
-        description="From distinctive websites to scalable digital platforms, we bring design, technology, and strategy together to create meaningful digital experiences."
+        description={t(
+          'From distinctive websites to scalable digital platforms, we bring design, technology, and strategy together to create meaningful digital experiences.',
+        )}
       >
         <Link
           className="button button-light"
           href="/work"
         >
-          Explore Our Work
+          {t('Explore Our Work')}
         </Link>
       </Hero>
       <section className="section">
         <div className="container split-grid">
           <div>
             <SectionHeading
-              eyebrow="About KIVORA STUDIO"
-              title="More Than Just a Digital Agency."
+              eyebrow={t('About KIVORA STUDIO')}
+              title={t('More Than Just a Digital Agency.')}
             />
             <div className="prose">
               <p>
-                We believe exceptional digital products are built at the intersection of thoughtful
-                design, purposeful technology, and deep understanding of the people who use them.
+                {t(
+                  'We believe exceptional digital products are built at the intersection of thoughtful design, purposeful technology, and deep understanding of the people who use them.',
+                )}
               </p>
               <p>
-                Based in Surabaya, we bring a considered perspective to websites, applications, and
-                custom digital solutions. Every project starts with a conversation and an
-                understanding of what your business actually needs.
+                {t(
+                  'Based in Surabaya, we bring a considered perspective to websites, applications, and custom digital solutions. Every project starts with a conversation and an understanding of what your business actually needs.',
+                )}
               </p>
             </div>
             <div className="about-highlights">
               <div>
                 <Compass size={21} />
                 <div>
-                  <h3>Design-Led Thinking</h3>
-                  <p>Clear experiences, shaped around real people.</p>
+                  <h3>{t('Design-Led Thinking')}</h3>
+                  <p>{t('Clear experiences, shaped around real people.')}</p>
                 </div>
               </div>
               <div>
                 <Code2 size={21} />
                 <div>
-                  <h3>Purposeful Engineering</h3>
-                  <p>Careful development, built for the long term.</p>
+                  <h3>{t('Purposeful Engineering')}</h3>
+                  <p>{t('Careful development, built for the long term.')}</p>
                 </div>
               </div>
             </div>
@@ -62,13 +70,13 @@ export default function Home() {
               href="/about-us"
               className="button button-outline"
             >
-              Read Our Story
+              {t('Read Our Story')}
             </Link>
           </div>
           <div className="portrait-image">
             <Image
-              src="/images/creative-workspace.jpg"
-              alt="An architectural workspace filled with natural light"
+              src={localizedImage('/images/creative-workspace.jpg', locale)}
+              alt={t('An architectural workspace filled with natural light')}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
@@ -79,8 +87,8 @@ export default function Home() {
         <div className="container">
           <SectionHeading
             center
-            eyebrow="Our Expertise"
-            title="Ideas, Made Digital."
+            eyebrow={t('Our Expertise')}
+            title={t('Ideas, Made Digital.')}
           />
           <div className="expertise-grid">
             {expertise.map((item) => (
@@ -90,17 +98,17 @@ export default function Home() {
                 key={item.title}
               >
                 <Image
-                  src={item.image}
-                  alt={`${item.title} original interface composition`}
+                  src={localizedImage(item.image, locale)}
+                  alt={t('{0} original interface composition', t(item.title))}
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
                 />
                 <div className="expertise-shade" />
                 <div className="expertise-copy">
-                  <h3>{item.title}</h3>
-                  <p>{item.items.join(' / ')}</p>
+                  <h3>{t(item.title)}</h3>
+                  <p>{item.items.map((value) => t(value)).join(' / ')}</p>
                   <span>
-                    Explore our work
+                    {t('Explore our work')}
                     <ArrowUpRight size={16} />
                   </span>
                 </div>
@@ -113,11 +121,12 @@ export default function Home() {
         <div className="container">
           <SectionHeading
             center
-            eyebrow="Selected Work"
-            title="A Few Different Perspectives."
+            eyebrow={t('Selected Work')}
+            title={t('A Few Different Perspectives.')}
           >
-            Original studio concepts exploring the space between thoughtful design and purposeful
-            technology.
+            {t(
+              'Original studio concepts exploring the space between thoughtful design and purposeful technology.',
+            )}
           </SectionHeading>
           <FeaturedProjects />
           <div className="center-action">
@@ -125,7 +134,7 @@ export default function Home() {
               href="/work"
               className="button button-outline"
             >
-              View All Projects
+              {t('View All Projects')}
             </Link>
           </div>
         </div>
@@ -134,8 +143,8 @@ export default function Home() {
         <div className="container service-split">
           <div>
             <SectionHeading
-              eyebrow="What We Do"
-              title="Digital Craft, Built Around You."
+              eyebrow={t('What We Do')}
+              title={t('Digital Craft, Built Around You.')}
             />
             <div className="numbered-services">
               {[
@@ -158,8 +167,8 @@ export default function Home() {
                 >
                   <span className="service-number">0{index + 1}</span>
                   <div>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
+                    <h3>{typeof title === 'string' ? t(title) : title}</h3>
+                    <p>{t(description)}</p>
                   </div>
                 </Link>
               ))}
@@ -167,8 +176,8 @@ export default function Home() {
           </div>
           <div className="portrait-image">
             <Image
-              src="/images/design-process.jpg"
-              alt="A collaborative design session with interface sketches"
+              src={localizedImage('/images/design-process.jpg', locale)}
+              alt={t('A collaborative design session with interface sketches')}
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
             />
@@ -179,11 +188,12 @@ export default function Home() {
         <div className="container">
           <SectionHeading
             center
-            eyebrow="Industries & Capabilities"
-            title="Building Digital Solutions for Ambitious Businesses."
+            eyebrow={t('Industries & Capabilities')}
+            title={t('Building Digital Solutions for Ambitious Businesses.')}
           >
-            We work across industries to create digital platforms that combine intuitive
-            experiences, reliable engineering, and thoughtful business solutions.
+            {t(
+              'We work across industries to create digital platforms that combine intuitive experiences, reliable engineering, and thoughtful business solutions.',
+            )}
           </SectionHeading>
           <IndustryExplorer />
         </div>
@@ -191,5 +201,15 @@ export default function Home() {
       <InteractiveShowcase />
       <ContactCTA />
     </div>
+  );
+}
+
+export async function generateMetadata({ params }: LocaleParams) {
+  const locale = await getLocale(params);
+  return pageMetadata(
+    locale,
+    '/',
+    'Thoughtful Digital Experiences',
+    'Independent digital agency and software development studio in Surabaya, Indonesia. Thoughtfully designed websites, web applications, and custom digital solutions.',
   );
 }

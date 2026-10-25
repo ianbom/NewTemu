@@ -2,10 +2,33 @@ import json
 import os
 import time
 
-BASE = os.environ.get("QA_ORIGIN", "http://localhost:3017")
+LOCALE = os.environ.get("QA_LOCALE", "en")
+assert LOCALE in ["id", "en"]
+BASE = os.environ.get("QA_ORIGIN", "http://localhost:3017") + "/" + LOCALE
 OUT = "E:/Webgrow/Temunew/artifacts"
 os.makedirs(OUT, exist_ok=True)
 report = {"routes": [], "checks": []}
+
+LABELS = {
+    "Open project categories": "Buka kategori proyek",
+    "Next projects": "Proyek berikutnya",
+    "Web Applications": "Aplikasi Web",
+    "Healthcare & Services": "Kesehatan & Layanan",
+    "Next page": "Halaman berikutnya",
+    "Reset Filters": "Atur Ulang Filter",
+    "Next image": "Gambar berikutnya",
+    "Show image 3": "Tampilkan gambar 3",
+    "Enlarge AUREN image 3": "Perbesar gambar AUREN, tampilan 3",
+    "Website Design": "Desain Situs Web",
+    "Next project": "Proyek berikutnya",
+    "Continue on WhatsApp": "Lanjutkan di WhatsApp",
+    "Open navigation menu": "Buka menu navigasi",
+    "02 Our Process": "02 Proses Kerja",
+}
+
+
+def translated(label):
+    return LABELS.get(label, label) if LOCALE == "id" else label
 
 
 def evaluate(expression):
@@ -35,6 +58,7 @@ def navigate(route):
 
 
 def click_name(name, role="button"):
+    name = translated(name)
     nodes = cdp("Accessibility.getFullAXTree")["nodes"]
     matches = [
         node
@@ -113,6 +137,24 @@ for width in [] if os.environ.get("QA_INTERACTIONS_ONLY") else [1440, 1280, 768,
         )
         check(data["pageWidth"] <= data["width"], str(width) + " no overflow " + route)
         check(data["headings"] == 1, str(width) + " single h1 " + route)
+        check(
+            evaluate("document.documentElement.lang") == LOCALE,
+            str(width) + " page language " + route,
+        )
+        check(
+            evaluate(
+                "[...document.querySelectorAll('a[href^=\"/\"]')].filter(link=>!link.closest('.language-switcher')).every(link=>link.getAttribute('href').startsWith('/"
+                + LOCALE
+                + "'))"
+            ),
+            str(width) + " localized internal links " + route,
+        )
+        check(
+            evaluate(
+                "document.querySelector('link[rel=alternate][hreflang=\"id-ID\"]') !== null && document.querySelector('link[rel=alternate][hreflang=\"en-US\"]') !== null"
+            ),
+            str(width) + " alternate languages " + route,
+        )
         check(data["header"] == 80, str(width) + " 80px header " + route)
         title_size = int(
             float(
@@ -169,7 +211,7 @@ for width in [] if os.environ.get("QA_INTERACTIONS_ONLY") else [1440, 1280, 768,
             js("window.scrollTo(0,0)")
             time.sleep(0.2)
             capture_screenshot(
-                OUT + "/" + name + "-" + str(width) + ".png", full=True, max_dim=3000
+                OUT + "/" + LOCALE + "-" + name + "-" + str(width) + ".png", full=True, max_dim=3000
             )
         report["routes"].append(
             {
@@ -207,7 +249,8 @@ check(
 )
 click_name("Healthcare & Services")
 check(
-    "Healthcare & Services" in evaluate("document.querySelector('.industry-label').textContent"),
+    translated("Healthcare & Services")
+    in evaluate("document.querySelector('.industry-label').textContent"),
     "Industry selector updates",
 )
 
@@ -289,7 +332,23 @@ check(
 check("NORDEN" in evaluate("document.querySelector('textarea').value"), "Contact project prefilled")
 click_name("Continue on WhatsApp")
 check(not evaluate("document.querySelector('form').checkValidity()"), "Contact required validation")
+check(
+    evaluate("document.querySelector('input[name=name]').validationMessage")
+    == ("Mohon lengkapi kolom ini." if LOCALE == "id" else "Please complete this field."),
+    "Required validation uses active language",
+)
 fill("input[name=name]", "Alex & Co")
+fill("input[name=email]", "invalid-email")
+click_name("Continue on WhatsApp")
+check(
+    evaluate("document.querySelector('input[name=email]').validationMessage")
+    == (
+        "Masukkan alamat email yang valid."
+        if LOCALE == "id"
+        else "Please enter a valid email address."
+    ),
+    "Email validation uses active language",
+)
 fill("input[name=email]", "alex@example.com")
 fill("input[name=phone]", "+62 851 1234 5678")
 check(evaluate("document.querySelector('form').checkValidity()"), "Contact valid input accepted")
@@ -304,11 +363,43 @@ check(
     "WhatsApp preserves contact data",
 )
 check(
-    "Review" in evaluate("document.querySelector('[role=status]').textContent"),
+    ("Tinjau" if LOCALE == "id" else "Review")
+    in evaluate("document.querySelector('[role=status]').textContent"),
     "Contact honest handoff status",
 )
 
+other = "en" if LOCALE == "id" else "id"
+navigate("/contact?type=Web%20Application&project=NORDEN#main")
+click_selector('.desktop-header-actions .language-switcher a[lang="' + other + '"]')
+time.sleep(0.5)
+check(evaluate("document.documentElement.lang") == other, "Desktop language switch changes locale")
+check(
+    evaluate("location.pathname") == "/" + other + "/contact"
+    and evaluate("new URLSearchParams(location.search).get('project')") == "NORDEN"
+    and evaluate("new URLSearchParams(location.search).get('type')") == "Web Application"
+    and evaluate("location.hash") == "#main",
+    "Language switch preserves page, query, and hash",
+)
+check(
+    evaluate("document.querySelector('select').value") == "Web Application",
+    "Language switch preserves project type",
+)
+
 viewport(390)
+navigate("/work/auren?view=2#main")
+click_name("Open navigation menu")
+click_selector('.mobile-menu .language-switcher a[lang="' + other + '"]')
+time.sleep(0.5)
+check(evaluate("document.documentElement.lang") == other, "Mobile language switch changes locale")
+check(
+    evaluate("location.pathname") == "/" + other + "/work/auren"
+    and evaluate("location.search") == "?view=2",
+    "Mobile language switch preserves project",
+)
+check(
+    evaluate("document.querySelector('[role=dialog]') === null"),
+    "Mobile language switch closes menu",
+)
 navigate("/")
 click_name("Open navigation menu")
 check(evaluate("document.querySelector('[role=dialog]') !== null"), "Mobile navigation opens")
@@ -337,7 +428,8 @@ check(
 cdp("Emulation.setEmulatedMedia", features=[])
 navigate("/work/not-a-project")
 check(
-    "out of frame" in evaluate("document.querySelector('main').textContent"),
+    ("tidak ditemukan" if LOCALE == "id" else "out of frame")
+    in evaluate("document.querySelector('main').textContent"),
     "Unknown project branded not-found",
 )
 events = drain_events()
@@ -352,7 +444,7 @@ console_errors = [
 ]
 report["consoleErrors"] = console_errors
 check(not console_errors, "No browser console errors")
-with open(OUT + "/browser-qa.json", "w", encoding="utf-8") as handle:
+with open(OUT + "/browser-qa-" + LOCALE + ".json", "w", encoding="utf-8") as handle:
     json.dump(report, handle, indent=2)
 print(
     "VERIFIED",

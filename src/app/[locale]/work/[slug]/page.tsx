@@ -1,27 +1,26 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { ArrowUpRight, ChevronRight } from 'lucide-react';
-import { projects } from '@/lib/data';
-import { ContactCTA, ProjectCard, SectionHeading } from '@/components/shared';
 import { ProjectGallery } from '@/components/interactive';
+import Link from '@/components/localized-link';
+import { ContactCTA, ProjectCard, SectionHeading } from '@/components/shared';
+import { projects } from '@/lib/data';
+import { getTranslator } from '@/lib/i18n';
+import { getLocale } from '@/lib/locale-server';
+import { pageMetadata } from '@/lib/metadata';
+import { ArrowUpRight, ChevronRight } from 'lucide-react';
+import { notFound } from 'next/navigation';
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
-export async function generateMetadata({
+export default async function ProjectPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+  params: Promise<{
+    locale: string;
+    slug: string;
+  }>;
+}) {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
-  return {
-    title: project ? `${project.name} - ${project.category}` : 'Project Not Found',
-    description: project?.description,
-  };
-}
-export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+  const locale = await getLocale(params);
+  const t = getTranslator(locale);
   const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
   const related = projects
@@ -43,47 +42,52 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <>
       <div className="container project-detail">
         <nav
-          aria-label="Breadcrumb"
+          aria-label={t('Breadcrumb')}
           className="breadcrumbs"
         >
-          <Link href="/">Home</Link>
+          <Link href="/">{t('Home')}</Link>
           <ChevronRight size={12} />
-          <Link href="/work">Selected Work</Link>
+          <Link href="/work">{t('Selected Work')}</Link>
           <ChevronRight size={12} />
           <span aria-current="page">{project.name}</span>
         </nav>
         <div className="project-detail-grid">
           <ProjectGallery project={project} />
           <div className="project-information">
-            <p className="eyebrow">{project.category} / Studio concept</p>
+            <p className="eyebrow">
+              {t(project.category)}
+              {t(' / Studio concept')}
+            </p>
             <h1>{project.name}</h1>
-            <p className="project-headline">{project.headline}</p>
-            <p className="body-copy">{project.overview}</p>
+            <p className="project-headline">{t(project.headline)}</p>
+            <p className="body-copy">{t(project.overview)}</p>
             <dl className="project-specifications">
               <div>
-                <dt>Discipline</dt>
-                <dd>{project.category}</dd>
+                <dt>{t('Discipline')}</dt>
+                <dd>{t(project.category)}</dd>
               </div>
               <div>
-                <dt>Industry</dt>
-                <dd>{project.sector}</dd>
+                <dt>{t('Industry')}</dt>
+                <dd>{t(project.sector)}</dd>
               </div>
               <div>
-                <dt>Project type</dt>
-                <dd>Original studio concept</dd>
+                <dt>{t('Project type')}</dt>
+                <dd>{t('Original studio concept')}</dd>
               </div>
               <div>
                 <dt>
-                  {project.category === 'UI/UX Design' ? 'Design toolkit' : 'Proposed technology'}
+                  {t(
+                    project.category === 'UI/UX Design' ? 'Design toolkit' : 'Proposed technology',
+                  )}
                 </dt>
-                <dd>{project.stack.join(' / ')}</dd>
+                <dd>{project.stack.map((value) => t(value)).join(' / ')}</dd>
               </div>
             </dl>
             <Link
               className="button button-accent"
               href={`/contact?type=${encodeURIComponent(type)}&project=${project.name}`}
             >
-              Start a Similar Project
+              {t('Start a Similar Project')}
               <ArrowUpRight size={16} />
             </Link>
           </div>
@@ -91,18 +95,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <div className="project-story">
           <div>
             <SectionHeading
-              eyebrow="The Direction"
-              title="A Considered Point of View."
+              eyebrow={t('The Direction')}
+              title={t('A Considered Point of View.')}
             />
-            <p className="body-copy">{project.direction}</p>
+            <p className="body-copy">{t(project.direction)}</p>
           </div>
           <div>
-            <p className="eyebrow">Experience Highlights</p>
+            <p className="eyebrow">{t('Experience Highlights')}</p>
             <ul>
               {project.features.map((feature, index) => (
                 <li key={feature}>
                   <span>0{index + 1}</span>
-                  {feature}
+                  {t(feature)}
                 </li>
               ))}
             </ul>
@@ -113,8 +117,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <div className="container">
           <SectionHeading
             center
-            eyebrow="Keep Exploring"
-            title="More From the Studio."
+            eyebrow={t('Keep Exploring')}
+            title={t('More From the Studio.')}
           />
           <div className="featured-grid">
             {related.map((item) => (
@@ -128,5 +132,23 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </section>
       <ContactCTA />
     </>
+  );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { slug } = await params;
+  const locale = await getLocale(params);
+  const t = getTranslator(locale);
+  const project = projects.find((item) => item.slug === slug);
+  if (!project) notFound();
+  return pageMetadata(
+    locale,
+    '/work/' + slug,
+    project.name + ' - ' + t(project.category),
+    project.description,
   );
 }

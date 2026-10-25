@@ -259,10 +259,15 @@ export const expertise = [
     items: ['Company Profiles', 'Landing Pages', 'Corporate Websites', 'Custom Websites'],
   },
   {
-    title: 'Web Applications',
+    title: 'Mobile Applications',
     category: 'Web Applications',
     image: '/images/projects/norden.svg',
-    items: ['Business Dashboards', 'Internal Systems', 'SaaS Platforms', 'Custom Web Apps'],
+    items: [
+      'iOS & Android Apps',
+      'Cross-Platform Dev',
+      'Custom Mobile Systems',
+      'Mobile App UI/UX',
+    ],
   },
   {
     title: 'Digital Experiences',

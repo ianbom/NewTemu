@@ -1,18 +1,6 @@
 'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRef, useState, type FormEvent } from 'react';
-import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-  Search,
-  Mail,
-  MessageCircle,
-  ZoomIn,
-} from 'lucide-react';
-import { categories, projects, projectTypes, type Project } from '@/lib/data';
-import { contactLinks, filterProjects, paginate } from '@/lib/behavior';
+import { useI18n } from '@/components/i18n-provider';
+import Link from '@/components/localized-link';
 import { ProjectCard } from '@/components/shared';
 import {
   Dialog,
@@ -21,8 +9,22 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-
+import { contactLinks, filterProjects, paginate } from '@/lib/behavior';
+import { categories, projects, projectTypes, type Project } from '@/lib/data';
+import { localizedImage } from '@/lib/i18n';
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Mail,
+  MessageCircle,
+  Search,
+  ZoomIn,
+} from 'lucide-react';
+import Image from 'next/image';
+import { useRef, useState, type FormEvent } from 'react';
 export function FeaturedProjects() {
+  const { t } = useI18n();
   const [offset, setOffset] = useState(0);
   const visible = Array.from(
     { length: 4 },
@@ -32,7 +34,7 @@ export function FeaturedProjects() {
     <div className="featured-projects">
       <button
         className="carousel-arrow previous"
-        aria-label="Previous projects"
+        aria-label={t('Previous projects')}
         onClick={() => setOffset((offset + projects.length - 1) % projects.length)}
       >
         <ArrowLeft size={19} />
@@ -50,7 +52,7 @@ export function FeaturedProjects() {
       </div>
       <button
         className="carousel-arrow next"
-        aria-label="Next projects"
+        aria-label={t('Next projects')}
         onClick={() => setOffset((offset + 1) % projects.length)}
       >
         <ArrowRight size={19} />
@@ -60,6 +62,7 @@ export function FeaturedProjects() {
 }
 const showcaseProjects = [projects[3], projects[1], projects[0], projects[2]];
 export function IndustryExplorer() {
+  const { locale, t } = useI18n();
   const industries = [
     {
       title: 'Corporate & Business',
@@ -94,25 +97,25 @@ export function IndustryExplorer() {
       <div className="industry-topline">
         <span>
           <span className="status-dot" />
-          Design meets business
+          {t('Design meets business')}
         </span>
-        <span>One considered approach. Different possibilities.</span>
+        <span>{t('One considered approach. Different possibilities.')}</span>
       </div>
       <div className="industry-visual">
         <Image
-          src={industry.project.image}
-          alt={`${industry.project.name} ${industry.title} interface concept`}
+          src={localizedImage(industry.project.image, locale)}
+          alt={t('{0} {1} interface concept', industry.project.name, t(industry.title))}
           fill
           sizes="(min-width: 1024px) 1000px, 100vw"
         />
         <div className="industry-label">
-          <span className="eyebrow">{industry.title}</span>
-          <p>{industry.description}</p>
+          <span className="eyebrow">{t(industry.title)}</span>
+          <p>{t(industry.description)}</p>
         </div>
       </div>
       <div
         className="industry-controls"
-        aria-label="Explore industries"
+        aria-label={t('Explore industries')}
       >
         {industries.map((item, index) => (
           <button
@@ -120,7 +123,7 @@ export function IndustryExplorer() {
             key={item.title}
             onClick={() => setSelected(index)}
           >
-            {item.title}
+            {t(item.title)}
           </button>
         ))}
       </div>
@@ -128,26 +131,27 @@ export function IndustryExplorer() {
   );
 }
 export function InteractiveShowcase() {
+  const { locale, t } = useI18n();
   const [selected, setSelected] = useState(0);
   const project = showcaseProjects[selected];
   return (
     <section className="interactive-showcase">
       <Image
-        src={project.image}
-        alt={`${project.name} digital experience`}
+        src={localizedImage(project.image, locale)}
+        alt={t('{0} digital experience', project.name)}
         fill
         sizes="100vw"
         className="showcase-background"
       />
       <div className="showcase-shade" />
       <div className="container showcase-content">
-        <p className="eyebrow">A closer look</p>
-        <h2>Explore Our Digital Experiences.</h2>
-        <p>Different challenges. Distinct perspectives. One considered approach.</p>
+        <p className="eyebrow">{t('A closer look')}</p>
+        <h2>{t('Explore Our Digital Experiences.')}</h2>
+        <p>{t('Different challenges. Distinct perspectives. One considered approach.')}</p>
         <div
           className="showcase-tabs"
           role="tablist"
-          aria-label="Project categories"
+          aria-label={t('Project categories')}
         >
           {['Websites', 'Web Applications', 'E-Commerce', 'UI/UX'].map((label, index) => (
             <button
@@ -176,7 +180,7 @@ export function InteractiveShowcase() {
                 }
               }}
             >
-              {label}
+              {t(label)}
             </button>
           ))}
         </div>
@@ -187,15 +191,18 @@ export function InteractiveShowcase() {
           className="showcase-panel"
         >
           <div>
-            <span className="eyebrow">Studio concept / {project.category}</span>
+            <span className="eyebrow">
+              {t('Studio concept / ')}
+              {t(project.category)}
+            </span>
             <h3>
-              {project.name} &mdash; {project.sector}
+              {project.name} &mdash; {t(project.sector)}
             </h3>
-            <p>{project.description}</p>
+            <p>{t(project.description)}</p>
           </div>
           <Link
             href={`/work/${project.slug}`}
-            aria-label={`Explore ${project.name}`}
+            aria-label={t('Explore {0}', project.name)}
           >
             <ArrowUpRight size={28} />
           </Link>
@@ -205,21 +212,22 @@ export function InteractiveShowcase() {
   );
 }
 export function Portfolio({ initialCategory = 'All Projects' }: { initialCategory?: string }) {
+  const { locale, t } = useI18n();
   const [category, setCategory] = useState(initialCategory);
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
-  const filtered = filterProjects(projects, category, query);
+  const filtered = filterProjects(projects, category, query, locale);
   const result = paginate(filtered, page, 6);
   return (
     <section className="section">
       <div className="container portfolio-layout">
         <aside className="project-sidebar">
           <label className="search-field">
-            <span className="sr-only">Search projects</span>
+            <span className="sr-only">{t('Search projects')}</span>
             <input
               type="search"
               value={query}
-              placeholder="Search projects..."
+              placeholder={t('Search projects...')}
               onChange={(event) => {
                 setQuery(event.target.value);
                 setPage(1);
@@ -228,7 +236,7 @@ export function Portfolio({ initialCategory = 'All Projects' }: { initialCategor
             <Search size={16} />
           </label>
           <div className="sidebar-heading">
-            <h2>Project Categories</h2>
+            <h2>{t('Project Categories')}</h2>
             <button
               onClick={() => {
                 setCategory('All Projects');
@@ -236,7 +244,7 @@ export function Portfolio({ initialCategory = 'All Projects' }: { initialCategor
                 setPage(1);
               }}
             >
-              View All
+              {t('View All')}
             </button>
           </div>
           <div className="category-list">
@@ -253,7 +261,7 @@ export function Portfolio({ initialCategory = 'All Projects' }: { initialCategor
                     setPage(1);
                   }}
                 >
-                  {item}
+                  {t(item)}
                   <span>
                     {projects
                       .filter((project) => project.category === item)
@@ -275,7 +283,7 @@ export function Portfolio({ initialCategory = 'All Projects' }: { initialCategor
                         }}
                       >
                         {project.name}
-                        <span>{project.sector}</span>
+                        <span>{t(project.sector)}</span>
                       </button>
                     ))}
                 </div>
@@ -288,9 +296,9 @@ export function Portfolio({ initialCategory = 'All Projects' }: { initialCategor
             className="results-heading"
             aria-live="polite"
           >
-            <span>{category}</span>
+            <span>{t(category)}</span>
             <span>
-              {filtered.length} {filtered.length === 1 ? 'project' : 'projects'}
+              {filtered.length} {t(filtered.length === 1 ? 'project' : 'projects')}
             </span>
           </div>
           {result.items.length ? (
@@ -304,8 +312,8 @@ export function Portfolio({ initialCategory = 'All Projects' }: { initialCategor
             </div>
           ) : (
             <div className="empty-state">
-              <h2>No projects found.</h2>
-              <p>Try another term or explore all our work.</p>
+              <h2>{t('No projects found.')}</h2>
+              <p>{t('Try another term or explore all our work.')}</p>
               <button
                 className="button button-outline"
                 onClick={() => {
@@ -314,17 +322,17 @@ export function Portfolio({ initialCategory = 'All Projects' }: { initialCategor
                   setPage(1);
                 }}
               >
-                Reset Filters
+                {t('Reset Filters')}
               </button>
             </div>
           )}
           <nav
             className="pagination"
-            aria-label="Portfolio pagination"
+            aria-label={t('Portfolio pagination')}
           >
             <button
               disabled={result.page === 1}
-              aria-label="Previous page"
+              aria-label={t('Previous page')}
               onClick={() => setPage(result.page - 1)}
             >
               <ArrowLeft size={16} />
@@ -345,7 +353,7 @@ export function Portfolio({ initialCategory = 'All Projects' }: { initialCategor
             ))}
             <button
               disabled={result.page === result.totalPages}
-              aria-label="Next page"
+              aria-label={t('Next page')}
               onClick={() => setPage(result.page + 1)}
             >
               <ArrowRight size={16} />
@@ -357,6 +365,7 @@ export function Portfolio({ initialCategory = 'All Projects' }: { initialCategor
   );
 }
 export function ProjectGallery({ project }: { project: Project }) {
+  const { locale, t } = useI18n();
   const [selected, setSelected] = useState(0);
   const move = (direction: number) =>
     setSelected((selected + direction + project.gallery.length) % project.gallery.length);
@@ -367,11 +376,11 @@ export function ProjectGallery({ project }: { project: Project }) {
           <DialogTrigger asChild>
             <button
               className="gallery-expand"
-              aria-label={`Enlarge ${project.name} image ${selected + 1}`}
+              aria-label={t('Enlarge {0} image {1}', project.name, selected + 1)}
             >
               <Image
-                src={project.gallery[selected]}
-                alt={`${project.name} interface view ${selected + 1}`}
+                src={localizedImage(project.gallery[selected], locale)}
+                alt={t('{0} interface view {1}', project.name, selected + 1)}
                 fill
                 priority
                 sizes="(min-width: 1024px) 60vw, 100vw"
@@ -384,13 +393,15 @@ export function ProjectGallery({ project }: { project: Project }) {
           </DialogTrigger>
           <DialogContent className="image-dialog">
             <DialogTitle>
-              {project.name} / Interface study {selected + 1}
+              {project.name}
+              {t(' / Interface study ')}
+              {selected + 1}
             </DialogTitle>
-            <DialogDescription>Original KIVORA STUDIO concept.</DialogDescription>
+            <DialogDescription>{t('Original KIVORA STUDIO concept.')}</DialogDescription>
             <div className="lightbox-image">
               <Image
-                src={project.gallery[selected]}
-                alt={`${project.name} enlarged interface view`}
+                src={localizedImage(project.gallery[selected], locale)}
+                alt={t('{0} enlarged interface view', project.name)}
                 fill
                 sizes="90vw"
               />
@@ -401,7 +412,7 @@ export function ProjectGallery({ project }: { project: Project }) {
                 onClick={() => move(-1)}
               >
                 <ArrowLeft size={16} />
-                Previous
+                {t('Previous')}
               </button>
               <span>
                 {selected + 1} / {project.gallery.length}
@@ -410,7 +421,7 @@ export function ProjectGallery({ project }: { project: Project }) {
                 className="button button-outline"
                 onClick={() => move(1)}
               >
-                Next
+                {t('Next')}
                 <ArrowRight size={16} />
               </button>
             </div>
@@ -419,14 +430,14 @@ export function ProjectGallery({ project }: { project: Project }) {
         <button
           className="gallery-arrow left"
           onClick={() => move(-1)}
-          aria-label="Previous image"
+          aria-label={t('Previous image')}
         >
           <ArrowLeft size={18} />
         </button>
         <button
           className="gallery-arrow right"
           onClick={() => move(1)}
-          aria-label="Next image"
+          aria-label={t('Next image')}
         >
           <ArrowRight size={18} />
         </button>
@@ -435,14 +446,14 @@ export function ProjectGallery({ project }: { project: Project }) {
         {project.gallery.map((image, index) => (
           <button
             className={selected === index ? 'selected' : ''}
-            aria-label={`Show image ${index + 1}`}
+            aria-label={t('Show image {0}', index + 1)}
             aria-pressed={selected === index}
             onClick={() => setSelected(index)}
             key={image}
           >
             <Image
-              src={image}
-              alt={`${project.name} thumbnail ${index + 1}`}
+              src={localizedImage(image, locale)}
+              alt={t('{0} thumbnail {1}', project.name, index + 1)}
               fill
               sizes="96px"
             />
@@ -453,6 +464,7 @@ export function ProjectGallery({ project }: { project: Project }) {
   );
 }
 export function ShowcaseGallery() {
+  const { locale, t } = useI18n();
   const [category, setCategory] = useState('All Work');
   const [selected, setSelected] = useState<Project | null>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
@@ -472,7 +484,7 @@ export function ShowcaseGallery() {
       <div className="container">
         <div
           className="gallery-filters"
-          aria-label="Showcase categories"
+          aria-label={t('Showcase categories')}
         >
           {['All Work', 'Website Design', 'Web Applications'].map((item) => (
             <button
@@ -480,7 +492,7 @@ export function ShowcaseGallery() {
               aria-pressed={category === item}
               onClick={() => setCategory(item)}
             >
-              {item}
+              {t(item)}
             </button>
           ))}
         </div>
@@ -488,7 +500,8 @@ export function ShowcaseGallery() {
           className="gallery-count"
           aria-live="polite"
         >
-          {filtered.length} original studio explorations
+          {filtered.length}
+          {t(' original studio explorations')}
         </p>
         <div className="showcase-grid">
           {filtered.map((project, index) => (
@@ -499,18 +512,21 @@ export function ShowcaseGallery() {
                 opener.current = event.currentTarget;
                 setSelected(project);
               }}
-              aria-label={`View ${project.name}`}
+              aria-label={t('View {0}', project.name)}
             >
               <Image
-                src={project.image}
-                alt={`${project.name}: ${project.description}`}
+                src={localizedImage(project.image, locale)}
+                alt={t('{0}: {1}', project.name, t(project.description))}
                 fill
                 sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
               />
               <span className="tile-caption">
                 <span>
                   {project.name}
-                  <small>{project.category} / Studio concept</small>
+                  <small>
+                    {t(project.category)}
+                    {t(' / Studio concept')}
+                  </small>
                 </span>
                 <ArrowUpRight size={22} />
               </span>
@@ -535,15 +551,15 @@ export function ShowcaseGallery() {
             }}
           >
             <DialogTitle>
-              {selected?.name} / {selected?.category}
+              {selected?.name} / {t(selected?.category)}
             </DialogTitle>
-            <DialogDescription>{selected?.description}</DialogDescription>
+            <DialogDescription>{t(selected?.description)}</DialogDescription>
             {selected && (
               <>
                 <div className="lightbox-image">
                   <Image
-                    src={selected.image}
-                    alt={`${selected.name} original interface concept`}
+                    src={localizedImage(selected.image, locale)}
+                    alt={t('{0} original interface concept', selected.name)}
                     fill
                     sizes="90vw"
                   />
@@ -551,7 +567,7 @@ export function ShowcaseGallery() {
                 <div className="lightbox-controls">
                   <button
                     className="icon-button"
-                    aria-label="Previous project"
+                    aria-label={t('Previous project')}
                     onClick={() => move(-1)}
                   >
                     <ArrowLeft />
@@ -560,12 +576,12 @@ export function ShowcaseGallery() {
                     className="button button-outline"
                     href={`/work/${selected.slug}`}
                   >
-                    View Project
+                    {t('View Project')}
                     <ArrowUpRight size={15} />
                   </Link>
                   <button
                     className="icon-button"
-                    aria-label="Next project"
+                    aria-label={t('Next project')}
                     onClick={() => move(1)}
                   >
                     <ArrowRight />
@@ -586,83 +602,119 @@ export function ContactForm({
   initialType?: string;
   project?: string;
 }) {
+  const { locale, t } = useI18n();
   const [status, setStatus] = useState('');
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     for (const element of Array.from(form.elements)) {
       if (
-        (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) &&
-        element.required
+        element instanceof HTMLInputElement ||
+        element instanceof HTMLTextAreaElement ||
+        element instanceof HTMLSelectElement
       ) {
-        element.setCustomValidity(element.value.trim() ? '' : 'Please complete this field.');
+        element.setCustomValidity('');
+        if (element.required && !element.value.trim()) {
+          element.setCustomValidity(
+            t(
+              element instanceof HTMLSelectElement
+                ? 'Please select a project type.'
+                : 'Please complete this field.',
+            ),
+          );
+        } else if (element.validity.typeMismatch) {
+          element.setCustomValidity(t('Please enter a valid email address.'));
+        } else if (element.validity.patternMismatch) {
+          element.setCustomValidity(
+            t('Use 7 to 25 characters: digits, spaces, +, parentheses, or hyphens.'),
+          );
+        }
       }
     }
     if (!form.reportValidity()) return;
     const values = new FormData(form);
-    const links = contactLinks({
-      name: String(values.get('name')).trim(),
-      email: String(values.get('email')).trim(),
-      phone: String(values.get('phone')).trim(),
-      type: String(values.get('type')),
-      description: String(values.get('description')).trim(),
-    });
+    const links = contactLinks(
+      {
+        name: String(values.get('name')).trim(),
+        email: String(values.get('email')).trim(),
+        phone: String(values.get('phone')).trim(),
+        type: String(values.get('type')),
+        description: String(values.get('description')).trim(),
+      },
+      locale,
+    );
     const channel =
       (event.nativeEvent as SubmitEvent).submitter?.getAttribute('value') || 'whatsapp';
     if (channel === 'email') {
       window.location.href = links.email;
-      setStatus('Your email application opens with a prepared draft. Review and send it there.');
+      setStatus(t('Your email application opens with a prepared draft. Review and send it there.'));
     } else {
       window.open(links.whatsapp, '_blank', 'noopener,noreferrer');
-      setStatus('WhatsApp opens with your project details. Review the message and send it there.');
+      setStatus(
+        t('WhatsApp opens with your project details. Review the message and send it there.'),
+      );
     }
   }
   return (
     <form
       className="contact-form"
       onSubmit={submit}
+      noValidate
+      onInput={(event) => {
+        const input = event.target;
+        if (
+          input instanceof HTMLInputElement ||
+          input instanceof HTMLTextAreaElement ||
+          input instanceof HTMLSelectElement
+        ) {
+          input.setCustomValidity('');
+        }
+      }}
     >
-      <h2>Tell Us About Your Project</h2>
-      <p>A few details are all we need to begin a conversation.</p>
+      <h2>{t('Tell Us About Your Project')}</h2>
+      <p>{t('A few details are all we need to begin a conversation.')}</p>
       <div className="form-row">
         <label>
-          Full Name <span>*</span>
+          {t('Full Name ')}
+          <span>*</span>
           <input
             name="name"
             autoComplete="name"
             required
             maxLength={120}
-            placeholder="Your full name"
+            placeholder={t('Your full name')}
             onInput={(event) => event.currentTarget.setCustomValidity('')}
           />
         </label>
         <label>
-          Email Address <span>*</span>
+          {t('Email Address ')}
+          <span>*</span>
           <input
             name="email"
             type="email"
             autoComplete="email"
             required
             maxLength={254}
-            placeholder="you@company.com"
+            placeholder={t('you@company.com')}
           />
         </label>
       </div>
       <div className="form-row">
         <label>
-          Phone / WhatsApp
+          {t('Phone / WhatsApp')}
           <input
             name="phone"
             type="tel"
             autoComplete="tel"
             maxLength={25}
             pattern="[+0-9 \(\)\-]{7,25}"
-            title="Use 7 to 25 characters: digits, spaces, +, parentheses, or hyphens."
-            placeholder="+62 ..."
+            title={t('Use 7 to 25 characters: digits, spaces, +, parentheses, or hyphens.')}
+            placeholder={t('+62 ...')}
           />
         </label>
         <label>
-          Project Type <span>*</span>
+          {t('Project Type ')}
+          <span>*</span>
           <select
             name="type"
             required
@@ -672,30 +724,40 @@ export function ContactForm({
               value=""
               disabled
             >
-              Select a project type
+              {t('Select a project type')}
             </option>
             {projectTypes.map((type) => (
-              <option key={type}>{type}</option>
+              <option
+                key={type}
+                value={type}
+              >
+                {t(type)}
+              </option>
             ))}
           </select>
         </label>
       </div>
       <label>
-        Project Description <span>*</span>
+        {t('Project Description ')}
+        <span>*</span>
         <textarea
           name="description"
           required
           maxLength={4000}
           rows={5}
           defaultValue={
-            project ? `I'd like to discuss a project with a similar direction to ${project}.` : ''
+            project
+              ? t("I'd like to discuss a project with a similar direction to {0}.", project)
+              : ''
           }
-          placeholder="What would you like to build? Tell us about your goals, scope, and anything else we should know."
+          placeholder={t(
+            'What would you like to build? Tell us about your goals, scope, and anything else we should know.',
+          )}
           onInput={(event) => event.currentTarget.setCustomValidity('')}
         />
       </label>
       <p className="form-note">
-        Your details stay in your browser until you send them through WhatsApp or email.
+        {t('Your details stay in your browser until you send them through WhatsApp or email.')}
       </p>
       <div className="form-actions">
         <button
@@ -705,7 +767,7 @@ export function ContactForm({
           className="button button-accent"
         >
           <MessageCircle size={15} />
-          Continue on WhatsApp
+          {t('Continue on WhatsApp')}
         </button>
         <button
           type="submit"
@@ -714,14 +776,14 @@ export function ContactForm({
           className="button button-outline"
         >
           <Mail size={15} />
-          Open Email Draft
+          {t('Open Email Draft')}
         </button>
       </div>
       <p
         role="status"
         className="form-status"
       >
-        {status}
+        {t(status)}
       </p>
     </form>
   );

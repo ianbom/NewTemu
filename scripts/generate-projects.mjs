@@ -1,5 +1,35 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
+import { getTranslator } from '../src/lib/i18n.ts';
 mkdirSync('public/images/projects', { recursive: true });
+mkdirSync('public/images/projects/id', { recursive: true });
+
+function localizeSvg(svg) {
+  const t = getTranslator('id');
+  return svg
+    .replace(
+      /(<title>)([^<]*)(<\/title>)/g,
+      (_, start, title, end) =>
+        `${start}${title.replace('original studio concept interface', 'konsep antarmuka orisinal studio')}${end}`,
+    )
+    .replace(/<text\b([^>]*)>([^<]*)<\/text>/g, (_, attributes, value) => {
+      const original = value.replaceAll('&amp;', '&').replaceAll('&lt;', '<');
+      const translated = original.includes(' / ')
+        ? original
+            .split(' / ')
+            .map((part) => t(part))
+            .join(' / ')
+        : t(original);
+      const resized =
+        translated.length > original.length
+          ? attributes.replace(
+              /font-size="([\d.]+)"/,
+              (_match, size) =>
+                `font-size="${Math.max(9, Math.round((Number(size) * original.length) / translated.length))}"`,
+            )
+          : attributes;
+      return `<text${resized}>${translated.replaceAll('&', '&amp;').replaceAll('<', '&lt;')}</text>`;
+    });
+}
 const projects = [
   ['auren', 'AUREN', 'commerce', '#d8c6aa', '#ebe5db', 'Everyday, considered.'],
   ['norden', 'NORDEN', 'dashboard', '#a2b5a6', '#e9ece7', 'Your workspace, in focus.'],
@@ -71,9 +101,9 @@ for (const [slug, name, type, accent, paper, headline] of projects) {
       content = `<rect width="1440" height="1080" fill="${accent}"/><g transform="translate(-55 -25) scale(.94)">${content}</g><rect x="1040" y="368" width="270" height="542" rx="36" fill="#111917"/><rect x="1050" y="380" width="250" height="516" rx="28" fill="${paper}"/><rect x="1125" y="389" width="100" height="18" rx="9" fill="#111917"/>${text(1073, 456, name, 24)}${text(1073, 503, 'A fresh perspective.', 19)}<rect x="1070" y="530" width="210" height="190" rx="10" fill="${accent}"/><circle cx="1175" cy="624" r="61" fill="${paper}" opacity=".7"/>${type === 'commerce' ? `<rect x="1150" y="570" width="50" height="110" rx="8" fill="#384b37"/><rect x="1155" y="558" width="40" height="23" rx="5" fill="#202d21"/>` : `<path d="M1095 659L1137 614L1170 632L1208 582L1250 599" fill="none" stroke="#384b37" stroke-width="5"/>`}${text(1073, 762, 'Considered on every screen.', 14)}<rect x="1073" y="792" width="204" height="43" rx="5" fill="#27352a"/>${text(1121, 819, 'Explore the details', 12, paper)}`;
     }
     content += `${text(145, 1003, `${name.toUpperCase()} / ${['DIGITAL EXPERIENCE', 'INTERFACE STUDY', 'RESPONSIVE SYSTEM'][variant]}`, 13, variant === 2 ? '#242927' : '#a5a7ab', 'letter-spacing="3"')}${text(1115, 1003, 'KIVORA STUDIO', 12, variant === 2 ? '#242927' : '#a5a7ab', 'letter-spacing="2"')}`;
-    writeFileSync(
-      `public/images/projects/${slug}${variant ? `-${variant}` : ''}.svg`,
-      `<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080"><title>${name} original studio concept interface</title>${content}</svg>`,
-    );
+    const filename = `${slug}${variant ? `-${variant}` : ''}.svg`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080"><title>${name} original studio concept interface</title>${content}</svg>`;
+    writeFileSync(`public/images/projects/${filename}`, svg);
+    writeFileSync(`public/images/projects/id/${filename}`, localizeSvg(svg));
   }
 }

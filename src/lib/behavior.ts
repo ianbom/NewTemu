@@ -1,15 +1,21 @@
+import { getTranslator, type Locale } from './i18n.ts';
+
 type SearchableProject = { name: string; category: string; description: string };
 export function filterProjects<T extends SearchableProject>(
   projects: T[],
   category: string,
   query: string,
+  locale: Locale = 'en',
 ): T[] {
+  const t = getTranslator(locale);
   const selected = category.trim().toLowerCase();
   const search = query.trim().toLowerCase();
   return projects.filter(
     (project) =>
       (selected === 'all projects' || project.category.toLowerCase() === selected) &&
-      `${project.name} ${project.description} ${project.category}`.toLowerCase().includes(search),
+      `${project.name} ${t(project.description)} ${t(project.category)}`
+        .toLowerCase()
+        .includes(search),
   );
 }
 export function paginate<T>(items: T[], requestedPage: number, pageSize: number) {
@@ -27,9 +33,10 @@ export type ContactValues = {
   type: string;
   description: string;
 };
-export function contactLinks(values: ContactValues) {
-  const subject = `Project inquiry: ${values.type}`;
-  const body = `Hello KIVORA STUDIO,\n\n${values.description}\n\nName: ${values.name}\nEmail: ${values.email}\nPhone / WhatsApp: ${values.phone || 'Not provided'}\nProject type: ${values.type}`;
+export function contactLinks(values: ContactValues, locale: Locale = 'en') {
+  const t = getTranslator(locale);
+  const subject = t('Project inquiry: {0}', t(values.type));
+  const body = `${t('Hello KIVORA STUDIO,')}\n\n${values.description}\n\n${t('Name')}: ${values.name}\n${t('Email')}: ${values.email}\n${t('Phone / WhatsApp')}: ${values.phone || t('Not provided')}\n${t('Project type')}: ${t(values.type)}`;
   return {
     whatsapp: `https://wa.me/6285151994724?text=${encodeURIComponent(body)}`,
     email: `mailto:mail@agency.site?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
