@@ -1,6 +1,12 @@
 export const indonesian: Record<string, string> = {
+  'Website Services': 'Layanan Website',
+  'Company websites, online stores, and supporting web applications.':
+    'Website perusahaan, toko online, dan aplikasi web pendukung.',
+  'Built for your business.': 'Dibangun untuk bisnis Anda.',
+  'Explore TemuWeb services, process, and portfolio.':
+    'Jelajahi layanan, proses kerja, dan portofolio TemuWeb.',
   'About Us': 'Tentang Kami',
-  'About KIVORA STUDIO': 'Tentang KIVORA STUDIO',
+  'About TemuWeb': 'Tentang TemuWeb',
   'Our Process': 'Proses Kerja',
   Portfolio: 'Portofolio',
   'Explore Our Portfolio': 'Jelajahi Portofolio Kami',
@@ -9,12 +15,12 @@ export const indonesian: Record<string, string> = {
   'Our Approach': 'Pendekatan Kami',
   Contact: 'Kontak',
   'Contact Us': 'Hubungi Kami',
-  'The Studio': 'Studio Kami',
+
   Explore: 'Jelajahi',
   Home: 'Beranda',
   Websites: 'Situs Web',
   'Website Design': 'Desain Situs Web',
-  'Website Development': 'Pengembangan Situs Web',
+  'Website Development': 'Jasa Pembuatan Website',
   'Website Design & Development': 'Desain & Pengembangan Situs Web',
   'Web Applications': 'Aplikasi Web',
   'Web Application': 'Aplikasi Web',
@@ -22,90 +28,87 @@ export const indonesian: Record<string, string> = {
   'E-Commerce': 'E-Commerce',
   'UI/UX': 'UI/UX',
   'UI/UX Design': 'Desain UI/UX',
-  'Digital Experiences': 'Pengalaman Digital',
-  'Mobile Applications': 'Aplikasi Mobile',
+  'Commerce & Website Support': 'E-Commerce & Dukungan Website',
+  'Web Applications & Integrations': 'Aplikasi Web & Integrasi',
   'Company Profiles': 'Profil Perusahaan',
   'Landing Pages': 'Landing Page',
   'Corporate Websites': 'Situs Web Korporat',
   'Custom Websites': 'Situs Web Khusus',
   'API Integrations': 'Integrasi API',
   'Digital Optimization': 'Optimalisasi Digital',
-  'iOS & Android Apps': 'Aplikasi iOS & Android',
-  'Cross-Platform Dev': 'Pengembangan Lintas Platform',
-  'Custom Mobile Systems': 'Sistem Mobile Khusus',
-  'Mobile App UI/UX': 'UI/UX Aplikasi Mobile',
+  'Business Dashboards': 'Dasbor Bisnis',
+  'Internal Systems': 'Sistem Internal',
+  'API Connections': 'Koneksi API',
+  'Workflow Automation': 'Otomatisasi Alur Kerja',
   'All Projects': 'Semua Proyek',
   'All Work': 'Semua Karya',
   'View All': 'Lihat Semua',
   'View All Projects': 'Lihat Semua Proyek',
   'Explore Our Work': 'Jelajahi Karya Kami',
   'Explore our work': 'Jelajahi karya kami',
-  'Read Our Story': 'Kenali Studio Kami',
+  'Get to Know TemuWeb': 'Kenali TemuWeb',
   'Our Expertise': 'Keahlian Kami',
-  'Ideas, Made Digital.': 'Mewujudkan Ide dalam Karya Digital.',
-  'More Than Just a Digital Agency.': 'Lebih dari Sekadar Agensi Digital.',
-  'We Craft Digital Experiences': 'Kami Merancang Pengalaman Digital',
-  "for What's Next.": 'untuk Langkah Anda Berikutnya.',
-  'From distinctive websites to scalable digital platforms, we bring design, technology, and strategy together to create meaningful digital experiences.':
-    'Dari situs web berkarakter hingga platform digital yang siap berkembang, kami memadukan desain, teknologi, dan strategi untuk menghadirkan pengalaman digital yang bermakna.',
-  'We believe exceptional digital products are built at the intersection of thoughtful design, purposeful technology, and deep understanding of the people who use them.':
-    'Kami percaya produk digital yang baik lahir dari perpaduan desain yang matang, teknologi yang tepat guna, serta pemahaman mendalam tentang penggunanya.',
-  'Based in Surabaya, we bring a considered perspective to websites, applications, and custom digital solutions. Every project starts with a conversation and an understanding of what your business actually needs.':
-    'Berbasis di Surabaya, kami mengembangkan situs web, aplikasi, dan solusi digital khusus melalui pendekatan yang terarah. Setiap proyek diawali dengan diskusi untuk memahami kebutuhan bisnis Anda.',
-  'Design-Led Thinking': 'Berpijak pada Desain',
-  'Purposeful Engineering': 'Rekayasa Tepat Guna',
-  'Clear experiences, shaped around real people.':
-    'Pengalaman yang jelas, dirancang berdasarkan kebutuhan pengguna.',
-  'Careful development, built for the long term.':
-    'Pengembangan yang cermat untuk kebutuhan jangka panjang.',
-  'A Few Different Perspectives.': 'Beragam Ide. Pendekatan yang Terarah.',
-  'Original studio concepts exploring the space between thoughtful design and purposeful technology.':
-    'Konsep orisinal studio yang mengeksplorasi perpaduan desain yang matang dan teknologi yang tepat guna.',
+  'Websites, Applications, Integrations.': 'Website, Aplikasi, dan Integrasi.',
+  'Your Website Development Partner.': 'Mitra Pengembangan Website Anda.',
+
+  'for Your Business.': 'untuk Kebutuhan Bisnis Anda.',
+  'We build company websites, landing pages, and online stores, with web applications and integrations tailored to your business processes.':
+    'Kami mengembangkan website perusahaan, landing page, dan toko online, serta aplikasi web dan integrasi yang disesuaikan dengan proses bisnis Anda.',
+  'TemuWeb is a software house in Surabaya focused on website development. We help you present your business, explain your services, and make it easier for customers to get in touch.':
+    'TemuWeb adalah software house di Surabaya yang berfokus pada jasa pembuatan website. Kami membantu Anda memperkenalkan bisnis, menjelaskan layanan, dan memudahkan pelanggan menghubungi Anda.',
+  'From company profiles to custom web applications, we define the content, features, and technical requirements with you before development begins.':
+    'Dari company profile hingga aplikasi web khusus, kami menyusun kebutuhan konten, fitur, dan teknis bersama Anda sebelum pengembangan dimulai.',
+  'Clear Website Structure': 'Struktur Website yang Jelas',
+  'Maintainable Development': 'Pengembangan yang Terawat',
+  'Content and navigation that help visitors find what they need.':
+    'Konten dan navigasi yang memudahkan pengunjung menemukan informasi.',
+  'Responsive websites with a foundation for future updates.':
+    'Website responsif dengan fondasi untuk pembaruan selanjutnya.',
+  'Website & Application Concepts.': 'Konsep Website & Aplikasi.',
+  'Explore our original interface concepts for company websites, online stores, and business applications. These are design explorations, not commissioned client projects.':
+    'Jelajahi konsep antarmuka orisinal untuk website perusahaan, toko online, dan aplikasi bisnis. Karya ini merupakan eksplorasi desain, bukan proyek pesanan klien.',
   'What We Do': 'Apa yang Kami Kerjakan',
-  'Digital Craft, Built Around You.': 'Karya Digital untuk Kebutuhan Anda.',
-  'Digital Strategy & UI/UX': 'Strategi Digital & UI/UX',
-  'Building Digital Solutions for Ambitious Businesses.':
-    'Solusi Digital untuk Bisnis yang Terus Berkembang.',
-  'We work across industries to create digital platforms that combine intuitive experiences, reliable engineering, and thoughtful business solutions.':
-    'Kami bekerja lintas industri untuk membangun platform digital yang memadukan kemudahan penggunaan, rekayasa yang andal, dan solusi yang relevan bagi bisnis.',
+  'From Website Design to Launch.': 'Dari Desain hingga Website Tayang.',
+  'UI/UX & Website Maintenance': 'UI/UX & Pemeliharaan Website',
+  'Websites for Different Business Needs.': 'Website untuk Beragam Kebutuhan Bisnis.',
+  'A company website, product catalog, booking interface, or internal dashboard: the structure and features follow how your business serves its customers.':
+    'Website perusahaan, katalog produk, antarmuka pemesanan, atau dasbor internal: struktur dan fiturnya mengikuti cara bisnis Anda melayani pelanggan.',
   'Corporate & Business': 'Korporat & Bisnis',
   'E-Commerce & Retail': 'E-Commerce & Ritel',
   'Education & Learning': 'Pendidikan & Pembelajaran',
   'Healthcare & Services': 'Kesehatan & Layanan',
   'Technology & Startups': 'Teknologi & Startup',
-  'Clear information, connected workflows, and a purposeful digital presence.':
-    'Informasi yang jelas, alur kerja terintegrasi, dan kehadiran digital yang terarah.',
-  'Considered storefronts that bring products and people together.':
-    'Etalase digital yang memudahkan pelanggan menemukan produk yang tepat.',
-  'Focused platforms that make room for better learning experiences.':
-    'Platform terarah yang mendukung pengalaman belajar yang lebih baik.',
-  'Thoughtful interfaces that make complex services easier to navigate.':
-    'Antarmuka yang memudahkan pengguna mengakses layanan yang kompleks.',
-  'Flexible foundations for ideas ready to take their next step.':
-    'Fondasi yang fleksibel untuk mengembangkan ide ke tahap berikutnya.',
-  'Design meets business': 'Desain bertemu kebutuhan bisnis',
-  'One considered approach. Different possibilities.':
-    'Satu pendekatan yang matang. Beragam kemungkinan.',
+  'Company profiles, service pages, and inquiry channels in one website.':
+    'Company profile, halaman layanan, dan kanal pertanyaan dalam satu website.',
+  'Online stores with product catalogs and clear shopping journeys.':
+    'Toko online dengan katalog produk dan alur belanja yang jelas.',
+  'Course websites and web applications for organizing learning materials.':
+    'Website kursus dan aplikasi web untuk mengelola materi pembelajaran.',
+  'Service information and appointment interfaces that are easy to navigate.':
+    'Informasi layanan dan antarmuka janji temu yang mudah digunakan.',
+  'Product websites and web applications shaped around an agreed scope.':
+    'Website produk dan aplikasi web sesuai ruang lingkup yang disepakati.',
+  'Website features for your business': 'Fitur website untuk bisnis Anda',
+  'Different requirements. A clear development scope.':
+    'Beragam kebutuhan. Ruang lingkup yang jelas.',
   'A closer look': 'Lihat Lebih Dekat',
   'Explore Our Digital Experiences.': 'Jelajahi Pengalaman Digital Kami.',
   'Different challenges. Distinct perspectives. One considered approach.':
     'Beragam tantangan dan sudut pandang. Satu pendekatan yang terarah.',
   'Project categories': 'Kategori proyek',
-  'Studio concept': 'Konsep studio',
-  'Studio concept /': 'Konsep studio /',
-  '/ Studio concept': '/ Konsep studio',
-  'Original studio concept': 'Konsep orisinal studio',
-  'original studio explorations': 'eksplorasi orisinal studio',
+  'Interface concept': 'Konsep antarmuka',
+  'Interface concept /': 'Konsep antarmuka /',
+  '/ Interface concept': '/ Konsep antarmuka',
+  'Original interface concept': 'Konsep antarmuka orisinal',
+  'original interface concepts': 'konsep antarmuka orisinal',
   '/ Interface study': '/ Studi antarmuka',
-  'The next conversation': 'Diskusi Selanjutnya',
-  'Have Something Great in Mind?': 'Punya Ide yang Ingin Diwujudkan?',
-  "Tell us about your idea. We'll help turn it into a thoughtfully designed, carefully developed digital experience.":
-    'Ceritakan ide Anda. Kami akan membantu mewujudkannya menjadi pengalaman digital melalui desain yang matang dan pengembangan yang cermat.',
+  'Discuss your website': 'Diskusikan website Anda',
+  'Ready to Build Your Website?': 'Siap Membangun Website Anda?',
+  'Tell us about your business, the pages you need, and the features you have in mind. We can discuss the right scope and next steps through WhatsApp.':
+    'Ceritakan bisnis Anda, halaman yang dibutuhkan, dan fitur yang ingin dikembangkan. Diskusikan ruang lingkup dan langkah berikutnya bersama kami melalui WhatsApp.',
   "Let's Talk": 'Mari Berdiskusi',
-  'Crafting Digital Experiences': 'Merancang Pengalaman Digital',
-  'That Matter.': 'yang Bermakna.',
-  'Thoughtful design. Purposeful technology.': 'Desain yang matang. Teknologi yang tepat guna.',
-  'A digital studio based in Surabaya.': 'Studio digital yang berbasis di Surabaya.',
+  'Websites, web applications, and integrations.': 'Website, aplikasi web, dan integrasi.',
+  'A software house based in Surabaya.': 'Software house berbasis di Surabaya.',
   'Get In Touch': 'Hubungi Kami',
   'Built Around Your Needs': 'Dirancang Sesuai Kebutuhan Anda',
   'Websites, applications, and meaningful digital experiences.':
@@ -113,14 +116,14 @@ export const indonesian: Record<string, string> = {
   'Direct WhatsApp Inquiry': 'Diskusi Melalui WhatsApp',
   'Design with intention.': 'Desain dengan tujuan yang jelas.',
   'All rights reserved.': 'Seluruh hak cipta dilindungi.',
-  'KIVORA STUDIO. All rights reserved.': 'KIVORA STUDIO. Seluruh hak cipta dilindungi.',
-  'KIVORA STUDIO home': 'Beranda KIVORA STUDIO',
+  'TemuWeb. All rights reserved.': 'TemuWeb. Seluruh hak cipta dilindungi.',
+  'TemuWeb home': 'Beranda TemuWeb',
   'Main navigation': 'Navigasi utama',
   'Mobile navigation': 'Navigasi seluler',
   'Open project categories': 'Buka kategori proyek',
   'Open navigation menu': 'Buka menu navigasi',
   'Close dialog': 'Tutup dialog',
-  'Explore KIVORA STUDIO and our work.': 'Kenali KIVORA STUDIO dan karya kami.',
+  'Explore TemuWeb and our work.': 'Kenali TemuWeb dan karya kami.',
   'Skip to content': 'Lewati ke konten',
   Breadcrumb: 'Jejak navigasi',
   'Previous projects': 'Proyek sebelumnya',
@@ -159,101 +162,99 @@ export const indonesian: Record<string, string> = {
   'Project Category': 'Kategori Proyek',
   'Different ideas. Thoughtfully brought to life. Explore our original studio concepts in design and technology.':
     'Beragam ide yang diwujudkan dengan cermat. Jelajahi konsep orisinal studio kami dalam desain dan teknologi.',
-  'Original KIVORA STUDIO concepts in websites, web applications, e-commerce, and UI/UX design.':
-    'Konsep orisinal KIVORA STUDIO untuk situs web, aplikasi web, e-commerce, dan desain UI/UX.',
+  'Original TemuWeb concepts in websites, web applications, e-commerce, and UI/UX design.':
+    'Konsep orisinal TemuWeb untuk situs web, aplikasi web, e-commerce, dan desain UI/UX.',
   'A considered collection of original studio concepts. Explore the details, ideas, and interfaces behind the work.':
     'Kumpulan konsep orisinal studio yang dirancang dengan cermat. Jelajahi detail, gagasan, dan antarmuka di balik setiap karya.',
-  'A considered perspective on design, technology, and the people who bring them together.':
-    'Perspektif yang matang tentang desain, teknologi, dan orang-orang yang menyatukannya.',
-  'Thoughtful Design. Purposeful Technology.': 'Desain yang Matang. Teknologi yang Tepat Guna.',
-  'KIVORA STUDIO is a digital agency and software development studio based in Surabaya, East Java. We help businesses establish and improve their digital presence through websites, applications, and custom digital solutions.':
-    'KIVORA STUDIO adalah agensi digital dan studio pengembangan perangkat lunak yang berbasis di Surabaya, Jawa Timur. Kami membantu bisnis membangun dan meningkatkan kehadiran digital melalui situs web, aplikasi, dan solusi digital khusus.',
-  'We believe good work begins with understanding. Before choosing a layout or writing a line of code, we make room for the questions that reveal what a product needs to do, who it serves, and why it matters.':
-    'Kami percaya karya yang baik berawal dari pemahaman. Sebelum menentukan tata letak atau menulis kode, kami menggali fungsi produk, siapa penggunanya, dan nilai yang perlu dihadirkan.',
-  'The Principles Behind the Work': 'Prinsip di Balik Karya Kami',
-  'Design With Purpose': 'Desain dengan Tujuan',
-  'Every visual choice should help people understand, navigate, or act. We value clarity over decoration and ideas that are grounded in a real need.':
-    'Setiap keputusan visual harus membantu pengguna memahami informasi, bernavigasi, atau mengambil tindakan. Kami mengutamakan kejelasan dan gagasan yang menjawab kebutuhan nyata.',
-  'Engineer With Care': 'Rekayasa yang Cermat',
-  'We choose practical tools, readable code, and reliable foundations. A digital product should be as considered behind the interface as it is on the screen.':
-    'Kami memilih perangkat yang tepat, kode yang mudah dibaca, dan fondasi yang andal. Kualitas produk digital harus terjaga, baik pada tampilan maupun sistem di baliknya.',
-  'Build Together': 'Berkolaborasi Sejak Awal',
-  'Open conversations and shared decisions make better products. We bring design and engineering into the same discussion from the beginning.':
-    'Diskusi terbuka dan keputusan bersama menghasilkan produk yang lebih baik. Kami melibatkan desain dan rekayasa dalam pembahasan yang sama sejak awal.',
-  'Think Beyond Launch': 'Melampaui Tahap Peluncuran',
-  'A website is not finished when it goes live. We consider maintainability, accessibility, and the next iteration throughout the process.':
-    'Pengembangan situs web tidak berhenti saat diluncurkan. Kemudahan pemeliharaan, aksesibilitas, dan pengembangan berikutnya dipertimbangkan sepanjang proses.',
-  'A shared perspective': 'Perspektif Bersama',
-  'Good Collaboration Makes Better Work.':
-    'Kolaborasi yang Baik Menghasilkan Karya yang Lebih Baik.',
-  'We bring a hands-on, collaborative approach to each project. Clear communication, thoughtful decisions, and a shared understanding of the goals help us create digital experiences that feel coherent from the first impression to the final interaction.':
-    'Kami terlibat langsung dan berkolaborasi dalam setiap proyek. Komunikasi yang jelas, keputusan yang matang, dan pemahaman tujuan bersama membantu kami menghadirkan pengalaman digital yang konsisten dari awal hingga akhir.',
-  'A thoughtful path from the first question to a digital experience ready for the real world.':
-    'Proses yang terarah, dari diskusi awal hingga pengalaman digital yang siap digunakan.',
+  'Get to know TemuWeb, a software house focused on websites and web applications that support everyday business needs.':
+    'Kenali TemuWeb, software house yang berfokus pada website dan aplikasi web untuk mendukung kebutuhan operasional bisnis.',
+  'Website Development With a Clear Purpose.': 'Pengembangan Website dengan Tujuan yang Jelas.',
+  'TemuWeb is a software house based in Surabaya, East Java. We develop company profiles, landing pages, e-commerce websites, and custom web applications for businesses with different requirements.':
+    'TemuWeb adalah software house berbasis di Surabaya, Jawa Timur. Kami mengembangkan company profile, landing page, website e-commerce, dan aplikasi web khusus untuk beragam kebutuhan bisnis.',
+  'Before designing or writing code, we discuss your audience, content, required features, and existing tools. This helps establish a practical scope and a shared understanding of what the website should do.':
+    'Sebelum merancang tampilan atau menulis kode, kami mendiskusikan audiens, konten, fitur, dan perangkat yang sudah Anda gunakan. Tahap ini membantu menentukan ruang lingkup serta fungsi website yang perlu dikembangkan.',
+  'How We Develop Your Website': 'Cara Kami Mengembangkan Website Anda',
+  'Plan the Content': 'Merencanakan Konten',
+  'We organize pages around what visitors need to know: your business, services, products, and how to contact you. Clear navigation comes before decorative details.':
+    'Kami menyusun halaman berdasarkan informasi yang dibutuhkan pengunjung: bisnis, layanan, produk, dan cara menghubungi Anda. Navigasi yang jelas menjadi dasar sebelum detail visual.',
+  'Build for Maintenance': 'Membangun agar Mudah Dirawat',
+  'We use established tools and readable code, with a structure that supports content updates and future changes. Technology choices follow the project requirements.':
+    'Kami menggunakan perangkat yang teruji dan kode yang mudah dipahami, dengan struktur yang mendukung pembaruan konten serta pengembangan selanjutnya. Pilihan teknologi mengikuti kebutuhan proyek.',
+  'Review Together': 'Meninjau Bersama',
+  'We review page structures, designs, and working features with you at agreed stages. Feedback is documented so decisions remain clear throughout development.':
+    'Kami meninjau struktur halaman, desain, dan fitur bersama Anda pada tahapan yang disepakati. Masukan dicatat agar keputusan tetap jelas selama proses pengembangan.',
+  'Prepare the Handover': 'Menyiapkan Serah Terima',
+  'Before launch, we review device compatibility and key user flows. We explain the handover, account access, and maintenance options according to the agreed scope.':
+    'Sebelum peluncuran, kami memeriksa kompatibilitas perangkat dan alur pengguna utama. Serah terima, akses akun, serta pilihan pemeliharaan dijelaskan sesuai ruang lingkup yang disepakati.',
+  'Working with TemuWeb': 'Bekerja sama dengan TemuWeb',
+  'Clear Scope. Shared Decisions.': 'Ruang Lingkup Jelas. Keputusan Bersama.',
+  'We agree on the deliverables, content responsibilities, and review stages before development. When requirements change, we discuss the impact on the scope and next steps rather than adding features without a shared decision.':
+    'Kami menyepakati hasil pekerjaan, tanggung jawab konten, dan tahapan peninjauan sebelum pengembangan. Jika kebutuhan berubah, kami membahas dampaknya pada ruang lingkup serta langkah berikutnya sebelum menambahkan fitur.',
+  'A clear website development process, from requirements and design to testing, launch, and an agreed handover.':
+    'Proses pembuatan website yang jelas, dari analisis kebutuhan dan desain hingga pengujian, peluncuran, dan serah terima.',
   'How We Work': 'Cara Kami Bekerja',
-  'Where Ideas Meet Careful Execution.': 'Saat Ide Bertemu Pelaksanaan yang Cermat.',
-  'A good process creates clarity, not unnecessary ceremony. We move from understanding the challenge to exploring the possibilities, then build and refine the solution with intention.':
-    'Proses yang baik memberikan kejelasan tanpa tahapan yang berlebihan. Kami memahami tantangan, mengeksplorasi kemungkinan, lalu membangun dan menyempurnakan solusi secara terarah.',
-  'Design and development are connected throughout. We share the work in context, talk through decisions, and make space for feedback before small details become expensive changes.':
-    'Desain dan pengembangan berjalan beriringan. Kami menyampaikan hasil kerja beserta konteksnya, membahas keputusan, dan membuka ruang masukan sebelum perubahan kecil menjadi kendala yang lebih besar.',
-  'From First Conversation to What Comes Next': 'Dari Diskusi Awal hingga Pengembangan Berikutnya',
-  'Discovery & Strategy': 'Eksplorasi & Strategi',
-  'We explore your goals, audience, existing challenges, and practical constraints. Together, we define the scope, priorities, and a clear direction for the work.':
-    'Kami menggali tujuan, audiens, tantangan, dan batasan proyek Anda. Bersama-sama, kami menetapkan ruang lingkup, prioritas, dan arah kerja yang jelas.',
+  'From Requirements to a Working Website.': 'Dari Kebutuhan hingga Website Berfungsi.',
+  'We start by defining the pages, content, user flows, and features your website needs. Those requirements become the basis for the design, development scope, and checks before launch.':
+    'Kami memulai dengan menentukan halaman, konten, alur pengguna, dan fitur website. Kebutuhan tersebut menjadi dasar desain, ruang lingkup pengembangan, serta pemeriksaan sebelum peluncuran.',
+  'You review the structure and design before implementation, then check the working website at agreed stages. Changes are discussed early so the impact on scope and delivery remains clear.':
+    'Anda meninjau struktur dan desain sebelum implementasi, lalu memeriksa website pada tahapan yang disepakati. Perubahan dibahas sejak awal agar dampaknya terhadap ruang lingkup dan penyerahan tetap jelas.',
+  'Four Stages of Website Development': 'Empat Tahap Pengembangan Website',
+  'Requirements & Planning': 'Analisis Kebutuhan & Perencanaan',
+  'We discuss your business, target visitors, page list, content, and required features. Together, we define priorities, dependencies, and the scope to be developed.':
+    'Kami membahas bisnis, target pengunjung, daftar halaman, konten, dan fitur yang dibutuhkan. Bersama Anda, kami menentukan prioritas, kebutuhan pendukung, serta ruang lingkup pengembangan.',
   'Design & Prototyping': 'Desain & Prototipe',
-  'We shape content, journeys, and interface systems. Prototypes make the experience tangible and give us a shared foundation for feedback.':
-    'Kami menyusun konten, alur pengguna, dan sistem antarmuka. Prototipe membantu memvisualisasikan pengalaman sekaligus menjadi dasar bersama untuk memberikan masukan.',
+  'We prepare the page structure, wireframes, and responsive interface designs. Reviews help confirm navigation, content placement, and user flows before coding.':
+    'Kami menyiapkan struktur halaman, wireframe, dan desain antarmuka responsif. Peninjauan membantu memastikan navigasi, penempatan konten, serta alur pengguna sebelum penulisan kode.',
   'Development & Integration': 'Pengembangan & Integrasi',
-  'We translate the design into responsive, maintainable code. APIs, content, and business workflows are connected according to the agreed project scope.':
-    'Kami menerapkan desain menjadi kode yang responsif dan mudah dipelihara. API, konten, dan alur kerja bisnis diintegrasikan sesuai ruang lingkup yang disepakati.',
+  'We implement the approved design, populate agreed content, and build the required features. API connections and supporting systems are integrated within the project scope.':
+    'Kami mengimplementasikan desain yang disetujui, memasukkan konten, dan membangun fitur yang dibutuhkan. Koneksi API serta sistem pendukung diintegrasikan sesuai ruang lingkup proyek.',
   'Testing, Launch & Support': 'Pengujian, Peluncuran & Dukungan',
-  'We check the experience across devices, review accessibility and performance, and prepare a considered handover. Ongoing support is agreed around your needs.':
-    'Kami menguji pengalaman lintas perangkat, meninjau aksesibilitas serta kinerja, dan menyiapkan serah terima yang terstruktur. Dukungan lanjutan disesuaikan dengan kebutuhan Anda.',
-  'Beyond the handover': 'Setelah Serah Terima',
-  'Built for the Way Your Business Evolves.': 'Siap Mengikuti Perkembangan Bisnis Anda.',
-  'A clear technical foundation and useful documentation make the next step easier. We think about future changes while keeping the current scope focused, so the work remains understandable and practical to maintain.':
-    'Fondasi teknis yang jelas dan dokumentasi yang bermanfaat memudahkan langkah berikutnya. Kami mempertimbangkan kebutuhan mendatang tanpa memperluas ruang lingkup saat ini, agar hasil kerja tetap mudah dipahami dan dipelihara.',
-  'Thoughtful decisions today. Digital experiences with a longer perspective.':
-    'Keputusan yang matang hari ini untuk pengalaman digital yang berkelanjutan.',
-  'Quality by intention': 'Kualitas yang Direncanakan',
-  'Built With Intention. Designed to Last.':
-    'Dibangun dengan Tujuan. Dirancang untuk Jangka Panjang.',
-  'A digital product needs more than a strong first impression. It should be understandable to use, reliable in practice, and manageable for the people who look after it.':
-    'Produk digital membutuhkan lebih dari sekadar kesan pertama yang kuat. Produk harus mudah dipahami, andal saat digunakan, dan mudah dikelola oleh pihak yang merawatnya.',
-  'Our approach brings the visible and the invisible together: considered interfaces, clean architecture, careful performance decisions, and a collaborative relationship with the people behind the business.':
-    'Pendekatan kami menyatukan tampilan dan sistem di baliknya: antarmuka yang matang, arsitektur yang rapi, perhatian pada kinerja, serta kolaborasi dengan orang-orang di balik bisnis Anda.',
-  'Four Principles. One Considered Approach.': 'Empat Prinsip. Satu Pendekatan yang Terarah.',
+  'We test key functions, forms, links, and responsive layouts before launch. Handover guidance and any ongoing maintenance are defined with you before the project closes.':
+    'Kami menguji fungsi utama, formulir, tautan, dan tampilan responsif sebelum peluncuran. Panduan serah terima serta pemeliharaan lanjutan disepakati bersama sebelum proyek ditutup.',
+  'After your website launches': 'Setelah website diluncurkan',
+  'A Clear Handover. A Practical Next Step.': 'Serah Terima Jelas. Langkah Lanjutan Terarah.',
+  'We explain how the agreed website features work and document the technical setup where relevant. Content updates, new features, and maintenance can be discussed separately as your business requirements change.':
+    'Kami menjelaskan penggunaan fitur website yang disepakati dan mendokumentasikan pengaturan teknis yang relevan. Pembaruan konten, fitur baru, serta pemeliharaan dapat dibahas secara terpisah ketika kebutuhan bisnis berubah.',
+  'Readable code, accessible interfaces, and practical maintenance decisions guide how we build websites.':
+    'Kode yang mudah dipahami, antarmuka yang aksesibel, dan pemeliharaan yang terarah menjadi dasar pengembangan website kami.',
+  'Our development standards': 'Standar pengembangan kami',
+  'Built to Work. Structured to Maintain.': 'Berfungsi dengan Baik. Mudah Dikembangkan.',
+  'A website should do more than look good. Visitors need clear information and working interactions, while the people managing it need a structure they can understand and maintain.':
+    'Website tidak cukup hanya terlihat menarik. Pengunjung membutuhkan informasi yang jelas dan interaksi yang berfungsi, sedangkan pengelola memerlukan struktur yang mudah dipahami serta dirawat.',
+  'We consider page structure, code organization, image loading, and device compatibility together. Technical decisions are explained in the context of your requirements, not added simply because a tool is available.':
+    'Kami mempertimbangkan struktur halaman, organisasi kode, pemuatan gambar, dan kompatibilitas perangkat secara menyeluruh. Keputusan teknis dijelaskan berdasarkan kebutuhan Anda, bukan sekadar ketersediaan perangkat.',
+  'What We Check Beyond Appearance': 'Yang Kami Periksa Selain Tampilan',
   'Human-Centered Design': 'Desain Berpusat pada Pengguna',
-  'We start with the people using the product. Clear navigation, readable content, and understandable interactions take priority over visual novelty.':
-    'Kami berangkat dari kebutuhan pengguna. Navigasi yang jelas, konten yang mudah dibaca, dan interaksi yang mudah dipahami lebih utama daripada sekadar kebaruan visual.',
+  'Visitors should be able to find services, read information, and contact your business without guessing. We prioritize clear navigation, readable content, and understandable actions.':
+    'Pengunjung perlu dapat menemukan layanan, membaca informasi, dan menghubungi bisnis Anda tanpa kebingungan. Kami mengutamakan navigasi yang jelas, konten terbaca, serta tindakan yang mudah dipahami.',
   'Maintainable Engineering': 'Rekayasa yang Mudah Dipelihara',
-  'We prefer practical solutions, established patterns, and readable code. Complexity should earn its place, not become a maintenance burden.':
-    'Kami mengutamakan solusi praktis, pola yang teruji, dan kode yang mudah dibaca. Kompleksitas harus memiliki alasan yang jelas, bukan menjadi beban pemeliharaan.',
+  'We keep code organized and use established development patterns. Features and dependencies are chosen for a specific need so future changes do not create avoidable maintenance work.':
+    'Kami menjaga kerapian kode dan menggunakan pola pengembangan yang teruji. Fitur serta dependensi dipilih untuk kebutuhan tertentu agar perubahan berikutnya tidak menambah beban pemeliharaan yang tidak perlu.',
   'Accessibility & Performance': 'Aksesibilitas & Kinerja',
-  'Long-Term Collaboration': 'Kolaborasi Jangka Panjang',
+  'Clear Maintenance Scope': 'Ruang Lingkup Pemeliharaan',
   'Start a Conversation': 'Mulai Berdiskusi',
-  'Considered Solutions. Clear Intentions.': 'Solusi yang Matang. Tujuan yang Jelas.',
+  'Choose What Your Website Needs.': 'Pilih Layanan Sesuai Kebutuhan.',
   'Design and engineering collaboration in a modern studio':
     'Kolaborasi desain dan rekayasa di studio modern',
   'Explore industries': 'Jelajahi industri',
-  'From a focused company website to a connected business platform, we shape the work around your goals.':
-    'Dari situs web perusahaan hingga platform bisnis terintegrasi, kami menyesuaikan solusi dengan tujuan Anda.',
+  'Start with the pages and features you need today. Add integrations and supporting applications when your workflows require them.':
+    'Mulai dari halaman dan fitur yang Anda butuhkan saat ini. Tambahkan integrasi dan aplikasi pendukung ketika alur kerja bisnis memerlukannya.',
   'Industries & Capabilities': 'Industri & Kapabilitas',
-  'Made for your next chapter': 'Untuk Langkah Anda Berikutnya',
+  'Website development services': 'Layanan pembuatan website',
   Next: 'Berikutnya',
   Previous: 'Sebelumnya',
   'Open Email Draft': 'Buka Draf Email',
-  'Original KIVORA STUDIO concept.': 'Konsep orisinal KIVORA STUDIO.',
+  'Original TemuWeb concept.': 'Konsep orisinal TemuWeb.',
   'Show image {0}': 'Tampilkan gambar {0}',
   'Portfolio categories': 'Kategori portofolio',
   "I'd like to discuss a project with a similar direction to {0}.":
     'Saya ingin mendiskusikan proyek dengan arah yang serupa dengan {0}.',
-  'Distinctive websites that bring your identity into focus, with considered content, responsive layouts, and a reliable technical foundation.':
-    'Situs web berkarakter yang memperkuat identitas Anda, dengan konten terarah, tata letak responsif, dan fondasi teknis yang andal.',
-  'Purpose-built platforms, dashboards, and connected systems that support the way your business actually works.':
-    'Platform, dasbor, dan sistem terintegrasi yang dirancang khusus untuk mendukung operasional bisnis Anda.',
-  'From understanding the challenge to refining the smallest interaction, we design for clarity, usability, and purpose.':
-    'Dari memahami tantangan hingga menyempurnakan interaksi terkecil, kami merancang untuk kejelasan, kemudahan penggunaan, dan tujuan yang terarah.',
+  'Company profiles, landing pages, and custom websites with clear content, responsive layouts, and features agreed around your business needs.':
+    'Company profile, landing page, dan website khusus dengan konten yang jelas, tampilan responsif, serta fitur sesuai kebutuhan bisnis Anda.',
+  'Web-based dashboards and internal systems for managing information, coordinating tasks, and connecting existing business tools.':
+    'Dasbor dan sistem internal berbasis web untuk mengelola informasi, mengoordinasikan tugas, dan menghubungkan perangkat bisnis yang sudah digunakan.',
+  'Interface design, technical reviews, and ongoing improvements to keep your website usable and ready for changing requirements.':
+    'Desain antarmuka, evaluasi teknis, dan pengembangan berkelanjutan agar website tetap mudah digunakan dan sesuai perubahan kebutuhan.',
   'Please select a project type.': 'Pilih jenis proyek terlebih dahulu.',
   'Name must contain more than whitespace.': 'Nama tidak boleh hanya berisi spasi.',
   '01 / A DIFFERENT POINT OF VIEW': '01 / SUDUT PANDANG BERBEDA',
@@ -362,17 +363,17 @@ export const indonesian: Record<string, string> = {
   'DIGITAL EXPERIENCE': 'PENGALAMAN DIGITAL',
   'INTERFACE STUDY': 'STUDI ANTARMUKA',
   'RESPONSIVE SYSTEM': 'SISTEM RESPONSIF',
-  'Keyboard access, visible focus, responsive layouts, and purposeful loading are part of the work. We test against the experience, not just the screenshot.':
-    'Akses keyboard, indikator fokus yang jelas, tata letak responsif, dan pemuatan yang efisien menjadi bagian dari pekerjaan kami. Pengujian berfokus pada pengalaman penggunaan, bukan hanya tampilan.',
-  'Honest conversations, clear scope, and useful handovers support a healthier working relationship. The right next step should be understandable to everyone.':
-    'Komunikasi yang jujur, ruang lingkup yang jelas, dan serah terima yang bermanfaat mendukung hubungan kerja yang sehat. Setiap pihak perlu memahami langkah berikutnya.',
-  'The details matter': 'Detail yang Bermakna',
-  'Less Unnecessary Complexity. More Lasting Value.':
-    'Lebih Sederhana. Lebih Bernilai untuk Jangka Panjang.',
-  'We make room for careful decisions about structure, content, and technology. By keeping the product focused on what matters, we create a foundation that can be understood, maintained, and thoughtfully improved over time.':
-    'Kami mempertimbangkan struktur, konten, dan teknologi secara cermat. Dengan berfokus pada kebutuhan utama, kami membangun fondasi yang mudah dipahami, dipelihara, dan dikembangkan secara bertahap.',
-  'An editorial approach to everyday essentials.':
-    'Pendekatan editorial untuk kebutuhan sehari-hari.',
+  'We review keyboard access, visible focus, text contrast, responsive layouts, and image loading. Key user flows are tested on different screen sizes, not only in a static design.':
+    'Kami meninjau akses keyboard, indikator fokus, kontras teks, tampilan responsif, dan pemuatan gambar. Alur pengguna utama diuji pada beberapa ukuran layar, bukan hanya pada desain statis.',
+  'We separate initial development from ongoing updates and support. Responsibilities, access, and maintenance requirements are discussed so both sides understand what is included.':
+    'Kami membedakan pengembangan awal dari pembaruan serta dukungan lanjutan. Tanggung jawab, akses, dan kebutuhan pemeliharaan dibahas agar kedua pihak memahami pekerjaan yang termasuk dalam kesepakatan.',
+  'Practical technology choices': 'Pilihan teknologi yang tepat guna',
+  'The Features You Need. A Manageable Foundation.':
+    'Fitur yang Dibutuhkan. Fondasi yang Terawat.',
+  'We build around the requirements agreed for your website, keeping the structure understandable and avoiding unnecessary features. Additional integrations and improvements can be planned when there is a clear business need.':
+    'Kami mengembangkan website berdasarkan kebutuhan yang disepakati, dengan struktur yang mudah dipahami tanpa fitur yang tidak diperlukan. Integrasi serta penyempurnaan tambahan dapat direncanakan ketika ada kebutuhan bisnis yang jelas.',
+  'Online store concept with product collections and a shopping flow.':
+    'Konsep toko online dengan koleksi produk dan alur belanja.',
   'Lifestyle & Retail': 'Gaya Hidup & Ritel',
   'An understated storefront. A considered shopping experience.':
     'Etalase yang bersahaja. Pengalaman belanja yang terarah.',
@@ -383,7 +384,8 @@ export const indonesian: Record<string, string> = {
   'Curated product collections': 'Koleksi produk terkurasi',
   'Responsive product discovery': 'Penelusuran produk responsif',
   'Accessible shopping flow': 'Alur belanja yang aksesibel',
-  'A clearer view of the working day.': 'Gambaran aktivitas kerja yang lebih jelas.',
+  'Dashboard concept for tasks, projects, and business activity.':
+    'Konsep dasbor untuk tugas, proyek, dan aktivitas bisnis.',
   'Business & Operations': 'Bisnis & Operasional',
   'Complex operations. Clear decisions.': 'Operasional yang kompleks. Keputusan yang jelas.',
   'NORDEN explores a unified workspace for understanding projects, coordinating tasks, and reviewing business activity without switching between disconnected tools.':
@@ -393,7 +395,8 @@ export const indonesian: Record<string, string> = {
   'Business overview dashboard': 'Dasbor ringkasan bisnis',
   'Project and task organization': 'Pengelolaan proyek dan tugas',
   'Reporting and activity views': 'Tampilan laporan dan aktivitas',
-  'Care, with a more human interface.': 'Layanan kesehatan dengan antarmuka yang lebih manusiawi.',
+  'Healthcare interface concept for services and appointments.':
+    'Konsep antarmuka layanan kesehatan dan janji temu.',
   'Less friction between people and care.': 'Akses layanan kesehatan yang lebih mudah.',
   'LUMIO is a healthcare interface concept that considers the complete appointment journey, from finding the right service to preparing for a consultation.':
     'LUMIO adalah konsep antarmuka layanan kesehatan yang mencakup seluruh alur janji temu, dari menemukan layanan yang tepat hingga mempersiapkan konsultasi.',
@@ -402,7 +405,8 @@ export const indonesian: Record<string, string> = {
   'Appointment journey design': 'Desain alur janji temu',
   'Responsive patient interface': 'Antarmuka pasien responsif',
   'Accessible form patterns': 'Pola formulir yang aksesibel',
-  'A quieter kind of hospitality.': 'Pengalaman hospitalitas yang lebih tenang.',
+  'Hospitality website concept with accommodation and inquiry pages.':
+    'Konsep website penginapan dengan halaman akomodasi dan pertanyaan.',
   'Hospitality & Travel': 'Hospitalitas & Perjalanan',
   'A place to pause. An experience to remember.':
     'Ruang untuk beristirahat. Pengalaman yang berkesan.',
@@ -413,7 +417,8 @@ export const indonesian: Record<string, string> = {
   'Destination storytelling': 'Narasi destinasi',
   'Accommodation detail pages': 'Halaman detail akomodasi',
   'Direct inquiry experience': 'Alur pertanyaan langsung',
-  'A digital home for architectural thinking.': 'Ruang digital untuk gagasan arsitektur.',
+  'Company website concept for an architecture practice and its projects.':
+    'Konsep website perusahaan arsitektur beserta portofolio proyeknya.',
   'Architecture & Design': 'Arsitektur & Desain',
   'Space, proportion, and a new perspective.': 'Ruang, proporsi, dan perspektif baru.',
   'FORMA examines how an architecture practice can present its ideas and projects through image-led storytelling and a carefully structured portfolio.':
@@ -423,7 +428,8 @@ export const indonesian: Record<string, string> = {
   'Project archive': 'Arsip proyek',
   'Practice introduction': 'Profil studio',
   'Responsive editorial pages': 'Halaman editorial responsif',
-  'Learning, organized around people.': 'Pembelajaran yang berpusat pada penggunanya.',
+  'Learning dashboard concept for courses, progress, and schedules.':
+    'Konsep dasbor pembelajaran untuk kursus, progres, dan jadwal.',
   'Make room for a better way to learn.': 'Ruang untuk pengalaman belajar yang lebih baik.',
   'SORA brings learning materials, progress, and upcoming sessions together in a focused student workspace concept.':
     'SORA menyatukan materi belajar, perkembangan, dan jadwal sesi dalam konsep ruang kerja pelajar yang terarah.',
@@ -432,7 +438,8 @@ export const indonesian: Record<string, string> = {
   'Course workspace': 'Ruang belajar',
   'Progress visualization': 'Visualisasi perkembangan',
   'Learning schedule': 'Jadwal pembelajaran',
-  'Small rituals. Thoughtful details.': 'Rutinitas sederhana. Detail yang penuh perhatian.',
+  'Skincare store concept with product and ingredient information.':
+    'Konsep toko skincare dengan informasi produk dan bahan.',
   'Beauty & Wellbeing': 'Kecantikan & Kebugaran',
   'A considered approach to daily care.': 'Pendekatan yang matang untuk perawatan harian.',
   'MORI explores a product-led skincare storefront, where ingredient information and daily rituals make product selection feel approachable.':
@@ -442,7 +449,8 @@ export const indonesian: Record<string, string> = {
   'Product storytelling': 'Narasi produk',
   'Ingredient information': 'Informasi kandungan',
   'Collection browsing': 'Penelusuran koleksi',
-  'Movement, made easier to navigate.': 'Perjalanan yang lebih mudah direncanakan.',
+  'Travel planning interface concept with route comparison.':
+    'Konsep antarmuka perencanaan perjalanan dan perbandingan rute.',
   'Mobility & Technology': 'Mobilitas & Teknologi',
   'Find your next way forward.': 'Temukan rute untuk langkah berikutnya.',
   'VELO is a mobility interface exploration focused on helping people understand route options and plan a journey with fewer decisions.':
@@ -452,7 +460,8 @@ export const indonesian: Record<string, string> = {
   'Mobile journey planning': 'Perencanaan perjalanan seluler',
   'Route comparison': 'Perbandingan rute',
   'Reusable interface system': 'Sistem antarmuka yang dapat digunakan kembali',
-  'A shared view of ambitious projects.': 'Pandangan bersama atas proyek yang berkembang.',
+  'Team workspace concept for project planning and activity tracking.':
+    'Konsep ruang kerja tim untuk perencanaan dan pemantauan proyek.',
   'Technology & Teams': 'Teknologi & Tim',
   'Keep the work moving, together.': 'Majukan pekerjaan bersama-sama.',
   'ATLAS investigates a collaborative project workspace where teams can connect milestones, priorities, and the details that often get lost between tools.':
@@ -462,7 +471,8 @@ export const indonesian: Record<string, string> = {
   'Team project overview': 'Ringkasan proyek tim',
   'Milestone planning': 'Perencanaan tahapan proyek',
   'Activity and reporting': 'Aktivitas dan pelaporan',
-  'Objects of character. Commerce with clarity.': 'Produk berkarakter. Belanja dengan kejelasan.',
+  'Retail website concept with collections and product detail pages.':
+    'Konsep website ritel dengan koleksi dan halaman detail produk.',
   'Design & Retail': 'Desain & Ritel',
   'Less noise. More character.': 'Lebih sederhana. Lebih berkarakter.',
   'OBJET is a digital retail concept for carefully selected personal accessories, bringing a gallery-like pace to product discovery.':
@@ -472,7 +482,8 @@ export const indonesian: Record<string, string> = {
   'Editorial collections': 'Koleksi editorial',
   'Product detail experience': 'Pengalaman detail produk',
   'Mobile shopping design': 'Desain belanja seluler',
-  'An independent perspective on culture.': 'Perspektif independen tentang budaya.',
+  'Editorial website concept with articles and an event archive.':
+    'Konsep website editorial dengan artikel dan arsip acara.',
   'Arts & Culture': 'Seni & Budaya',
   'Ideas worth spending time with.': 'Gagasan yang layak diselami.',
   'VESPER explores an editorial website for independent arts programming, balancing an evolving journal with a structured event archive.':
@@ -482,8 +493,8 @@ export const indonesian: Record<string, string> = {
   'Editorial journal': 'Jurnal editorial',
   'Event archive': 'Arsip acara',
   'Inquiry and information pages': 'Halaman pertanyaan dan informasi',
-  'A financial interface with a calmer rhythm.':
-    'Antarmuka keuangan dengan alur yang lebih tenang.',
+  'Personal finance interface concept with spending and account views.':
+    'Konsep antarmuka keuangan pribadi untuk pengeluaran dan akun.',
   'Finance & Productivity': 'Keuangan & Produktivitas',
   'Make sense of the everyday.': 'Pahami keuangan sehari-hari.',
   'CIRCA is a personal finance interface study designed to make everyday spending patterns understandable without adding complexity.':
@@ -495,10 +506,10 @@ export const indonesian: Record<string, string> = {
   'Mobile component library': 'Pustaka komponen seluler',
   'Design systems': 'Sistem desain',
   'Interactive prototyping': 'Prototipe interaktif',
-  'Design, development, and thoughtful digital solutions. Built around what your business needs.':
-    'Desain, pengembangan, dan solusi digital yang dirancang sesuai kebutuhan bisnis Anda.',
-  'An ongoing exploration of interfaces, digital products, and different ways of seeing.':
-    'Eksplorasi antarmuka, produk digital, dan beragam sudut pandang yang terus berkembang.',
+  'Website development, online stores, and supporting web applications. Scope, features, and handover defined around your business needs.':
+    'Jasa pembuatan website, toko online, dan aplikasi web pendukung. Ruang lingkup, fitur, dan serah terima disusun sesuai kebutuhan bisnis Anda.',
+  'Original interface concepts for websites, online stores, and web applications. Explore layouts and features for different business needs.':
+    'Konsep antarmuka orisinal untuk website, toko online, dan aplikasi web. Jelajahi tata letak dan fitur untuk beragam kebutuhan bisnis.',
   'Company Profile Websites': 'Situs Web Profil Perusahaan',
   'Company Profile Website': 'Situs Web Profil Perusahaan',
   'Custom Website Development': 'Pengembangan Situs Web Khusus',
@@ -512,31 +523,34 @@ export const indonesian: Record<string, string> = {
   Applications: 'Aplikasi',
   Design: 'Desain',
   'Ongoing support': 'Dukungan berkelanjutan',
-  'A clear, considered introduction to your business. Built around your identity, your work, and the people you want to reach.':
-    'Perkenalkan bisnis Anda melalui situs web yang terarah, sesuai identitas, karya, dan audiens yang ingin Anda jangkau.',
-  'Distinctive websites shaped around specific goals, with considered interactions and a foundation that is easy to maintain.':
-    'Situs web berkarakter yang dirancang untuk tujuan spesifik, dengan interaksi yang matang dan fondasi yang mudah dipelihara.',
-  'Thoughtful shopping experiences that make it easier to discover products, understand the details, and take the next step.':
-    'Pengalaman berbelanja yang memudahkan pelanggan menemukan produk, memahami detail, dan melanjutkan pembelian.',
-  'Purpose-built dashboards, internal tools, and digital platforms that bring clarity to the way your business works.':
-    'Dasbor, perangkat internal, dan platform digital khusus yang memperjelas serta mendukung operasional bisnis Anda.',
-  'From early journeys to detailed interfaces, we turn complex requirements into experiences people can understand and use.':
-    'Dari alur awal hingga detail antarmuka, kami menerjemahkan kebutuhan yang kompleks menjadi pengalaman yang mudah dipahami dan digunakan.',
-  'Practical care for your digital product, with attention to performance, accessibility, compatibility, and evolving needs.':
-    'Pemeliharaan produk digital yang berfokus pada kinerja, aksesibilitas, kompatibilitas, serta kebutuhan yang terus berkembang.',
-  'Brand storytelling / Responsive design': 'Narasi merek / Desain responsif',
-  'Custom interfaces / Content architecture': 'Antarmuka khusus / Arsitektur konten',
-  'Product discovery / Shopping journeys': 'Penelusuran produk / Alur belanja',
+  'Introduce your company, services, and contact information through a responsive website with a clear page structure.':
+    'Perkenalkan perusahaan, layanan, dan informasi kontak melalui website responsif dengan struktur halaman yang jelas.',
+  'Landing pages and custom websites with page layouts, content structure, and features tailored to your business requirements.':
+    'Landing page dan website khusus dengan tata letak, struktur konten, dan fitur sesuai kebutuhan bisnis Anda.',
+  'Online stores with product catalogs, product detail pages, and shopping flows. Payment and delivery integrations follow the agreed scope.':
+    'Toko online dengan katalog, halaman detail produk, dan alur belanja. Integrasi pembayaran dan pengiriman mengikuti ruang lingkup yang disepakati.',
+  'Web applications for internal operations, data management, and reporting, with access roles and integrations defined during discovery.':
+    'Aplikasi web untuk operasional internal, pengelolaan data, dan pelaporan, dengan hak akses dan integrasi yang ditentukan pada tahap analisis.',
+  'Website structures, wireframes, and interface prototypes to review content, navigation, and user flows before development.':
+    'Struktur website, wireframe, dan prototipe antarmuka untuk meninjau konten, navigasi, serta alur pengguna sebelum pengembangan.',
+  'Website updates, bug fixes, performance reviews, and compatibility checks. Maintenance responsibilities and frequency are agreed separately.':
+    'Pembaruan website, perbaikan bug, evaluasi performa, dan pemeriksaan kompatibilitas. Tanggung jawab serta jadwal pemeliharaan disepakati secara terpisah.',
+  'Company information / Service pages / Contact links':
+    'Profil perusahaan / Halaman layanan / Tautan kontak',
+  'Landing pages / Custom features / Responsive layouts':
+    'Landing page / Fitur khusus / Tampilan responsif',
+  'Product catalogs / Shopping flows / Integrations':
+    'Katalog produk / Alur belanja / Integrasi',
   'Dashboards / Integrations / Workflows': 'Dasbor / Integrasi / Alur kerja',
   'User journeys / Prototypes / Design systems': 'Alur pengguna / Prototipe / Sistem desain',
   'Technical reviews / Iterative improvements': 'Tinjauan teknis / Penyempurnaan bertahap',
   'Discuss Your Project': 'Diskusikan Proyek Anda',
-  'Something More Specific in Mind?': 'Memiliki Kebutuhan yang Lebih Spesifik?',
-  "API integrations, business process automation, or a custom digital workflow. Tell us what you need to make possible, and we'll explore the right approach together.":
-    'Integrasi API, otomatisasi proses bisnis, atau alur kerja digital khusus. Ceritakan kebutuhan Anda, dan kami akan mengeksplorasi pendekatan yang tepat bersama Anda.',
+  'Need a Custom Website Feature?': 'Butuh Fitur Website Khusus?',
+  'Connect your website to existing systems, simplify data entry, or develop a web-based workflow. Share your requirements so we can review the scope and integration needs.':
+    'Hubungkan website dengan sistem yang sudah digunakan, sederhanakan pengisian data, atau kembangkan alur kerja berbasis web. Sampaikan kebutuhan Anda agar kami dapat meninjau ruang lingkup dan integrasinya.',
   "Let's Discuss It": 'Mari Diskusikan',
-  'Tell KIVORA STUDIO about your website, web application, or custom digital project. Based in Surabaya, East Java, Indonesia.':
-    'Diskusikan kebutuhan situs web, aplikasi web, atau proyek digital khusus Anda bersama KIVORA STUDIO di Surabaya, Jawa Timur, Indonesia.',
+  'Tell TemuWeb about your website, web application, or custom digital project. Based in Surabaya, East Java, Indonesia.':
+    'Diskusikan kebutuhan situs web, aplikasi web, atau proyek digital khusus Anda bersama TemuWeb di Surabaya, Jawa Timur, Indonesia.',
   'A new idea, a complex challenge, or a digital experience ready for its next chapter. It starts with a conversation.':
     'Ide baru, tantangan yang kompleks, atau pengalaman digital yang siap dikembangkan. Semuanya dimulai dari sebuah diskusi.',
   'Find the Studio': 'Temukan Studio Kami',
@@ -554,10 +568,11 @@ export const indonesian: Record<string, string> = {
   '404 / A different direction': '404 / Halaman Tidak Ditemukan',
   'This page is out of frame.': 'Halaman ini tidak ditemukan.',
   "Let's get you back to the work.": 'Silakan kembali untuk menjelajahi karya kami.',
-  'Thoughtful Digital Experiences': 'Pengalaman Digital yang Bermakna',
-  'Crafting Digital Experiences That Matter.': 'Merancang Pengalaman Digital yang Bermakna.',
-  'Independent digital agency and software development studio in Surabaya, Indonesia. Thoughtfully designed websites, web applications, and custom digital solutions.':
-    'Agensi digital dan studio pengembangan perangkat lunak di Surabaya, Indonesia. Situs web, aplikasi web, dan solusi digital khusus yang dirancang dengan cermat.',
+  'Website Development & Software House': 'Jasa Pembuatan Website & Software House',
+  'Website Development for Your Business.':
+    'Jasa Pembuatan Website untuk Kebutuhan Bisnis Anda.',
+  'TemuWeb is a software house in Surabaya offering company profile websites, landing pages, e-commerce development, web applications, and website maintenance.':
+    'TemuWeb adalah software house di Surabaya yang menyediakan jasa pembuatan website company profile, landing page, toko online, aplikasi web, dan pemeliharaan website.',
   'A considered creative workspace': 'Ruang kerja kreatif yang tertata',
   'An architectural workspace filled with natural light':
     'Ruang kerja arsitektural dengan pencahayaan alami',
@@ -579,10 +594,10 @@ export const indonesian: Record<string, string> = {
   'Switch to Indonesian': 'Ganti ke bahasa Indonesia',
   'Switch to English': 'Ganti ke bahasa Inggris',
   'Project inquiry: {0}': 'Permintaan proyek: {0}',
-  'Hello KIVORA STUDIO, I would like to discuss a digital project.':
-    'Halo KIVORA STUDIO, saya ingin berdiskusi mengenai kebutuhan proyek digital.',
-  'Hello KIVORA STUDIO, I would like to discuss {0}.':
-    'Halo KIVORA STUDIO, saya ingin berdiskusi mengenai layanan {0}.',
+  'Hello TemuWeb, I would like to discuss my website requirements.':
+    'Halo TemuWeb, saya ingin berdiskusi mengenai kebutuhan pembuatan website.',
+  'Hello TemuWeb, I would like to discuss {0}.':
+    'Halo TemuWeb, saya ingin berdiskusi mengenai layanan {0}.',
   Name: 'Nama',
   Email: 'Email',
   'Phone / WhatsApp:': 'Telepon / WhatsApp:',

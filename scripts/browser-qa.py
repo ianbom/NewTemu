@@ -324,7 +324,7 @@ message = evaluate(
     "new URL(document.querySelector('.service-card a').href).searchParams.get('text')"
 )
 check(
-    ("Halo KIVORA STUDIO" if LOCALE == "id" else "Hello KIVORA STUDIO") in message,
+    ("Halo TemuWeb" if LOCALE == "id" else "Hello TemuWeb") in message,
     "WhatsApp message follows active language",
 )
 check(

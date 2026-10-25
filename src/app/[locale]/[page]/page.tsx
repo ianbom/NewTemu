@@ -13,13 +13,13 @@ const additional = {
   services: {
     title: 'Our Services',
     description:
-      'Design, development, and thoughtful digital solutions. Built around what your business needs.',
+      'Website development, online stores, and supporting web applications. Scope, features, and handover defined around your business needs.',
     image: '/images/services-hero.jpg',
   },
   portfolio: {
     title: 'Portfolio',
     description:
-      'An ongoing exploration of interfaces, digital products, and different ways of seeing.',
+      'Original interface concepts for websites, online stores, and web applications. Explore layouts and features for different business needs.',
     image: '/images/portfolio-hero.jpg',
   },
 };
@@ -136,11 +136,11 @@ export default async function ContentPage({
             <div className="container">
               <SectionHeading
                 center
-                eyebrow={t('Made for your next chapter')}
-                title={t('Considered Solutions. Clear Intentions.')}
+                eyebrow={t('Website development services')}
+                title={t('Choose What Your Website Needs.')}
               >
                 {t(
-                  'From a focused company website to a connected business platform, we shape the work around your goals.',
+                  'Start with the pages and features you need today. Add integrations and supporting applications when your workflows require them.',
                 )}
               </SectionHeading>
               <div className="services-grid">
@@ -183,11 +183,11 @@ export default async function ContentPage({
           </section>
           <section className="section carbon bordered service-custom">
             <div className="container split-grid">
-              <h2>{t('Something More Specific in Mind?')}</h2>
+              <h2>{t('Need a Custom Website Feature?')}</h2>
               <div>
                 <p className="body-copy">
                   {t(
-                    "API integrations, business process automation, or a custom digital workflow. Tell us what you need to make possible, and we'll explore the right approach together.",
+                    'Connect your website to existing systems, simplify data entry, or develop a web-based workflow. Share your requirements so we can review the scope and integration needs.',
                   )}
                 </p>
                 <a

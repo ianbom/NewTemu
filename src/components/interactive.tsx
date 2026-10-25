@@ -57,27 +57,27 @@ export function IndustryExplorer() {
     {
       title: 'Corporate & Business',
       project: projects[1],
-      description: 'Clear information, connected workflows, and a purposeful digital presence.',
+      description: 'Company profiles, service pages, and inquiry channels in one website.',
     },
     {
       title: 'E-Commerce & Retail',
       project: projects[0],
-      description: 'Considered storefronts that bring products and people together.',
+      description: 'Online stores with product catalogs and clear shopping journeys.',
     },
     {
       title: 'Education & Learning',
       project: projects[5],
-      description: 'Focused platforms that make room for better learning experiences.',
+      description: 'Course websites and web applications for organizing learning materials.',
     },
     {
       title: 'Healthcare & Services',
       project: projects[2],
-      description: 'Thoughtful interfaces that make complex services easier to navigate.',
+      description: 'Service information and appointment interfaces that are easy to navigate.',
     },
     {
       title: 'Technology & Startups',
       project: projects[8],
-      description: 'Flexible foundations for ideas ready to take their next step.',
+      description: 'Product websites and web applications shaped around an agreed scope.',
     },
   ];
   const [selected, setSelected] = useState(0);
@@ -87,9 +87,9 @@ export function IndustryExplorer() {
       <div className="industry-topline">
         <span>
           <span className="status-dot" />
-          {t('Design meets business')}
+          {t('Website features for your business')}
         </span>
-        <span>{t('One considered approach. Different possibilities.')}</span>
+        <span>{t('Different requirements. A clear development scope.')}</span>
       </div>
       <div className="industry-visual">
         <Image
@@ -182,7 +182,7 @@ export function InteractiveShowcase() {
         >
           <div>
             <span className="eyebrow">
-              {t('Studio concept / ')}
+              {t('Interface concept / ')}
               {t(project.category)}
             </span>
             <h3>
@@ -239,7 +239,7 @@ export function PortfolioGallery() {
           aria-live="polite"
         >
           {filtered.length}
-          {t(' original studio explorations')}
+          {t(' original interface concepts')}
         </p>
         <div className="showcase-grid">
           {filtered.map((project, index) => (
@@ -263,7 +263,7 @@ export function PortfolioGallery() {
                   {project.name}
                   <small>
                     {t(project.category)}
-                    {t(' / Studio concept')}
+                    {t(' / Interface concept')}
                   </small>
                 </span>
                 <ArrowUpRight size={22} />

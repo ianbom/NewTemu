@@ -1,6 +1,6 @@
-# KIVORA STUDIO
+# TemuWeb
 
-Next.js App Router frontend for a digital agency based in Surabaya. Professional Indonesian and English content, dark editorial styling, original interface concepts, local imagery, and accessible Radix/shadcn-style interactions.
+Next.js App Router frontend for TemuWeb, a Surabaya software house focused on website development, e-commerce, supporting web applications, and integrations. Professional Indonesian and English content, dark editorial styling, original interface concepts, local imagery, and accessible Radix/shadcn-style interactions.
 
 ## Run
 
@@ -38,9 +38,9 @@ Portfolio retains the mixed-image gallery, category filters, and keyboard-access
 
 Set `NEXT_PUBLIC_SITE_URL` to the deployed origin for canonical and alternate-language metadata. Vercel's deployment origin is used when available; local development falls back to `http://localhost:3017`.
 
-Regenerate both artwork languages with `node scripts/generate-projects.mjs`. English artwork remains in `public/images/projects`; Indonesian artwork is generated under `public/images/projects/id`.
+Regenerate both artwork languages with `node scripts/generate-projects.mjs`. English artwork remains in `public/images/projects`; Indonesian artwork is generated under `public/images/projects/id`. Regenerate the TemuWeb social cover with `node scripts/generate-brand.mjs`.
 
-All contact actions open WhatsApp at `https://wa.me/6285151994724` in a new tab, with a professional message in the active language. Service actions include the service type. There is no contact page or form; visitors review and send messages themselves in WhatsApp. The informational email link remains available. No messages are sent, stored, or submitted to a server. Projects are original studio concepts, not commissioned client work. Project technologies describe the intended implementation direction; the portfolio previews are original interface illustrations.
+All contact actions open WhatsApp at `https://wa.me/6285151994724` in a new tab, with a professional message in the active language. Service actions include the service type. There is no contact page or form; visitors review and send messages themselves in WhatsApp. The informational email link remains available. No messages are sent, stored, or submitted to a server. Projects are original interface concepts, not commissioned client work. Project technologies describe the intended implementation direction; the portfolio previews are original interface illustrations.
 
 No analytics, database, external account configuration, or deployment is required. The first build downloads Geist through `next/font`; runtime photography is served locally.
 

@@ -15,13 +15,13 @@ export default async function Home({ params }: LocaleParams) {
       <Hero
         title={
           <>
-            {t('We Craft Digital Experiences')}
+            {t('Website Development')}
             <br className="desktop-break" />
-            {t(" for What's Next.")}
+            {t(' for Your Business.')}
           </>
         }
         description={t(
-          'From distinctive websites to scalable digital platforms, we bring design, technology, and strategy together to create meaningful digital experiences.',
+          'We build company websites, landing pages, and online stores, with web applications and integrations tailored to your business processes.',
         )}
       >
         <Link
@@ -35,18 +35,18 @@ export default async function Home({ params }: LocaleParams) {
         <div className="container split-grid">
           <div>
             <SectionHeading
-              eyebrow={t('About KIVORA STUDIO')}
-              title={t('More Than Just a Digital Agency.')}
+              eyebrow={t('About TemuWeb')}
+              title={t('Your Website Development Partner.')}
             />
             <div className="prose">
               <p>
                 {t(
-                  'We believe exceptional digital products are built at the intersection of thoughtful design, purposeful technology, and deep understanding of the people who use them.',
+                  'TemuWeb is a software house in Surabaya focused on website development. We help you present your business, explain your services, and make it easier for customers to get in touch.',
                 )}
               </p>
               <p>
                 {t(
-                  'Based in Surabaya, we bring a considered perspective to websites, applications, and custom digital solutions. Every project starts with a conversation and an understanding of what your business actually needs.',
+                  'From company profiles to custom web applications, we define the content, features, and technical requirements with you before development begins.',
                 )}
               </p>
             </div>
@@ -54,15 +54,15 @@ export default async function Home({ params }: LocaleParams) {
               <div>
                 <Compass size={21} />
                 <div>
-                  <h3>{t('Design-Led Thinking')}</h3>
-                  <p>{t('Clear experiences, shaped around real people.')}</p>
+                  <h3>{t('Clear Website Structure')}</h3>
+                  <p>{t('Content and navigation that help visitors find what they need.')}</p>
                 </div>
               </div>
               <div>
                 <Code2 size={21} />
                 <div>
-                  <h3>{t('Purposeful Engineering')}</h3>
-                  <p>{t('Careful development, built for the long term.')}</p>
+                  <h3>{t('Maintainable Development')}</h3>
+                  <p>{t('Responsive websites with a foundation for future updates.')}</p>
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default async function Home({ params }: LocaleParams) {
               href="/about-us"
               className="button button-outline"
             >
-              {t('Read Our Story')}
+              {t('Get to Know TemuWeb')}
             </Link>
           </div>
           <div className="portrait-image">
@@ -88,7 +88,7 @@ export default async function Home({ params }: LocaleParams) {
           <SectionHeading
             center
             eyebrow={t('Our Expertise')}
-            title={t('Ideas, Made Digital.')}
+            title={t('Websites, Applications, Integrations.')}
           />
           <div className="expertise-grid">
             {expertise.map((item) => (
@@ -122,10 +122,10 @@ export default async function Home({ params }: LocaleParams) {
           <SectionHeading
             center
             eyebrow={t('Portfolio')}
-            title={t('A Few Different Perspectives.')}
+            title={t('Website & Application Concepts.')}
           >
             {t(
-              'Original studio concepts exploring the space between thoughtful design and purposeful technology.',
+              'Explore our original interface concepts for company websites, online stores, and business applications. These are design explorations, not commissioned client projects.',
             )}
           </SectionHeading>
           <FeaturedProjects />
@@ -144,21 +144,21 @@ export default async function Home({ params }: LocaleParams) {
           <div>
             <SectionHeading
               eyebrow={t('What We Do')}
-              title={t('Digital Craft, Built Around You.')}
+              title={t('From Website Design to Launch.')}
             />
             <div className="numbered-services">
               {[
                 [
                   'Website Design & Development',
-                  'Distinctive websites that bring your identity into focus, with considered content, responsive layouts, and a reliable technical foundation.',
+                  'Company profiles, landing pages, and custom websites with clear content, responsive layouts, and features agreed around your business needs.',
                 ],
                 [
                   'Custom Web Applications',
-                  'Purpose-built platforms, dashboards, and connected systems that support the way your business actually works.',
+                  'Web-based dashboards and internal systems for managing information, coordinating tasks, and connecting existing business tools.',
                 ],
                 [
-                  'Digital Strategy & UI/UX',
-                  'From understanding the challenge to refining the smallest interaction, we design for clarity, usability, and purpose.',
+                  'UI/UX & Website Maintenance',
+                  'Interface design, technical reviews, and ongoing improvements to keep your website usable and ready for changing requirements.',
                 ],
               ].map(([title, description], index) => (
                 <Link
@@ -189,10 +189,10 @@ export default async function Home({ params }: LocaleParams) {
           <SectionHeading
             center
             eyebrow={t('Industries & Capabilities')}
-            title={t('Building Digital Solutions for Ambitious Businesses.')}
+            title={t('Websites for Different Business Needs.')}
           >
             {t(
-              'We work across industries to create digital platforms that combine intuitive experiences, reliable engineering, and thoughtful business solutions.',
+              'A company website, product catalog, booking interface, or internal dashboard: the structure and features follow how your business serves its customers.',
             )}
           </SectionHeading>
           <IndustryExplorer />
@@ -208,7 +208,7 @@ export async function generateMetadata({ params }: LocaleParams) {
   return pageMetadata(
     locale,
     '/',
-    'Thoughtful Digital Experiences',
-    'Independent digital agency and software development studio in Surabaya, Indonesia. Thoughtfully designed websites, web applications, and custom digital solutions.',
+    'Website Development & Software House',
+    'TemuWeb is a software house in Surabaya offering company profile websites, landing pages, e-commerce development, web applications, and website maintenance.',
   );
 }

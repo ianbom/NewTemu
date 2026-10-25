@@ -1,10 +1,10 @@
-# KIVORA STUDIO Design Reference
+# TemuWeb Design Reference
 
 ## Authority
 
 Reference: https://equa-2.vercel.app/
 
-Preserve composition and interaction patterns, not the original identity, photographs, or business claims. The requested agency copy, dark palette, and original studio concepts replace those elements.
+Preserve the existing dark palette, composition, typography, photographs, animations, routes, and interaction patterns. TemuWeb replaces the former identity and copy only, with website development as the primary offering and web applications, integrations, UI/UX, and maintenance as supporting services.
 
 ## Observed Geometry
 
@@ -35,8 +35,8 @@ The original geographical export map becomes an interactive industry/interface p
 
 ## Content And Interaction Boundaries
 
-- Professional Indonesian and English; Indonesian is the default. KIVORA STUDIO; Surabaya, East Java, Indonesia; mail@agency.site; +62 851-5199-4724.
-- Twelve original studio concepts. No commissioned-client claims, testimonials, fabricated team, invented history, or agency performance metrics.
+- Professional Indonesian and English; Indonesian is the default. TemuWeb; Surabaya, East Java, Indonesia; mail@agency.site; +62 851-5199-4724.
+- Twelve original interface concepts. No commissioned-client claims, testimonials, fabricated team, invented history, or software house performance metrics.
 - Six service categories, four project disciplines, three portfolio filter options, four process phases, four approach principles.
 - Portfolio category filters, image lightboxes, the featured-project carousel, and industry controls are functional. Homepage project links lead to Portfolio.
 - Contact actions open WhatsApp in a new tab with a localized inquiry message. Service actions retain the service context. The former contact URLs permanently redirect to WhatsApp. The informational email link remains available; no backend submission or automatic message sending is implied.
@@ -44,5 +44,7 @@ The original geographical export map becomes an interactive industry/interface p
 ## Evidence
 
 `artifacts/reference/measurements.json` records forty reference page/viewport inspections. `artifacts/browser-qa-id.json` and `artifacts/browser-qa-en.json` record local route, responsive, geometry, accessibility, and interaction checks. `artifacts/whatsapp-http.json` records active pages, removed routes, WhatsApp destinations, legacy redirects, and internal-link checks. Reference screenshots and local screenshots are kept separately under `artifacts/`; they are not production assets.
+
+The TemuWeb rebrand is verified in `artifacts/temuweb-visual-qa.json` (48 bilingual route/viewports), `artifacts/temuweb-http.json` (active pages, links, redirects, and removed pages), and `artifacts/temuweb-preservation.json` (unchanged CSS, photographs, and mockup compositions). Updated desktop and mobile screenshots use the `temuweb-` prefix.
 
 Visual comparison prioritizes geometry and rhythm. Different copy lengths and original interface imagery necessarily produce different text wraps and image compositions; color and content identity are intentionally not matched.

@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ||
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3017'),
   ),
-  title: { default: 'KIVORA STUDIO', template: '%s | KIVORA STUDIO' },
-  applicationName: 'KIVORA STUDIO',
+  title: { default: 'TemuWeb', template: '%s | TemuWeb' },
+  applicationName: 'TemuWeb',
   icons: { icon: '/icon.svg' },
   twitter: { card: 'summary_large_image' },
 };

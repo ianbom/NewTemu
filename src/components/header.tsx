@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 export function Wordmark() {
   return (
     <span className="wordmark">
-      KIVORA<span className="wordmark-studio">STUDIO</span>
+      TemuWeb
     </span>
   );
 }
@@ -39,7 +39,7 @@ export function Header() {
         <Link
           className="logo-link"
           href="/"
-          aria-label={t('KIVORA STUDIO home')}
+          aria-label={t('TemuWeb home')}
         >
           <Wordmark />
         </Link>
@@ -98,7 +98,7 @@ export function Header() {
                 <Wordmark />
               </DialogTitle>
               <DialogDescription className="sr-only">
-                {t('Explore KIVORA STUDIO and our work.')}
+                {t('Explore TemuWeb services, process, and portfolio.')}
               </DialogDescription>
               <LanguageSwitcher onChange={() => setOpen(false)} />
               <nav aria-label={t('Mobile navigation')}>

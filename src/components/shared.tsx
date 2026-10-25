@@ -85,7 +85,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
       <div className="project-card-meta">
         <span>{t(project.category)}</span>
-        <span>{t('Studio concept')}</span>
+        <span>{t('Interface concept')}</span>
       </div>
       <h3>
         {project.name}
@@ -108,11 +108,11 @@ export function ContactCTA() {
       />
       <div className="cta-shade" />
       <div className="container">
-        <p className="eyebrow">{t('The next conversation')}</p>
-        <h2>{t('Have Something Great in Mind?')}</h2>
+        <p className="eyebrow">{t('Discuss your website')}</p>
+        <h2>{t('Ready to Build Your Website?')}</h2>
         <p>
           {t(
-            "Tell us about your idea. We'll help turn it into a thoughtfully designed, carefully developed digital experience.",
+            'Tell us about your business, the pages you need, and the features you have in mind. We can discuss the right scope and next steps through WhatsApp.',
           )}
         </p>
         <a
@@ -136,19 +136,19 @@ export function Footer() {
           <div className="footer-brand">
             <Link
               href="/"
-              aria-label={t('KIVORA STUDIO home')}
+              aria-label={t('TemuWeb home')}
             >
               <Wordmark />
             </Link>
             <p>
-              {t('Crafting Digital Experiences')}
+              {t('Website Development')}
               <br />
-              {t('That Matter.')}
+              {t('for Your Business.')}
             </p>
             <p>
-              {t('Thoughtful design. Purposeful technology.')}
+              {t('Websites, web applications, and integrations.')}
               <br />
-              {t('A digital studio based in Surabaya.')}
+              {t('A software house based in Surabaya.')}
             </p>
           </div>
           <div>
@@ -163,7 +163,7 @@ export function Footer() {
             ))}
           </div>
           <div>
-            <h2>{t('The Studio')}</h2>
+            <h2>{t('About TemuWeb')}</h2>
             {navigation.filter((_, index) => index < 2 || index === 4).map((item) => (
               <Link
                 key={item.href}
@@ -202,8 +202,8 @@ export function Footer() {
             </p>
           </div>
           <div className="footer-services">
-            <h2>{t('Built Around Your Needs')}</h2>
-            <p>{t('Websites, applications, and meaningful digital experiences.')}</p>
+            <h2>{t('Website Services')}</h2>
+            <p>{t('Company websites, online stores, and supporting web applications.')}</p>
             <a
               href={whatsappHref(locale)}
               target="_blank"
@@ -218,7 +218,7 @@ export function Footer() {
         <div className="footer-bottom">
           <span>
             &copy; {new Date().getFullYear()}
-            {t(' KIVORA STUDIO. All rights reserved.')}
+            {t(' TemuWeb. All rights reserved.')}
           </span>
           <div>
             {[services[0], services[3], services[4]].map((service) => (
@@ -232,7 +232,7 @@ export function Footer() {
               </a>
             ))}
           </div>
-          <span>{t('Design with intention.')}</span>
+          <span>{t('Built for your business.')}</span>
         </div>
       </div>
     </footer>

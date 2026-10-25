@@ -9,7 +9,7 @@
     fill="#08090b"
   />
   <path
-    d="M18 15h6v17l16-17h8L30 34l19 16h-9L24 36v14h-6z"
+    d="M16 15h32v6H35v29h-6V21H16z"
     fill="#c7b59a"
   />
 </svg>
