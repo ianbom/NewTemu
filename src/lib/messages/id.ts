@@ -1,4 +1,152 @@
 export const indonesian: Record<string, string> = {
+  'Choose the service you need, then compare the included benefits. Open Delivery scope for work limits. We confirm the scope and price before starting.':
+    'Pilih layanan yang Anda butuhkan, lalu bandingkan manfaat setiap paket. Buka Rincian Cakupan untuk melihat batas pekerjaan. Cakupan dan harga dikonfirmasi sebelum pengerjaan.',
+  'Website packages include a standard domain and hosting for the first year, SSL while hosting is active, an admin dashboard, and WhatsApp integration. Mobile packages include first-year domain and hosting for the backend. Renewals are separate.':
+    'Paket website mencakup domain standar dan hosting tahun pertama, SSL selama hosting aktif, dashboard admin, serta integrasi WhatsApp. Paket aplikasi mobile mencakup domain dan hosting backend tahun pertama. Biaya perpanjangan terpisah.',
+  'Do mobile packages include Android and iOS?':
+    'Apakah paket aplikasi mobile mencakup Android dan iOS?',
+  'All mobile packages cover Android and iOS. Developer account and app store publication costs are separate. Features and release arrangements are confirmed before work begins.':
+    'Semua paket aplikasi mobile mencakup Android dan iOS. Biaya akun developer dan publikasi di toko aplikasi terpisah. Fitur serta proses rilis disepakati sebelum pengerjaan.',
+  'Developer accounts, app store publication, premium licenses, subscriptions, and payment transaction fees are separate. UI/UX covers design only. Maintenance follows the monthly work allowance, without unlimited support or emergency response guarantees.':
+    'Biaya akun developer, publikasi toko aplikasi, lisensi premium, langganan, dan transaksi pembayaran terpisah. Paket UI/UX hanya mencakup desain. Maintenance mengikuti kapasitas pekerjaan bulanan, tanpa dukungan tanpa batas atau jaminan penanganan darurat.',
+  'We confirm any change in scope or price before continuing. Additional screens, features, or integrations are agreed separately.':
+    'Perubahan cakupan atau harga dikonfirmasi sebelum dilanjutkan. Tambahan tampilan, fitur, atau integrasi disepakati secara terpisah.',
+  'First-year backend domain & hosting included.':
+    'Termasuk domain dan hosting backend tahun pertama.',
+  'Prices are starting prices in Rupiah. Renewals and third-party fees are separate. Scope and final price are agreed before work begins.':
+    'Harga merupakan harga awal dalam Rupiah. Biaya perpanjangan dan pihak ketiga terpisah. Cakupan serta harga akhir disepakati sebelum pengerjaan.',
+  'Mobile-friendly layout':
+    'Tampilan Ramah Ponsel',
+  'Domain for the first year':
+    'Domain Tahun Pertama',
+  'Hosting for the first year':
+    'Hosting Tahun Pertama',
+  'SSL while hosting is active':
+    'SSL Selama Hosting Aktif',
+  'Admin dashboard':
+    'Dashboard Admin',
+  'WhatsApp integration':
+    'Integrasi WhatsApp',
+  'Customer inquiry form':
+    'Formulir Pertanyaan Pelanggan',
+  'External service integration':
+    'Integrasi Layanan Eksternal',
+  'Product catalog & detail pages':
+    'Katalog & Halaman Detail Produk',
+  'Product & order management':
+    'Pengelolaan Produk & Pesanan',
+  'Shopping cart & checkout':
+    'Keranjang Belanja & Checkout',
+  'Online payment integration':
+    'Integrasi Pembayaran Online',
+  'Android & iOS applications':
+    'Aplikasi Android & iOS',
+  'User login & access permissions':
+    'Login & Hak Akses Pengguna',
+  'Business data management':
+    'Pengelolaan Data Bisnis',
+  'Handover documentation':
+    'Dokumentasi Penggunaan',
+  'Backend domain for the first year':
+    'Domain Backend Tahun Pertama',
+  'Backend hosting for the first year':
+    'Hosting Backend Tahun Pertama',
+  'Business activity reports':
+    'Laporan Aktivitas Bisnis',
+  'Data export':
+    'Ekspor Data',
+  'Page structure & navigation':
+    'Struktur Halaman & Navigasi',
+  'Interface design':
+    'Desain Tampilan Antarmuka',
+  'Responsive screen designs':
+    'Desain Responsif',
+  'Editable Figma files':
+    'File Figma yang Dapat Diedit',
+  'Interactive prototype':
+    'Prototipe Interaktif',
+  'Website content updates':
+    'Pembaruan Konten Website',
+  'Minor issue fixes':
+    'Perbaikan Kendala Ringan',
+  'Website health checks':
+    'Pemeriksaan Kondisi Website',
+  'Monthly work report':
+    'Laporan Pekerjaan Bulanan',
+  'Company websites with service information and easy contact options.':
+    'Website perusahaan dengan informasi layanan dan akses kontak yang mudah.',
+  'A clear first website for your company.':
+    'Website awal untuk memperkenalkan perusahaan dan layanan Anda.',
+  'Company profile, services & contact':
+    'Profil Perusahaan, Layanan & Kontak',
+  'More room to present your company and services.':
+    'Ruang lebih lengkap untuk profil dan layanan perusahaan.',
+  'Expanded company & service pages':
+    'Halaman Perusahaan & Layanan Lebih Lengkap',
+  'A fuller company profile with dedicated inquiry forms.':
+    'Profil perusahaan lengkap dengan formulir permintaan penawaran pelanggan.',
+  'Complete company & service presentation':
+    'Penyajian Perusahaan & Layanan Menyeluruh',
+  'Quotation request form':
+    'Formulir Permintaan Penawaran',
+  'Landing pages and custom websites shaped around your business.':
+    'Landing page dan website khusus sesuai kebutuhan bisnis Anda.',
+  'A focused landing page for your main offer.':
+    'Landing page khusus untuk satu penawaran utama bisnis.',
+  'Custom landing page':
+    'Landing Page Khusus',
+  'Custom pages with forms for new customer inquiries.':
+    'Halaman khusus dengan formulir untuk pertanyaan calon pelanggan.',
+  'Custom page layouts':
+    'Desain Halaman Sesuai Kebutuhan',
+  'A larger custom website connected to external services.':
+    'Website khusus lebih lengkap dengan integrasi layanan eksternal.',
+  'Extended custom page layouts':
+    'Desain Halaman Khusus Lebih Lengkap',
+  'Online stores with product catalogs, ordering, and payment options.':
+    'Toko online dengan katalog produk, pemesanan, dan pilihan pembayaran.',
+  'A product catalog with orders through WhatsApp.':
+    'Katalog produk online dengan pemesanan langsung melalui WhatsApp.',
+  'Product management':
+    'Pengelolaan Produk',
+  'Orders through WhatsApp':
+    'Pemesanan Melalui WhatsApp',
+  'An online store with checkout and online payments.':
+    'Toko online dengan keranjang belanja dan pembayaran online.',
+  'An online store with payment and shipping integrations.':
+    'Toko online lengkap dengan integrasi pembayaran dan pengiriman.',
+  'Shipping service integration':
+    'Integrasi Layanan Pengiriman',
+  'Mobile Application':
+    'Aplikasi Mobile',
+  'Android and iOS applications for managing business activities.':
+    'Aplikasi Android dan iOS untuk mengelola aktivitas bisnis Anda.',
+  'Android / iOS / Admin dashboard':
+    'Android / iOS / Dashboard Admin',
+  'Android and iOS apps for essential business tasks.':
+    'Aplikasi Android dan iOS untuk kebutuhan dasar bisnis.',
+  'Mobile apps with business reports and data exports.':
+    'Aplikasi mobile dengan laporan bisnis dan ekspor data.',
+  'Connected mobile apps for wider business operations.':
+    'Aplikasi mobile terintegrasi untuk kebutuhan operasional lebih luas.',
+  'Interface designs and interactive prototypes for websites and applications.':
+    'Desain antarmuka dan prototipe interaktif untuk website serta aplikasi.',
+  'Interface designs with editable files for your team.':
+    'Desain antarmuka beserta file yang mudah diedit tim.',
+  'Interface designs with a prototype you can explore.':
+    'Desain antarmuka dengan prototipe interaktif yang dapat dicoba.',
+  'Complete interface designs with a reusable component library.':
+    'Desain antarmuka lengkap dengan koleksi komponen siap pakai.',
+  'Reusable design components':
+    'Komponen Desain Siap Digunakan Ulang',
+  'Content updates, minor fixes, and routine website checks.':
+    'Pembaruan konten, perbaikan ringan, dan pemeriksaan website secara berkala.',
+  'Light website upkeep for occasional content changes.':
+    'Perawatan ringan untuk pembaruan konten website sesekali.',
+  'Regular website upkeep with more room for updates.':
+    'Perawatan rutin dengan kapasitas pembaruan website lebih besar.',
+  'Broader website upkeep for more frequent business updates.':
+    'Perawatan lebih menyeluruh untuk kebutuhan pembaruan website berkala.',
   'Websites Built Around Your Business.':
     'Pilihan Website untuk Bisnis Anda.',
   'Websites for a range of business needs.':
@@ -724,12 +872,12 @@ export const indonesian: Record<string, string> = {
     'Jasa pembuatan website, toko online, dan aplikasi web pendukung. Ruang lingkup, fitur, dan serah terima disusun sesuai kebutuhan bisnis Anda.',
   'Original interface concepts for websites, online stores, and web applications. Explore layouts and features for different business needs.':
     'Konsep antarmuka orisinal untuk website, toko online, dan aplikasi web. Jelajahi tata letak dan fitur untuk beragam kebutuhan bisnis.',
-  'Company Profile Websites': 'Situs Web Profil Perusahaan',
+  'Website Company Profile': 'Website Company Profile',
   'Company Profile Website': 'Situs Web Profil Perusahaan',
-  'Custom Website Development': 'Pengembangan Situs Web Khusus',
-  'E-Commerce Development': 'Pengembangan E-Commerce',
+  'Web Custom': 'Web Custom',
+  'Website E-Commerce': 'Website E-Commerce',
   'E-Commerce Website': 'Situs Web E-Commerce',
-  'Business Web Applications': 'Aplikasi Web Bisnis',
+  'Aplikasi Mobile': 'Aplikasi Mobile',
   'Maintenance & Optimization': 'Pemeliharaan & Optimalisasi',
   'Custom Software': 'Perangkat Lunak Khusus',
   Other: 'Lainnya',

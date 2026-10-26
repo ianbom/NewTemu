@@ -6,6 +6,19 @@ import { whatsappHref } from '../src/lib/behavior.ts';
 import { navigation, services } from '../src/lib/data.ts';
 import { getTranslator } from '../src/lib/i18n.ts';
 
+test('pricing uses the requested service names in both languages', () => {
+  const titles = [
+    'Website Company Profile',
+    'Web Custom',
+    'Website E-Commerce',
+    'Aplikasi Mobile',
+  ];
+  for (const locale of ['id', 'en'] as const) {
+    const t = getTranslator(locale);
+    assert.deepEqual(services.slice(0, 4).map((service) => t(service.title)), titles);
+  }
+});
+
 test('pricing copy preserves every price and delivery limit', () => {
   const expected = [
     [[1_000_000, 2_500_000, 4_500_000], [[3, 1], [6, 2], [10, 3]]],
@@ -36,7 +49,14 @@ test('packages explain benefits while keeping delivery limits in accessible deta
   const descriptions = new Set<string>();
   for (const [serviceIndex, service] of services.entries()) {
     for (const plan of service.packages) {
-      assert.ok(plan.description.length > 40);
+      for (const locale of ['id', 'en'] as const) {
+        const t = getTranslator(locale);
+        const words = t(plan.description).trim().split(/\s+/).length;
+        assert.ok(words >= 6 && words <= 10, `${locale}: ${plan.description}`);
+        for (const feature of plan.features) {
+          assert.ok(t(feature).trim().split(/\s+/).length <= 8, feature);
+        }
+      }
       descriptions.add(plan.description);
       assert.ok(plan.scopeDetails.length > 0);
       assert.doesNotMatch(
@@ -48,10 +68,21 @@ test('packages explain benefits while keeping delivery limits in accessible deta
         /unlimited|SEO|business email|free maintenance|guaranteed results/i,
       );
       for (const inclusion of [
-        'Standard domain for the first year',
-        'Basic hosting for the first year',
+        'Domain for the first year',
+        'Hosting for the first year',
+        'SSL while hosting is active',
+        'WhatsApp integration',
       ]) {
-        assert.equal(plan.features.includes(inclusion), serviceIndex < 4);
+        assert.equal(plan.features.includes(inclusion), serviceIndex < 3);
+      }
+      if (serviceIndex < 4) {
+        assert.ok(plan.features.includes('Admin dashboard'));
+      }
+      if (serviceIndex === 3) {
+        assert.ok(plan.features.includes('Android & iOS applications'));
+        assert.ok(plan.features.includes('Backend domain for the first year'));
+        assert.ok(plan.features.includes('Backend hosting for the first year'));
+        assert.doesNotMatch(plan.features.join(' '), /web application/i);
       }
     }
   }
@@ -65,31 +96,28 @@ test('packages explain benefits while keeping delivery limits in accessible deta
 
 test('higher-tier capabilities do not leak into entry-level packages', () => {
   const capabilities = [
-    [0, 'Update website information through a management area', [false, true, true]],
-    [0, 'An inquiry form for prospective customers', [false, false, true]],
-    [1, 'Update website information through a management area', [false, true, true]],
-    [1, 'An inquiry form for prospective customers', [false, true, true]],
-    [1, 'Connect your website with an agreed external service', [false, false, true]],
-    [2, 'Customers continue their order through WhatsApp', [true, false, false]],
-    [2, 'Manage products and incoming orders in one place', [false, true, true]],
-    [2, 'Customers can add items to a cart and complete checkout', [false, true, true]],
-    [2, 'Connect checkout to an online payment provider', [false, true, true]],
-    [2, 'Connect your store to an agreed delivery service', [false, false, true]],
-    [3, 'A sign-in area for your team', [true, true, true]],
-    [3, 'Access permissions matched to agreed responsibilities', [true, true, true]],
-    [3, 'Manage business records through a web application', [true, true, true]],
-    [3, 'Written documentation at handover', [true, true, true]],
-    [3, 'Review business activity through reports', [false, true, true]],
-    [3, 'Download data for your reporting needs', [false, true, true]],
-    [3, 'Connect your application with an agreed external service', [false, false, true]],
-    [4, 'Design variants for different screen sizes', [true, true, true]],
-    [4, 'Editable design files in Figma', [true, true, true]],
-    [4, 'A clickable prototype to review the user flow', [false, true, true]],
-    [4, 'Reusable design elements for a consistent interface', [false, false, true]],
-    [5, 'Update existing website content', [true, true, true]],
-    [5, 'Address minor website issues', [true, true, true]],
-    [5, 'Check technical aspects of the website', [true, true, true]],
-    [5, 'A monthly summary of the work carried out', [true, true, true]],
+    [0, 'Quotation request form', [false, false, true]],
+    [1, 'Customer inquiry form', [false, true, true]],
+    [1, 'External service integration', [false, false, true]],
+    [2, 'Orders through WhatsApp', [true, false, false]],
+    [2, 'Product & order management', [false, true, true]],
+    [2, 'Shopping cart & checkout', [false, true, true]],
+    [2, 'Online payment integration', [false, true, true]],
+    [2, 'Shipping service integration', [false, false, true]],
+    [3, 'User login & access permissions', [true, true, true]],
+    [3, 'Business data management', [true, true, true]],
+    [3, 'Handover documentation', [true, true, true]],
+    [3, 'Business activity reports', [false, true, true]],
+    [3, 'Data export', [false, true, true]],
+    [3, 'External service integration', [false, false, true]],
+    [4, 'Responsive screen designs', [true, true, true]],
+    [4, 'Editable Figma files', [true, true, true]],
+    [4, 'Interactive prototype', [false, true, true]],
+    [4, 'Reusable design components', [false, false, true]],
+    [5, 'Website content updates', [true, true, true]],
+    [5, 'Minor issue fixes', [true, true, true]],
+    [5, 'Website health checks', [true, true, true]],
+    [5, 'Monthly work report', [true, true, true]],
   ] as const;
   for (const [serviceIndex, feature, expected] of capabilities) {
     assert.deepEqual(
@@ -98,6 +126,18 @@ test('higher-tier capabilities do not leak into entry-level packages', () => {
       feature,
     );
   }
+});
+
+test('mobile inquiries and pricing terms disclose the new delivery scope', () => {
+  for (const locale of ['id', 'en'] as const) {
+    const href = whatsappHref(locale, services[3].type);
+    const message = new URL(href).searchParams.get('text')!;
+    assert.ok(message.includes(locale === 'id' ? 'Aplikasi Mobile' : 'Mobile Application'));
+  }
+  const source = readFileSync('src/components/pricing.tsx', 'utf8');
+  assert.match(source, /Do mobile packages include Android and iOS\?/);
+  assert.match(source, /Developer accounts, app store publication/);
+  assert.doesNotMatch(source, /web application packages|For business applications/);
 });
 
 test('six services expose eighteen distinct, ascending Rupiah packages', () => {

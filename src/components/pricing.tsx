@@ -12,19 +12,23 @@ const rupiah = new Intl.NumberFormat('id-ID', {
 const questions = [
   [
     'How do I choose a package?',
-    'Choose based on what your business needs: an introduction, an online store, or help with daily operations. Each package explains who it suits and what is included. Open Delivery scope for the work allowance, then confirm the details and final price with us before starting.',
+    'Choose the service you need, then compare the included benefits. Open Delivery scope for work limits. We confirm the scope and price before starting.',
   ],
   [
     'Are domain and hosting included?',
-    'A standard domain and basic hosting for the first year are included in website and web application packages. Renewal from the second year and any capacity upgrades are charged separately according to your requirements.',
+    'Website packages include a standard domain and hosting for the first year, SSL while hosting is active, an admin dashboard, and WhatsApp integration. Mobile packages include first-year domain and hosting for the backend. Renewals are separate.',
+  ],
+  [
+    'Do mobile packages include Android and iOS?',
+    'All mobile packages cover Android and iOS. Developer account and app store publication costs are separate. Features and release arrangements are confirmed before work begins.',
   ],
   [
     'Are there additional costs?',
-    'Premium licenses, payment transaction fees, and third-party subscriptions are separate. UI/UX packages cover design, not website development. Maintenance follows the monthly work allowance shown in Delivery scope; it does not include unlimited support or a guaranteed emergency response.',
+    'Developer accounts, app store publication, premium licenses, subscriptions, and payment transaction fees are separate. UI/UX covers design only. Maintenance follows the monthly work allowance, without unlimited support or emergency response guarantees.',
   ],
   [
     'What if my requirements change?',
-    'Tell us what you would like to add or change. We explain any effect on the agreed work and price before proceeding. For business applications, we agree which activities and types of user the application will support before development.',
+    'We confirm any change in scope or price before continuing. Additional screens, features, or integrations are agreed separately.',
   ],
 ];
 
@@ -79,11 +83,13 @@ export function Pricing({ locale }: { locale: Locale }) {
               </div>
               <p className="pricing-service-note">
                 {t(
-                  index < 4
+                  index < 3
                     ? 'First-year domain & hosting included.'
-                    : service.slug === 'ui-ux-design'
-                      ? 'Design deliverables only. No development.'
-                      : 'A monthly allowance for updates and minor fixes.',
+                    : index === 3
+                      ? 'First-year backend domain & hosting included.'
+                      : service.slug === 'ui-ux-design'
+                        ? 'Design deliverables only. No development.'
+                        : 'A monthly allowance for updates and minor fixes.',
                 )}
               </p>
             </div>
@@ -150,7 +156,7 @@ export function Pricing({ locale }: { locale: Locale }) {
         ))}
         <p className="pricing-terms">
           {t(
-            'All prices are starting prices in Rupiah. The final price and scope are confirmed before work begins. First-year domain and basic hosting apply to website and web application packages only; renewal, upgrades, premium licenses, and third-party fees are separate.',
+            'Prices are starting prices in Rupiah. Renewals and third-party fees are separate. Scope and final price are agreed before work begins.',
           )}
         </p>
       </div>
