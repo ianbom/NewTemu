@@ -3,6 +3,38 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { test } from 'node:test';
 import sharp from 'sharp';
 import { projects } from '../src/lib/data.ts';
+test('industry images preserve the five supplied hero screenshots', async () => {
+  const names = ['atelier', 'vyren', 'galerya', 'noirel', 'north'];
+  const component = readFileSync('src/components/interactive.tsx', 'utf8');
+  const explorer = component.split('export function IndustryExplorer()')[1]
+    .split('export function PortfolioGallery()')[0];
+  const images = [...explorer.matchAll(/image: '([^']+)'/g)]
+    .map((match) => match[1]);
+  assert.deepEqual(images, names.map((name) => `/images/industries/${name}.webp`));
+  for (const name of names) {
+    const output = `public/images/industries/${name}.webp`;
+    const metadata = await sharp(output).metadata();
+    assert.equal(metadata.width, 1920, name);
+    assert.equal(metadata.height, 912, name);
+    assert.equal(metadata.format, 'webp', name);
+    const source = await sharp(`hero/${name}.png`)
+      .resize(120, 57)
+      .removeAlpha()
+      .raw()
+      .toBuffer();
+    const optimized = await sharp(output)
+      .resize(120, 57)
+      .removeAlpha()
+      .raw()
+      .toBuffer();
+    assert.equal(optimized.length, source.length, name);
+    const difference = source.reduce(
+      (sum, channel, index) => sum + Math.abs(channel - optimized[index]),
+      0,
+    ) / source.length;
+    assert.ok(difference < 8, `${name}: screenshot cropped or distorted`);
+  }
+});
 test('eleven screenshots use a uniform top crop matching Northform', async () => {
   assert.equal(projects.length, 11);
   assert.equal(new Set(projects.map((project) => project.slug)).size, 11);

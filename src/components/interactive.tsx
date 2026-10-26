@@ -2,7 +2,6 @@
 import { useI18n } from '@/components/i18n-provider';
 import { ProjectCard } from '@/components/shared';
 import { projects } from '@/lib/data';
-import { localizedImage } from '@/lib/i18n';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -44,70 +43,68 @@ export function FeaturedProjects() {
   );
 }
 export function IndustryExplorer() {
-  const { locale, t } = useI18n();
+  const { t } = useI18n();
   const industries = [
     {
       title: 'Corporate & Business',
-      image: '/images/projects/norden.svg',
-      description: 'Company profiles, service pages, and inquiry channels in one website.',
+      image: '/images/industries/atelier.webp',
     },
     {
       title: 'E-Commerce & Retail',
-      image: '/images/projects/auren.svg',
-      description: 'Online stores with product catalogs and clear shopping journeys.',
+      image: '/images/industries/vyren.webp',
     },
     {
       title: 'Education & Learning',
-      image: '/images/projects/sora.svg',
-      description: 'Course websites and web applications for organizing learning materials.',
+      image: '/images/industries/galerya.webp',
     },
     {
       title: 'Healthcare & Services',
-      image: '/images/projects/lumio.svg',
-      description: 'Service information and appointment interfaces that are easy to navigate.',
+      image: '/images/industries/noirel.webp',
     },
     {
       title: 'Technology & Startups',
-      image: '/images/projects/atlas.svg',
-      description: 'Product websites and web applications shaped around an agreed scope.',
+      image: '/images/industries/north.webp',
     },
   ];
   const [selected, setSelected] = useState(0);
   const industry = industries[selected];
   return (
     <div className="industry-explorer">
-      <div className="industry-topline">
-        <span>
-          <span className="status-dot" />
-          {t('Website features for your business')}
-        </span>
-        <span>{t('Different requirements. A clear development scope.')}</span>
-      </div>
-      <div className="industry-visual">
+      <div
+        className="industry-visual"
+        aria-live="polite"
+      >
         <Image
-          src={localizedImage(industry.image, locale)}
-          alt={t('{0} interface illustration', t(industry.title))}
+          src={industry.image}
+          alt={t('{0} website preview', t(industry.title))}
           fill
-          sizes="(min-width: 1024px) 1000px, 100vw"
+          sizes="(min-width: 1072px) 1024px, 100vw"
         />
-        <div className="industry-label">
-          <span className="eyebrow">{t(industry.title)}</span>
-          <p>{t(industry.description)}</p>
-        </div>
       </div>
       <div
-        className="industry-controls"
+        className="industry-navigation"
         aria-label={t('Explore industries')}
       >
-        {industries.map((item, index) => (
-          <button
-            aria-pressed={selected === index}
-            key={item.title}
-            onClick={() => setSelected(index)}
-          >
-            {t(item.title)}
-          </button>
-        ))}
+        <button
+          type="button"
+          aria-label={t('Previous image')}
+          onClick={() => setSelected((selected + industries.length - 1) % industries.length)}
+        >
+          <ArrowLeft
+            size={19}
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          type="button"
+          aria-label={t('Next image')}
+          onClick={() => setSelected((selected + 1) % industries.length)}
+        >
+          <ArrowRight
+            size={19}
+            aria-hidden="true"
+          />
+        </button>
       </div>
     </div>
   );
@@ -117,6 +114,9 @@ export function PortfolioGallery() {
   return (
     <section className="section">
       <div className="container">
+        <h2 className="portfolio-heading">
+          {t('Websites Built Around Your Business.')}
+        </h2>
         <p className="portfolio-introduction">
           {t('Websites for a range of business needs.')}
         </p>
@@ -139,10 +139,13 @@ export function PortfolioGallery() {
                 />
               </div>
               <div className="tile-caption">
-                <span>
-                  {project.name}
+                <div className="tile-copy">
+                  <span>{project.name}</span>
                   <small>{t(project.category)}</small>
-                </span>
+                  <p className="tile-description">
+                    {t(project.description)}
+                  </p>
+                </div>
                 <ArrowUpRight
                   size={22}
                   aria-hidden="true"

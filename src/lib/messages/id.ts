@@ -1,4 +1,6 @@
 export const indonesian: Record<string, string> = {
+  'Websites Built Around Your Business.':
+    'Pilihan Website untuk Bisnis Anda.',
   'Websites for a range of business needs.':
     'Ragam website untuk kebutuhan bisnis Anda.',
   'Website Portfolio.': 'Portofolio Website.',

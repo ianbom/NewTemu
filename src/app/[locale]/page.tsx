@@ -1,11 +1,10 @@
-import { FeaturedProjects, IndustryExplorer } from '@/components/interactive';
+import { FeaturedProjects } from '@/components/interactive';
 import Link from '@/components/localized-link';
 import { ContactCTA, Hero, SectionHeading } from '@/components/shared';
-import { expertise } from '@/lib/data';
 import { getTranslator, localizedImage, type LocaleParams } from '@/lib/i18n';
 import { getLocale } from '@/lib/locale-server';
 import { pageMetadata } from '@/lib/metadata';
-import { ArrowUpRight, Code2, Compass } from 'lucide-react';
+import { Code2, Compass } from 'lucide-react';
 import Image from 'next/image';
 export default async function Home({ params }: LocaleParams) {
   const locale = await getLocale(params);
@@ -83,40 +82,6 @@ export default async function Home({ params }: LocaleParams) {
           </div>
         </div>
       </section>
-      <section className="section expertise-section">
-        <div className="container">
-          <SectionHeading
-            center
-            eyebrow={t('Our Expertise')}
-            title={t('Websites, Applications, Integrations.')}
-          />
-          <div className="expertise-grid">
-            {expertise.map((item) => (
-              <Link
-                className="expertise-card"
-                href="/portfolio"
-                key={item.title}
-              >
-                <Image
-                  src={localizedImage(item.image, locale)}
-                  alt={t('{0} original interface composition', t(item.title))}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                />
-                <div className="expertise-shade" />
-                <div className="expertise-copy">
-                  <h3>{t(item.title)}</h3>
-                  <p>{item.items.map((value) => t(value)).join(' / ')}</p>
-                  <span>
-                    {t('Explore our work')}
-                    <ArrowUpRight size={16} />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
       <section className="section bordered">
         <div className="container">
           <SectionHeading
@@ -182,20 +147,6 @@ export default async function Home({ params }: LocaleParams) {
               sizes="(min-width: 1024px) 40vw, 100vw"
             />
           </div>
-        </div>
-      </section>
-      <section className="section carbon bordered">
-        <div className="container">
-          <SectionHeading
-            center
-            eyebrow={t('Industries & Capabilities')}
-            title={t('Websites for Different Business Needs.')}
-          >
-            {t(
-              'A company website, product catalog, booking interface, or internal dashboard: the structure and features follow how your business serves its customers.',
-            )}
-          </SectionHeading>
-          <IndustryExplorer />
         </div>
       </section>
       <ContactCTA />

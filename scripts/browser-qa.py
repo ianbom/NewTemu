@@ -23,7 +23,7 @@ LABELS = {
     "Next project": "Proyek berikutnya",
     "All Work": "Semua Karya",
     "Open navigation menu": "Buka menu navigasi",
-    "02 Our Process": "02 Proses Kerja",
+    "03 Our Process": "03 Proses Kerja",
 }
 
 
@@ -285,11 +285,10 @@ check(
     evaluate("document.querySelector('.featured-grid h3').innerText") != first,
     "Featured carousel advances",
 )
-click_name("Healthcare & Services")
+click_name("Next image")
 check(
-    translated("Healthcare & Services")
-    in evaluate("document.querySelector('.industry-label').textContent"),
-    "Industry selector updates",
+    "vyren.webp" in evaluate("document.querySelector('.industry-visual img').src"),
+    "Industry arrow advances the image without text overlays",
 )
 
 navigate("/portfolio")
@@ -445,7 +444,7 @@ check(
     evaluate("getComputedStyle(document.body).overflow") == "hidden",
     "Mobile navigation scroll lock",
 )
-click_name("02 Our Process", "link")
+click_name("03 Our Process", "link")
 time.sleep(0.6)
 check("/our-process" in page_info()["url"], "Mobile navigation route works")
 check(

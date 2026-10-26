@@ -67,9 +67,9 @@ export function Header() {
             href={whatsappHref(locale)}
             target="_blank"
             rel="noopener noreferrer"
-            className="button button-outline header-contact"
+            className="header-contact"
           >
-            {t('Contact Us')}
+            <span>{t('Contact Us')}</span>
           </a>
         </div>
         <div className="mobile-controls">
@@ -79,7 +79,7 @@ export function Header() {
             rel="noopener noreferrer"
             className="mobile-contact"
           >
-            {t('Contact')}
+            <span>{t('Contact')}</span>
           </a>
           <Dialog
             open={open}

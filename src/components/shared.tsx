@@ -80,7 +80,7 @@ export function ProjectCard({ project }: { project: Project }) {
           src={project.image}
           alt={t('{0} website preview', project.name)}
           fill
-          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+          sizes="(max-width: 1023px) 50vw, 25vw"
         />
         <span className="image-link-mark">
           <ArrowUpRight size={22} />
@@ -156,7 +156,9 @@ export function Footer() {
           </div>
           <div>
             <h2>{t('Explore')}</h2>
-            {navigation.slice(2, 4).map((item) => (
+            {navigation
+              .filter((item) => ['/pricing', '/portfolio'].includes(item.href))
+              .map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -167,7 +169,9 @@ export function Footer() {
           </div>
           <div>
             <h2>{t('About TemuWeb')}</h2>
-            {navigation.filter((_, index) => index < 2 || index === 4).map((item) => (
+            {navigation
+              .filter((item) => !['/pricing', '/portfolio'].includes(item.href))
+              .map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

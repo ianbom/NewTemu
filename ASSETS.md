@@ -41,6 +41,15 @@ The generator also creates thirty-six Indonesian-language variants in `public/im
 
 The eleven PNG screenshots in `web-ss` are supplied by the user, together with their destination URLs in `src/lib/data.ts`. `scripts/prepare-portfolio.mjs` preserves those files and uses the installed Sharp package to create WebP previews in `public/images/portfolio`. Each preview is cropped from the top to 1920 by 4180 pixels without resizing, matching the supplied Northform screenshot. These previews are shared by both languages. Supporting SVG illustrations remain in use outside the portfolio.
 
+## Industry Screenshots
+
+The five PNG screenshots in `hero/` are supplied by the user. Their full
+1920 by 912 pixel compositions are preserved as quality-90 WebP images in
+`public/images/industries/`. The homepage industry controls use Atelier,
+Vyren, Galerya, Noirel, and North in that order, shared by both languages.
+Responsive containers crop the previews with `object-fit: cover`; source
+files remain unchanged.
+
 ## Typography And Icons
 
 Geist: loaded through `next/font/google`. Lucide: interface icons. Radix primitives support shadcn-style accessible dialog and navigation components. Their installed packages retain upstream license files.

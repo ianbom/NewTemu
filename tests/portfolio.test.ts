@@ -8,7 +8,7 @@ import { getTranslator } from '../src/lib/i18n.ts';
 test('navigation exposes one bilingual portfolio without removed pages', () => {
   assert.deepEqual(
     navigation.map((item) => item.href),
-    ['/about-us', '/our-process', '/pricing', '/portfolio', '/our-approach'],
+    ['/about-us', '/pricing', '/our-process', '/portfolio', '/our-approach'],
   );
   assert.equal(getTranslator('id')('Portfolio'), 'Portofolio');
   assert.equal(getTranslator('en')('Portfolio'), 'Portfolio');
@@ -104,4 +104,46 @@ test('portfolio renders all projects with bilingual introduction and no filters'
   assert.equal(getTranslator('en')(message), message);
   const css = readFileSync('src/app/globals.css', 'utf8');
   assert.doesNotMatch(css, /gallery-filters|gallery-count/);
+});
+
+test('homepage keeps four featured projects in two mobile columns', () => {
+  const source = readFileSync('src/components/interactive.tsx', 'utf8');
+  const featured = source.split('export function FeaturedProjects()')[1]
+    .split('export function IndustryExplorer()')[0];
+  assert.match(featured, /length: 4/);
+  const css = readFileSync('src/app/globals.css', 'utf8');
+  const mobile = css.split('@media (max-width: 479px)')[1];
+  assert.match(
+    mobile,
+    /\.featured-grid\s*\{\s*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/,
+  );
+  const cards = readFileSync('src/components/shared.tsx', 'utf8');
+  assert.match(cards, /sizes="\(max-width: 1023px\) 50vw, 25vw"/);
+});
+
+test('industry previews have only images and accessible cycling arrows', () => {
+  const source = readFileSync('src/components/interactive.tsx', 'utf8');
+  const industry = source.split('export function IndustryExplorer()')[1]
+    .split('export function PortfolioGallery()')[0];
+  assert.doesNotMatch(industry, /industry-topline|industry-label|industry-controls/);
+  assert.doesNotMatch(industry, /description:|aria-pressed/);
+  assert.match(industry, /aria-label=\{t\('Previous image'\)\}/);
+  assert.match(industry, /aria-label=\{t\('Next image'\)\}/);
+  assert.match(industry, /selected \+ industries\.length - 1/);
+  assert.match(industry, /\(selected \+ 1\) % industries\.length/);
+});
+
+test('portfolio adds a bilingual heading and translated project descriptions', () => {
+  const source = readFileSync('src/components/interactive.tsx', 'utf8');
+  const gallery = source.split('export function PortfolioGallery()')[1];
+  assert.match(gallery, /<h2[^>]*>\s*\{t\('Websites Built Around Your Business\.'\)\}/);
+  assert.match(gallery, /className="tile-description"/);
+  assert.match(gallery, /\{t\(project\.description\)\}/);
+  const heading = 'Websites Built Around Your Business.';
+  assert.equal(getTranslator('id')(heading), 'Pilihan Website untuk Bisnis Anda.');
+  assert.equal(getTranslator('en')(heading), heading);
+  for (const project of projects) {
+    assert.notEqual(getTranslator('id')(project.description), project.description);
+    assert.ok(project.description.length > 20);
+  }
 });
