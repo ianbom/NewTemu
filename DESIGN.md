@@ -35,10 +35,15 @@ The original geographical export map becomes an interactive industry/interface p
 
 ## Content And Interaction Boundaries
 
+- Pricing replaces Services at `/id/pricing` and `/en/pricing`. It is intentionally image-free: a text introduction, six service anchors, and six open three-column package comparisons separated by fine rules. Tablet packages use a two-part text layout; mobile packages stack. Native FAQ disclosures and a text-only WhatsApp CTA complete the page. Existing palette, Geist typography, header, footer, and other pages remain unchanged.
+- Every service has Starter, Pro, and Business pricing in IDR. Company profile Starter begins at Rp1.000.000. Maintenance uses monthly work-hour limits; other services are priced per project. Domain/basic hosting inclusion and separate renewal/third-party costs are stated explicitly. No popularity badges, artificial discounts, checkout, or automatic message submission.
+- Package descriptions explain business fit and included benefits. Native Delivery scope disclosures contain the unchanged page, catalog setup, access, design, revision, and monthly work allowances. No new inclusions or price changes accompany the copy update; the existing pricing introduction remains intact.
+
 - Professional Indonesian and English; Indonesian is the default. TemuWeb; Surabaya, East Java, Indonesia; mail@agency.site; +62 851-5199-4724.
-- Twelve original interface concepts. No commissioned-client claims, testimonials, fabricated team, invented history, or software house performance metrics.
-- Six service categories, four project disciplines, three portfolio filter options, four process phases, four approach principles.
-- Portfolio category filters, image lightboxes, the featured-project carousel, and industry controls are functional. Homepage project links lead to Portfolio.
+- Eleven supplied website previews. No commissioned-client claims, testimonials, fabricated team, invented history, or software house performance metrics.
+- Six service categories, two portfolio disciplines, four process phases, four approach principles.
+- Portfolio shows all eleven websites, nine Websites and two E-Commerce entries, without filters or a result counter. A centered bilingual introduction replaces the controls. All project previews link directly to their supplied websites in a new tab, without lightboxes or detail pages. The homepage carousel uses the same data; industry illustrations are independent. The unused interactive showcase is removed, not reintroduced as a new homepage section.
+- Portfolio images use a uniform 1920 by 4180 top crop, matching Northform, with three columns from 1024px and two columns on mobile/tablet. Mobile gutters are 12px, with smaller captions and icons. The final odd item stays in the left column. Captions sit below images rather than covering them. Homepage project cards retain the same portrait ratio.
 - Contact actions open WhatsApp in a new tab with a localized inquiry message. Service actions retain the service context. The former contact URLs permanently redirect to WhatsApp. The informational email link remains available; no backend submission or automatic message sending is implied.
 
 ## Evidence

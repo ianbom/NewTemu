@@ -19,6 +19,7 @@ LABELS = {
     "Show image 3": "Tampilkan gambar 3",
     "Enlarge AUREN image 3": "Perbesar gambar AUREN, tampilan 3",
     "Website Design": "Desain Situs Web",
+    "Websites": "Situs Web",
     "Next project": "Proyek berikutnya",
     "All Work": "Semua Karya",
     "Open navigation menu": "Buka menu navigasi",
@@ -41,19 +42,45 @@ def check(condition, name):
 
 
 def viewport(width):
+    height = 900 if width >= 768 else 844
     cdp(
         "Emulation.setDeviceMetricsOverride",
         width=width,
-        height=900 if width >= 768 else 844,
+        height=height,
         deviceScaleFactor=1,
         mobile=width < 768,
     )
+    actual_width = evaluate("innerWidth")
+    if actual_width != width:
+        ratio = width / actual_width
+        cdp(
+            "Emulation.setDeviceMetricsOverride",
+            width=round(width * ratio),
+            height=round(height * ratio),
+            deviceScaleFactor=1 / ratio,
+            mobile=width < 768,
+        )
+    check(evaluate("innerWidth") == width, "Exact CSS viewport " + str(width))
 
 
 def navigate(route):
     goto_url(BASE + route)
     wait_for_load()
     time.sleep(0.35)
+
+
+def click_point(x, y):
+    js("window.__qaPointer=null;document.addEventListener('mousemove',event=>window.__qaPointer=event.clientX,{once:true})")
+    probe = 37
+    cdp("Input.dispatchMouseEvent", type="mouseMoved", x=probe, y=37)
+    actual = evaluate("window.__qaPointer")
+    if actual is None:
+        probe = 47
+        cdp("Input.dispatchMouseEvent", type="mouseMoved", x=probe, y=47)
+        actual = evaluate("window.__qaPointer")
+    assert actual and actual > 0, "Mouse coordinate calibration"
+    scale = probe / actual
+    click_at_xy(x * scale, y * scale)
 
 
 def click_name(name, role="button"):
@@ -71,7 +98,7 @@ def click_name(name, role="button"):
     cdp("DOM.scrollIntoViewIfNeeded", backendNodeId=backend)
     time.sleep(0.15)
     corners = cdp("DOM.getBoxModel", backendNodeId=backend)["model"]["content"]
-    click_at_xy(sum(corners[0::2]) / 4, sum(corners[1::2]) / 4)
+    click_point(sum(corners[0::2]) / 4, sum(corners[1::2]) / 4)
     time.sleep(0.25)
 
 
@@ -82,7 +109,7 @@ def click_selector(selector):
     cdp("DOM.scrollIntoViewIfNeeded", nodeId=node)
     time.sleep(0.15)
     corners = cdp("DOM.getBoxModel", nodeId=node)["model"]["content"]
-    click_at_xy(sum(corners[0::2]) / 4, sum(corners[1::2]) / 4)
+    click_point(sum(corners[0::2]) / 4, sum(corners[1::2]) / 4)
     time.sleep(0.2)
 
 
@@ -118,7 +145,7 @@ routes = [
     "/",
     "/about-us",
     "/our-process",
-    "/services",
+    "/pricing",
     "/portfolio",
     "/our-approach",
 ]
@@ -150,6 +177,10 @@ for width in [] if os.environ.get("QA_INTERACTIONS_ONLY") else [1440, 1280, 768,
             str(width) + " alternate languages " + route,
         )
         check(data["header"] == 80, str(width) + " 80px header " + route)
+        if route == "/pricing":
+            check(evaluate("document.querySelectorAll('main img').length") == 0, str(width) + " image-free pricing")
+            check(evaluate("document.querySelectorAll('.pricing-package').length") == 18, str(width) + " eighteen pricing packages")
+            check(evaluate("document.querySelectorAll('.pricing-service').length") == 6, str(width) + " six priced services")
         title_size = int(
             float(
                 evaluate(
@@ -187,7 +218,6 @@ for width in [] if os.environ.get("QA_INTERACTIONS_ONLY") else [1440, 1280, 768,
             not any(
                 term in data["text"].lower()
                 for term in [
-                    "galerya",
                     "furniture",
                     "woodworking",
                     "demo website",
@@ -263,46 +293,29 @@ check(
 )
 
 navigate("/portfolio")
-click_name("Website Design")
 check(
-    evaluate("document.querySelectorAll('.showcase-tile').length") == 6,
-    "Portfolio filter",
+    evaluate("document.querySelectorAll('.showcase-tile').length") == 11,
+    "Portfolio shows all eleven websites without filtering",
 )
+check(
+    evaluate("document.querySelector('.portfolio-introduction').textContent")
+    == ("Ragam website untuk kebutuhan bisnis Anda." if LOCALE == "id"
+        else "Websites for a range of business needs."),
+    "Portfolio introduction follows active language",
+)
+check(
+    evaluate("document.querySelector('.gallery-filters, .gallery-count') === null"),
+    "Portfolio has no filters or dynamic result count",
+)
+js("window.__portfolioClick=null;document.addEventListener('click',event=>{const link=event.target.closest('a.showcase-tile');if(link){window.__portfolioClick=link.href;event.preventDefault();}},true)")
 click_selector(".showcase-tile")
 check(
-    evaluate("document.querySelector('[role=dialog]') !== null"),
-    "Portfolio lightbox opens",
+    evaluate("window.__portfolioClick") == "https://vyren-ecom.vercel.app/",
+    "Portfolio click follows the supplied external destination",
 )
 check(
-    evaluate("document.querySelector('[role=dialog] a') === null"),
-    "Portfolio preview has no project detail action",
-)
-before = evaluate("document.querySelector('[role=dialog] h2').textContent")
-click_name("Next project")
-check(
-    evaluate("document.querySelector('[role=dialog] h2').textContent") != before,
-    "Portfolio lightbox advances",
-)
-press_key("ArrowLeft")
-check(
-    evaluate("document.querySelector('[role=dialog] h2').textContent") == before,
-    "Portfolio keyboard navigation moves backward",
-)
-press_key("Escape")
-time.sleep(0.15)
-check(
-    evaluate("document.activeElement?.classList.contains('showcase-tile')"),
-    "Portfolio lightbox restores focus",
-)
-click_name("Web Applications")
-check(
-    evaluate("document.querySelectorAll('.showcase-tile').length") == 6,
-    "Portfolio application filter",
-)
-click_name("All Work")
-check(
-    evaluate("document.querySelectorAll('.showcase-tile').length") == 12,
-    "Portfolio reset shows all projects",
+    evaluate("document.querySelector('[role=dialog]') === null"),
+    "Portfolio click opens no detail popup",
 )
 
 
@@ -312,16 +325,40 @@ def intercept_whatsapp():
     )
 
 
-navigate("/services")
+navigate("/pricing")
+check(
+    evaluate("document.querySelectorAll('.pricing-package-description').length") == 18,
+    "All eighteen packages explain their business fit",
+)
+check(
+    evaluate("document.querySelectorAll('.pricing-scope:not([open])').length") == 18,
+    "Delivery limits start collapsed in native disclosures",
+)
+click_selector(".pricing-scope summary")
+check(
+    evaluate("document.querySelector('.pricing-scope').open"),
+    "Package delivery scope opens",
+)
+press_key("Enter")
+check(
+    not evaluate("document.querySelector('.pricing-scope').open"),
+    "Package delivery scope keyboard toggles closed",
+)
 check(
     evaluate(
-        "document.querySelectorAll('.service-card a[href^=\"https://wa.me/\"]').length"
+        "document.querySelectorAll('.pricing-package a[href^=\"https://wa.me/\"]').length"
     )
-    == 12,
-    "All service images and actions link to WhatsApp",
+    == 18,
+    "All eighteen package actions link to WhatsApp",
 )
+click_selector('.pricing-index a[href="#e-commerce"]')
+check(evaluate("location.hash") == "#e-commerce", "Pricing service anchor navigates")
+click_selector(".pricing-faq details:first-child summary")
+check(evaluate("document.querySelector('.pricing-faq details').open"), "Pricing FAQ opens")
+press_key("Enter")
+check(not evaluate("document.querySelector('.pricing-faq details').open"), "Pricing FAQ keyboard toggles closed")
 message = evaluate(
-    "new URL(document.querySelector('.service-card a').href).searchParams.get('text')"
+    "new URL(document.querySelector('.pricing-package a').href).searchParams.get('text')"
 )
 check(
     ("Halo TemuWeb" if LOCALE == "id" else "Hello TemuWeb") in message,
@@ -349,7 +386,7 @@ check(
 )
 
 other = "en" if LOCALE == "id" else "id"
-navigate("/services?view=2#main")
+navigate("/pricing?view=2#main")
 click_selector('.desktop-header-actions .language-switcher a[lang="' + other + '"]')
 time.sleep(0.5)
 check(
@@ -357,7 +394,7 @@ check(
     "Desktop language switch changes locale",
 )
 check(
-    evaluate("location.pathname") == "/" + other + "/services"
+    evaluate("location.pathname") == "/" + other + "/pricing"
     and evaluate("new URLSearchParams(location.search).get('view')") == "2"
     and evaluate("location.hash") == "#main",
     "Language switch preserves page, query, and hash",

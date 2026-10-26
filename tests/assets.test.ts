@@ -1,14 +1,37 @@
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { test } from 'node:test';
-import { projects, categories } from '../src/lib/data.ts';
-test('twelve distinct projects cover four categories with existing galleries', () => {
-  assert.equal(projects.length, 12);
-  assert.equal(new Set(projects.map((project) => project.slug)).size, 12);
-  for (const category of categories.slice(1))
-    assert.equal(projects.filter((project) => project.category === category).length, 3);
-  for (const project of projects)
-    for (const image of project.gallery) assert.ok(readFileSync(`public${image}`).length > 1000);
+import sharp from 'sharp';
+import { projects } from '../src/lib/data.ts';
+test('eleven screenshots use a uniform top crop matching Northform', async () => {
+  assert.equal(projects.length, 11);
+  assert.equal(new Set(projects.map((project) => project.slug)).size, 11);
+  assert.equal(projects.filter((project) => project.category === 'Websites').length, 9);
+  assert.equal(projects.filter((project) => project.category === 'E-Commerce').length, 2);
+  for (const project of projects) {
+    const output = `public${project.image}`;
+    const metadata = await sharp(output).metadata();
+    assert.equal(metadata.width, 1920, project.slug);
+    assert.equal(metadata.height, 4180, project.slug);
+    assert.equal(metadata.format, 'webp', project.slug);
+    const source = await sharp(`web-ss/${project.slug}.png`)
+      .extract({ left: 0, top: 0, width: 1920, height: 4180 })
+      .resize(96, 209)
+      .removeAlpha()
+      .raw()
+      .toBuffer();
+    const cropped = await sharp(output)
+      .resize(96, 209)
+      .removeAlpha()
+      .raw()
+      .toBuffer();
+    assert.equal(cropped.length, source.length);
+    const difference = source.reduce(
+      (sum, channel, index) => sum + Math.abs(channel - cropped[index]),
+      0,
+    ) / source.length;
+    assert.ok(difference < 8, `${project.slug}: incorrect crop or distorted screenshot`);
+  }
 });
 test('generated SVGs contain no duplicate attributes or unsafe external content', () => {
   const files = readdirSync('public/images/projects').filter((file) => file.endsWith('.svg'));

@@ -1,190 +1,110 @@
-export const categories = [
-  'All Projects',
-  'Websites',
-  'Web Applications',
-  'E-Commerce',
-  'UI/UX Design',
-] as const;
 export const navigation = [
   { label: 'About Us', href: '/about-us' },
   { label: 'Our Process', href: '/our-process' },
-  { label: 'Our Services', href: '/services' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Our Approach', href: '/our-approach' },
 ];
 export type Project = {
   slug: string;
   name: string;
-  category: string;
+  category: 'Websites' | 'E-Commerce';
   description: string;
-  sector: string;
-  headline: string;
-  overview: string;
-  direction: string;
-  features: string[];
-  stack: string[];
   image: string;
-  gallery: string[];
+  url: string;
 };
 const entries = [
   [
-    'auren',
-    'AUREN',
+    'vyren-ecom',
+    'VYREN',
     'E-Commerce',
-    'Online store concept with product collections and a shopping flow.',
-    'Lifestyle & Retail',
-    'An understated storefront. A considered shopping experience.',
-    'A study in calm commerce, AUREN brings product discovery, clear information, and a focused checkout journey into one coherent experience.',
-    'Warm paper tones, deliberate product compositions, and oversized typography give every item room to speak.',
-    ['Curated product collections', 'Responsive product discovery', 'Accessible shopping flow'],
+    'An online storefront with product collections and editorial presentation.',
+    'https://vyren-ecom.vercel.app/',
   ],
   [
-    'norden',
-    'NORDEN',
-    'Web Applications',
-    'Dashboard concept for tasks, projects, and business activity.',
-    'Business & Operations',
-    'Complex operations. Clear decisions.',
-    'NORDEN explores a unified workspace for understanding projects, coordinating tasks, and reviewing business activity without switching between disconnected tools.',
-    'Precise grids and quiet data visualization bring structure to dense operational information.',
-    [
-      'Business overview dashboard',
-      'Project and task organization',
-      'Reporting and activity views',
-    ],
-  ],
-  [
-    'lumio',
-    'LUMIO',
-    'UI/UX Design',
-    'Healthcare interface concept for services and appointments.',
-    'Healthcare & Services',
-    'Less friction between people and care.',
-    'LUMIO is a healthcare interface concept that considers the complete appointment journey, from finding the right service to preparing for a consultation.',
-    'Soft blue tones, generous spacing, and plain-language guidance create a reassuring visual system.',
-    ['Appointment journey design', 'Responsive patient interface', 'Accessible form patterns'],
-  ],
-  [
-    'kaldo',
-    'KALDO',
+    'atelier',
+    'ATELIER',
     'Websites',
-    'Hospitality website concept with accommodation and inquiry pages.',
-    'Hospitality & Travel',
-    'A place to pause. An experience to remember.',
-    'KALDO translates the atmosphere of an independent retreat into a website built around considered imagery, intuitive exploration, and straightforward inquiries.',
-    'Architectural compositions and restrained serif accents balance warmth with a distinctly editorial rhythm.',
-    ['Destination storytelling', 'Accommodation detail pages', 'Direct inquiry experience'],
+    'An image-led website with a considered visual hierarchy.',
+    'https://arvena.vercel.app/',
   ],
   [
-    'forma',
-    'FORMA',
+    'galerya',
+    'GALERYA',
     'Websites',
-    'Company website concept for an architecture practice and its projects.',
-    'Architecture & Design',
-    'Space, proportion, and a new perspective.',
-    'FORMA examines how an architecture practice can present its ideas and projects through image-led storytelling and a carefully structured portfolio.',
-    'Monochrome surfaces and a strong typographic grid keep attention on the work.',
-    ['Project archive', 'Practice introduction', 'Responsive editorial pages'],
+    'A website that brings photography, content, and navigation together.',
+    'https://galerya-living.vercel.app/',
   ],
   [
-    'sora',
-    'SORA',
-    'Web Applications',
-    'Learning dashboard concept for courses, progress, and schedules.',
-    'Education & Learning',
-    'Make room for a better way to learn.',
-    'SORA brings learning materials, progress, and upcoming sessions together in a focused student workspace concept.',
-    'A clear navigation system and warm accent colors help users distinguish learning tasks without visual overload.',
-    ['Course workspace', 'Progress visualization', 'Learning schedule'],
+    'noirel',
+    'NOIREL',
+    'Websites',
+    'A studio website with a restrained palette and expressive typography.',
+    'https://noirel-studio.vercel.app/',
   ],
   [
-    'mori',
-    'MORI',
+    'noirva',
+    'NOIRVA',
+    'Websites',
+    'A website that gives imagery and project presentation room to lead.',
+    'https://studio-noirva.vercel.app/',
+  ],
+  [
+    'noirva-2',
+    'NOIRVA / Studio',
+    'Websites',
+    'A studio website with an editorial approach to content and composition.',
+    'https://noirva-studio.vercel.app/',
+  ],
+  [
+    'vantra',
+    'VANTRA',
+    'Websites',
+    'A brand-led website with a structured, image-focused presentation.',
+    'https://studio-vantra.vercel.app/',
+  ],
+  [
+    'northform-ecom',
+    'NORTHFORM',
     'E-Commerce',
-    'Skincare store concept with product and ingredient information.',
-    'Beauty & Wellbeing',
-    'A considered approach to daily care.',
-    'MORI explores a product-led skincare storefront, where ingredient information and daily rituals make product selection feel approachable.',
-    'Sage green, generous whitespace, and simple product silhouettes form a quiet visual identity.',
-    ['Product storytelling', 'Ingredient information', 'Collection browsing'],
+    'A footwear storefront with collection browsing and product-led imagery.',
+    'https://northform-shoes.vercel.app/',
   ],
   [
-    'velo',
-    'VELO',
-    'UI/UX Design',
-    'Travel planning interface concept with route comparison.',
-    'Mobility & Technology',
-    'Find your next way forward.',
-    'VELO is a mobility interface exploration focused on helping people understand route options and plan a journey with fewer decisions.',
-    'Directional graphics, concise labels, and clear states keep the experience legible on smaller screens.',
-    ['Mobile journey planning', 'Route comparison', 'Reusable interface system'],
-  ],
-  [
-    'atlas',
-    'ATLAS',
-    'Web Applications',
-    'Team workspace concept for project planning and activity tracking.',
-    'Technology & Teams',
-    'Keep the work moving, together.',
-    'ATLAS investigates a collaborative project workspace where teams can connect milestones, priorities, and the details that often get lost between tools.',
-    'A disciplined sidebar and balanced information density support day-to-day concentration.',
-    ['Team project overview', 'Milestone planning', 'Activity and reporting'],
-  ],
-  [
-    'objet',
-    'OBJET',
-    'E-Commerce',
-    'Retail website concept with collections and product detail pages.',
-    'Design & Retail',
-    'Less noise. More character.',
-    'OBJET is a digital retail concept for carefully selected personal accessories, bringing a gallery-like pace to product discovery.',
-    'Deep ink, ivory surfaces, and close-up geometric compositions create a focused product stage.',
-    ['Editorial collections', 'Product detail experience', 'Mobile shopping design'],
-  ],
-  [
-    'vesper',
-    'VESPER',
+    'lifetime',
+    'LIFETIME',
     'Websites',
-    'Editorial website concept with articles and an event archive.',
-    'Arts & Culture',
-    'Ideas worth spending time with.',
-    'VESPER explores an editorial website for independent arts programming, balancing an evolving journal with a structured event archive.',
-    'Rich burgundy and confident typography give cultural stories a distinctive visual home.',
-    ['Editorial journal', 'Event archive', 'Inquiry and information pages'],
+    'A website built around visual storytelling and clear content sections.',
+    'https://life-livin.vercel.app/',
   ],
   [
-    'circa',
-    'CIRCA',
-    'UI/UX Design',
-    'Personal finance interface concept with spending and account views.',
-    'Finance & Productivity',
-    'Make sense of the everyday.',
-    'CIRCA is a personal finance interface study designed to make everyday spending patterns understandable without adding complexity.',
-    'Warm neutral surfaces and clear hierarchy separate account information, activity, and next steps.',
-    ['Account overview design', 'Spending insights', 'Mobile component library'],
+    'liftco',
+    'LIFTCO',
+    'Websites',
+    'A company website with a focused presentation of business information.',
+    'https://vinch.vercel.app/',
+  ],
+  [
+    'spil',
+    'SPIL',
+    'Websites',
+    'A company website with structured information and image-led sections.',
+    'https://spill-ship.vercel.app/',
   ],
 ] as const;
 export const projects: Project[] = entries.map(
-  ([slug, name, category, description, sector, headline, overview, direction, features]) => ({
+  ([slug, name, category, description, url]) => ({
     slug,
     name,
     category,
     description,
-    sector,
-    headline,
-    overview,
-    direction,
-    features: [...features],
-    stack:
-      category === 'UI/UX Design'
-        ? ['Figma', 'Design systems', 'Interactive prototyping']
-        : ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    image: `/images/projects/${slug}.svg`,
-    gallery: [0, 1, 2].map((index) => `/images/projects/${slug}${index ? `-${index}` : ''}.svg`),
+    image: `/images/portfolio/${slug}.webp`,
+    url,
   }),
 );
 export const services = [
   {
+    slug: 'company-profile',
     title: 'Company Profile Websites',
     category: 'Websites',
     type: 'Company Profile Website',
@@ -192,8 +112,66 @@ export const services = [
       'Introduce your company, services, and contact information through a responsive website with a clear page structure.',
     details: 'Company information / Service pages / Contact links',
     image: '/images/projects/forma.svg',
+    billing: 'Per project',
+    packages: [
+      {
+        name: 'Starter',
+        price: 1_000_000,
+        description:
+          'For small businesses ready to introduce their company and services online.',
+        features: [
+          'Company profile, services, and contact information',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'WhatsApp links so visitors can contact your business',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Up to 3 website pages',
+          '1 round of revisions before handover',
+        ],
+      },
+      {
+        name: 'Pro',
+        price: 2_500_000,
+        description:
+          'For businesses with more services to explain and information to keep up to date.',
+        features: [
+          'More space to introduce your company and services',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'WhatsApp links so visitors can contact your business',
+          'Update website information through a management area',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Up to 6 website pages',
+          '2 rounds of revisions before handover',
+        ],
+      },
+      {
+        name: 'Business',
+        price: 4_500_000,
+        description:
+          'For companies that need a fuller service presentation and a dedicated inquiry form.',
+        features: [
+          'A broader website structure for company and service information',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'WhatsApp links so visitors can contact your business',
+          'Update website information through a management area',
+          'An inquiry form for prospective customers',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Up to 10 website pages',
+          '3 rounds of revisions before handover',
+        ],
+      },
+    ],
   },
   {
+    slug: 'custom-website',
     title: 'Custom Website Development',
     category: 'Websites',
     type: 'Company Profile Website',
@@ -201,8 +179,67 @@ export const services = [
       'Landing pages and custom websites with page layouts, content structure, and features tailored to your business requirements.',
     details: 'Landing pages / Custom features / Responsive layouts',
     image: '/images/projects/kaldo.svg',
+    billing: 'Per project',
+    packages: [
+      {
+        name: 'Starter',
+        price: 1_500_000,
+        description:
+          'For a product, service, or campaign that needs its own focused landing page.',
+        features: [
+          'A landing page arranged around your offer',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'WhatsApp links so visitors can contact your business',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          '1 custom landing page',
+          '1 round of revisions before handover',
+        ],
+      },
+      {
+        name: 'Pro',
+        price: 3_500_000,
+        description:
+          'For businesses that need tailored pages and the ability to update their own content.',
+        features: [
+          'Page layouts and content structure tailored to your business',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'Update website information through a management area',
+          'An inquiry form for prospective customers',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Up to 5 custom website pages',
+          '2 rounds of revisions before handover',
+        ],
+      },
+      {
+        name: 'Business',
+        price: 6_000_000,
+        description:
+          'For a larger custom website that also needs to connect with an external service.',
+        features: [
+          'A broader set of page layouts tailored to your business',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'Update website information through a management area',
+          'An inquiry form for prospective customers',
+          'Connect your website with an agreed external service',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Up to 10 custom website pages',
+          'Connection to 1 external service, agreed before development',
+          '3 rounds of revisions before handover',
+        ],
+      },
+    ],
   },
   {
+    slug: 'e-commerce',
     title: 'E-Commerce Development',
     category: 'Commerce',
     type: 'E-Commerce Website',
@@ -210,8 +247,69 @@ export const services = [
       'Online stores with product catalogs, product detail pages, and shopping flows. Payment and delivery integrations follow the agreed scope.',
     details: 'Product catalogs / Shopping flows / Integrations',
     image: '/images/projects/auren.svg',
+    billing: 'Per project',
+    packages: [
+      {
+        name: 'Starter',
+        price: 3_000_000,
+        description:
+          'For businesses that want an online product catalog and take orders through WhatsApp.',
+        features: [
+          'A product catalog for visitors to browse your range',
+          'Product detail pages to explain each item',
+          'Customers continue their order through WhatsApp',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Initial catalog setup for up to 20 products',
+          '1 round of revisions before handover',
+        ],
+      },
+      {
+        name: 'Pro',
+        price: 6_000_000,
+        description:
+          'For online stores ready to manage products, receive orders, and accept online payments.',
+        features: [
+          'A product catalog with individual product pages',
+          'Manage products and incoming orders in one place',
+          'Customers can add items to a cart and complete checkout',
+          'Connect checkout to an online payment provider',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Initial catalog setup for up to 100 products',
+          '2 rounds of revisions before handover',
+        ],
+      },
+      {
+        name: 'Business',
+        price: 10_000_000,
+        description:
+          'For stores with a larger catalog that need payment and delivery services in checkout.',
+        features: [
+          'A product catalog with individual product pages',
+          'Manage products and incoming orders in one place',
+          'Customers can add items to a cart and complete checkout',
+          'Connect checkout to an online payment provider',
+          'Connect your store to an agreed delivery service',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Initial catalog setup for up to 300 products',
+          '3 rounds of revisions before handover',
+        ],
+      },
+    ],
   },
   {
+    slug: 'web-applications',
     title: 'Business Web Applications',
     category: 'Applications',
     type: 'Web Application',
@@ -219,8 +317,75 @@ export const services = [
       'Web applications for internal operations, data management, and reporting, with access roles and integrations defined during discovery.',
     details: 'Dashboards / Integrations / Workflows',
     image: '/images/projects/norden.svg',
+    billing: 'Per project',
+    packages: [
+      {
+        name: 'Starter',
+        price: 5_000_000,
+        description:
+          'For teams moving an agreed part of their day-to-day work into a web application.',
+        features: [
+          'A sign-in area for your team',
+          'Access permissions matched to agreed responsibilities',
+          'Manage business records through a web application',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'Written documentation at handover',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Covers 1 agreed area of business activity',
+          'Access settings for 2 types of user',
+        ],
+      },
+      {
+        name: 'Pro',
+        price: 10_000_000,
+        description:
+          'For teams managing several areas of work that also need reports and downloadable data.',
+        features: [
+          'A sign-in area for your team',
+          'Access permissions matched to agreed responsibilities',
+          'Manage business records through a web application',
+          'Review business activity through reports',
+          'Download data for your reporting needs',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'Written documentation at handover',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Covers up to 3 agreed areas of business activity',
+          'Access settings for 3 types of user',
+        ],
+      },
+      {
+        name: 'Business',
+        price: 18_000_000,
+        description:
+          'For broader internal operations that need reporting and a connection to another service.',
+        features: [
+          'A sign-in area for your team',
+          'Access permissions matched to agreed responsibilities',
+          'Manage business records through a web application',
+          'Review business activity through reports',
+          'Download data for your reporting needs',
+          'Connect your application with an agreed external service',
+          'Layouts that adapt to phones, tablets, and desktops',
+          'Written documentation at handover',
+          'Standard domain for the first year',
+          'Basic hosting for the first year',
+        ],
+        scopeDetails: [
+          'Covers up to 5 agreed areas of business activity',
+          'Access settings for 5 types of user',
+          'Connection to 1 external service, agreed before development',
+        ],
+      },
+    ],
   },
   {
+    slug: 'ui-ux-design',
     title: 'UI/UX Design',
     category: 'Design',
     type: 'UI/UX Design',
@@ -228,8 +393,63 @@ export const services = [
       'Website structures, wireframes, and interface prototypes to review content, navigation, and user flows before development.',
     details: 'User journeys / Prototypes / Design systems',
     image: '/images/projects/lumio.svg',
+    billing: 'Per project',
+    packages: [
+      {
+        name: 'Starter',
+        price: 1_000_000,
+        description:
+          'For reviewing the structure and look of key pages before development begins.',
+        features: [
+          'Page structure and navigation planning',
+          'Interface designs for the agreed pages',
+          'Design variants for different screen sizes',
+          'Editable design files in Figma',
+        ],
+        scopeDetails: [
+          'Designs for up to 3 main screens',
+          '1 round of revisions before handover',
+        ],
+      },
+      {
+        name: 'Pro',
+        price: 2_500_000,
+        description:
+          'For reviewing more pages and trying out the main user flow before it is built.',
+        features: [
+          'Page structure and navigation planning',
+          'Interface designs for the agreed pages',
+          'Design variants for different screen sizes',
+          'Editable design files in Figma',
+          'A clickable prototype to review the user flow',
+        ],
+        scopeDetails: [
+          'Designs for up to 6 main screens',
+          '2 rounds of revisions before handover',
+        ],
+      },
+      {
+        name: 'Business',
+        price: 5_000_000,
+        description:
+          'For a wider digital product with consistent design elements across its main screens.',
+        features: [
+          'Page structure and navigation planning',
+          'Interface designs for the agreed pages',
+          'Design variants for different screen sizes',
+          'Editable design files in Figma',
+          'A clickable prototype to review the user flow',
+          'Reusable design elements for a consistent interface',
+        ],
+        scopeDetails: [
+          'Designs for up to 12 main screens',
+          '3 rounds of revisions before handover',
+        ],
+      },
+    ],
   },
   {
+    slug: 'maintenance',
     title: 'Maintenance & Optimization',
     category: 'Ongoing support',
     type: 'Other',
@@ -237,6 +457,54 @@ export const services = [
       'Website updates, bug fixes, performance reviews, and compatibility checks. Maintenance responsibilities and frequency are agreed separately.',
     details: 'Technical reviews / Iterative improvements',
     image: '/images/projects/atlas.svg',
+    billing: 'Per month',
+    packages: [
+      {
+        name: 'Starter',
+        price: 250_000,
+        description:
+          'For occasional content changes and minor website fixes within a monthly allowance.',
+        features: [
+          'Update existing website content',
+          'Address minor website issues',
+          'Check technical aspects of the website',
+          'A monthly summary of the work carried out',
+        ],
+        scopeDetails: [
+          'Up to 1 hour of work per month, shared across the listed tasks',
+        ],
+      },
+      {
+        name: 'Pro',
+        price: 500_000,
+        description:
+          'For businesses making more frequent updates that need a larger monthly work allowance.',
+        features: [
+          'Update existing website content',
+          'Address minor website issues',
+          'Check technical aspects of the website',
+          'A monthly summary of the work carried out',
+        ],
+        scopeDetails: [
+          'Up to 3 hours of work per month, shared across the listed tasks',
+        ],
+      },
+      {
+        name: 'Business',
+        price: 1_000_000,
+        description:
+          'For websites with a fuller monthly list of content changes and minor fixes.',
+        features: [
+          'Update existing website content',
+          'Address minor website issues',
+          'Check technical aspects of the website',
+          'A monthly summary of the work carried out',
+        ],
+        scopeDetails: [
+          'Up to 6 hours of work per month, shared across the listed tasks',
+        ],
+      },
+    ],
   },
 ];
 export const expertise = [

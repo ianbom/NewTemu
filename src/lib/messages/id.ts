@@ -1,4 +1,216 @@
 export const indonesian: Record<string, string> = {
+  'Websites for a range of business needs.':
+    'Ragam website untuk kebutuhan bisnis Anda.',
+  'Website Portfolio.': 'Portofolio Website.',
+  'Explore website layouts and storefronts. Open each project to visit the website.':
+    'Jelajahi tampilan website dan toko online. Pilih proyek untuk mengunjungi websitenya.',
+  'Browse our website and e-commerce portfolio. Select a project to visit its website.':
+    'Jelajahi portofolio website dan toko online kami. Pilih proyek untuk mengunjungi websitenya.',
+  'Visit website': 'Kunjungi website',
+  '{0} website (opens in a new tab)': 'Website {0} (dibuka di tab baru)',
+  '{0} website preview': 'Pratinjau website {0}',
+  '{0} interface illustration': 'Ilustrasi antarmuka untuk {0}',
+  'An online storefront with product collections and editorial presentation.':
+    'Toko online dengan koleksi produk dan penyajian bergaya editorial.',
+  'An image-led website with a considered visual hierarchy.':
+    'Website yang menonjolkan fotografi dengan hierarki visual yang tertata.',
+  'A website that brings photography, content, and navigation together.':
+    'Website yang menyatukan fotografi, konten, dan navigasi.',
+  'A studio website with a restrained palette and expressive typography.':
+    'Website studio dengan palet warna minimal dan tipografi ekspresif.',
+  'A website that gives imagery and project presentation room to lead.':
+    'Website yang memberikan ruang utama bagi gambar dan penyajian proyek.',
+  'A studio website with an editorial approach to content and composition.':
+    'Website studio dengan pendekatan editorial pada konten dan komposisi.',
+  'A brand-led website with a structured, image-focused presentation.':
+    'Website yang menonjolkan identitas merek melalui susunan konten dan gambar.',
+  'A footwear storefront with collection browsing and product-led imagery.':
+    'Toko online sepatu dengan penelusuran koleksi dan fotografi produk.',
+  'A website built around visual storytelling and clear content sections.':
+    'Website dengan penyampaian cerita melalui visual dan pembagian konten yang jelas.',
+  'A company website with a focused presentation of business information.':
+    'Website perusahaan yang menyajikan informasi bisnis secara terarah.',
+  'A company website with structured information and image-led sections.':
+    'Website perusahaan dengan informasi terstruktur dan bagian yang menonjolkan gambar.',
+  Pricing: 'Harga',
+  'Website Development Pricing': 'Harga Jasa Pembuatan Website',
+  'Compare TemuWeb website, e-commerce, web application, UI/UX, and maintenance packages. Company profile websites start at Rp1.000.000, including first-year domain and basic hosting.':
+    'Bandingkan paket website, e-commerce, aplikasi web, UI/UX, dan pemeliharaan TemuWeb. Website company profile mulai Rp1.000.000, termasuk domain dan hosting dasar tahun pertama.',
+  'Website Packages for Your Business.': 'Paket Website untuk Kebutuhan Bisnis Anda.',
+  'Package prices can change based on agreement.':
+    'Harga setiap paket bisa berubah sesuai dengan kesepakatan',
+  'A clear scope before we build.': 'Ruang lingkup jelas sebelum pengembangan.',
+  'Choose the pages and features your business needs. Compare our starting prices, then discuss the details with TemuWeb.':
+    'Harga setiap paket bisa berubah sesuai dengan kesepakatan',
+  'Six services. Three package levels.': 'Enam layanan. Tiga pilihan paket.',
+  'Compare packages': 'Bandingkan paket',
+  'Pricing service navigation': 'Navigasi harga berdasarkan layanan',
+  'First-year domain & hosting included.': 'Termasuk domain & hosting tahun pertama.',
+  'Design deliverables only. No development.': 'Hasil pekerjaan berupa desain, tanpa pengembangan kode.',
+  'A monthly allowance for updates and minor fixes.':
+    'Alokasi pekerjaan bulanan untuk pembaruan dan perbaikan ringan.',
+  'Starting at': 'Mulai dari',
+  'Starting at {0}': 'Mulai dari {0}',
+  'Per project': 'Per proyek',
+  'Per month': 'Per bulan',
+  'Discuss {0}': 'Diskusikan {0}',
+  'Discuss {0}: {1}': 'Diskusikan {0}: paket {1}',
+  'Delivery scope': 'Rincian cakupan',
+  'For small businesses ready to introduce their company and services online.':
+    'Untuk usaha yang ingin mulai memperkenalkan profil dan layanannya melalui website.',
+  'For businesses with more services to explain and information to keep up to date.':
+    'Untuk bisnis dengan lebih banyak layanan dan informasi yang perlu diperbarui secara mandiri.',
+  'For companies that need a fuller service presentation and a dedicated inquiry form.':
+    'Untuk perusahaan yang membutuhkan informasi layanan lebih lengkap serta formulir pertanyaan pelanggan.',
+  'Company profile, services, and contact information':
+    'Penyajian profil usaha, layanan, dan informasi kontak',
+  'More space to introduce your company and services':
+    'Ruang lebih luas untuk memperkenalkan perusahaan dan layanan',
+  'A broader website structure for company and service information':
+    'Susunan halaman lebih lengkap untuk informasi perusahaan dan layanan',
+  'Layouts that adapt to phones, tablets, and desktops':
+    'Tampilan menyesuaikan ponsel, tablet, dan desktop',
+  'WhatsApp links so visitors can contact your business':
+    'Tautan WhatsApp agar pengunjung mudah menghubungi bisnis Anda',
+  'Standard domain for the first year': 'Termasuk domain standar tahun pertama',
+  'Basic hosting for the first year': 'Termasuk hosting dasar tahun pertama',
+  'Update website information through a management area':
+    'Perbarui informasi website melalui halaman pengelolaan',
+  'An inquiry form for prospective customers':
+    'Formulir pertanyaan untuk calon pelanggan',
+  'Up to 3 website pages': 'Mencakup hingga 3 halaman website',
+  'Up to 6 website pages': 'Mencakup hingga 6 halaman website',
+  'Up to 10 website pages': 'Mencakup hingga 10 halaman website',
+  '1 round of revisions before handover': '1 tahap revisi sebelum serah terima',
+  '2 rounds of revisions before handover': '2 tahap revisi sebelum serah terima',
+  '3 rounds of revisions before handover': '3 tahap revisi sebelum serah terima',
+  'For a product, service, or campaign that needs its own focused landing page.':
+    'Untuk produk, layanan, atau promosi yang membutuhkan halaman penawaran tersendiri.',
+  'For businesses that need tailored pages and the ability to update their own content.':
+    'Untuk bisnis yang memerlukan halaman sesuai kebutuhan dan dapat memperbarui konten sendiri.',
+  'For a larger custom website that also needs to connect with an external service.':
+    'Untuk website dengan kebutuhan halaman lebih luas serta koneksi ke layanan lain.',
+  'A landing page arranged around your offer':
+    'Halaman penawaran dengan susunan konten sesuai produk atau layanan Anda',
+  'Page layouts and content structure tailored to your business':
+    'Tata letak halaman dan susunan konten sesuai kebutuhan bisnis',
+  'A broader set of page layouts tailored to your business':
+    'Cakupan halaman lebih luas dengan tata letak sesuai kebutuhan bisnis',
+  'Connect your website with an agreed external service':
+    'Hubungkan website dengan layanan lain sesuai kesepakatan',
+  '1 custom landing page': '1 landing page khusus',
+  'Up to 5 custom website pages': 'Mencakup hingga 5 halaman website khusus',
+  'Up to 10 custom website pages': 'Mencakup hingga 10 halaman website khusus',
+  'Connection to 1 external service, agreed before development':
+    'Koneksi ke 1 layanan lain yang disepakati sebelum pengembangan',
+  'For businesses that want an online product catalog and take orders through WhatsApp.':
+    'Untuk usaha yang ingin menampilkan katalog produk online dan menerima pesanan melalui WhatsApp.',
+  'For online stores ready to manage products, receive orders, and accept online payments.':
+    'Untuk toko online yang ingin mengelola produk, menerima pesanan, dan menyediakan pembayaran online.',
+  'For stores with a larger catalog that need payment and delivery services in checkout.':
+    'Untuk toko dengan katalog lebih besar yang membutuhkan layanan pembayaran dan pengiriman saat pemesanan.',
+  'A product catalog for visitors to browse your range':
+    'Katalog produk agar pengunjung dapat menjelajahi pilihan yang tersedia',
+  'Product detail pages to explain each item':
+    'Halaman detail untuk menjelaskan informasi setiap produk',
+  'Customers continue their order through WhatsApp':
+    'Pelanggan melanjutkan pemesanan melalui WhatsApp',
+  'A product catalog with individual product pages':
+    'Katalog dengan halaman informasi untuk setiap produk',
+  'Manage products and incoming orders in one place':
+    'Kelola produk dan pesanan masuk dalam satu tempat',
+  'Customers can add items to a cart and complete checkout':
+    'Pelanggan dapat menambahkan produk ke keranjang dan menyelesaikan pemesanan',
+  'Connect checkout to an online payment provider':
+    'Hubungkan proses pembayaran dengan penyedia pembayaran online',
+  'Connect your store to an agreed delivery service':
+    'Hubungkan toko dengan layanan pengiriman sesuai kesepakatan',
+  'Initial catalog setup for up to 20 products':
+    'Pengisian katalog awal mencakup hingga 20 produk',
+  'Initial catalog setup for up to 100 products':
+    'Pengisian katalog awal mencakup hingga 100 produk',
+  'Initial catalog setup for up to 300 products':
+    'Pengisian katalog awal mencakup hingga 300 produk',
+  'For teams moving an agreed part of their day-to-day work into a web application.':
+    'Untuk tim yang ingin mengelola bagian tertentu dari pekerjaan sehari-hari melalui aplikasi web.',
+  'For teams managing several areas of work that also need reports and downloadable data.':
+    'Untuk tim yang mengelola beberapa bagian pekerjaan serta membutuhkan laporan dan unduhan data.',
+  'For broader internal operations that need reporting and a connection to another service.':
+    'Untuk kegiatan operasional lebih luas yang membutuhkan pelaporan dan koneksi ke layanan lain.',
+  'A sign-in area for your team': 'Halaman masuk untuk anggota tim Anda',
+  'Access permissions matched to agreed responsibilities':
+    'Hak akses disesuaikan dengan tanggung jawab yang disepakati',
+  'Manage business records through a web application':
+    'Kelola pencatatan dan data bisnis melalui aplikasi web',
+  'Written documentation at handover': 'Dokumentasi tertulis saat serah terima',
+  'Review business activity through reports':
+    'Lihat ringkasan aktivitas bisnis melalui laporan',
+  'Download data for your reporting needs':
+    'Unduh data untuk kebutuhan penyusunan laporan',
+  'Connect your application with an agreed external service':
+    'Hubungkan aplikasi dengan layanan lain sesuai kesepakatan',
+  'Covers 1 agreed area of business activity':
+    'Mencakup 1 bagian kegiatan bisnis sesuai kesepakatan',
+  'Covers up to 3 agreed areas of business activity':
+    'Mencakup hingga 3 bagian kegiatan bisnis sesuai kesepakatan',
+  'Covers up to 5 agreed areas of business activity':
+    'Mencakup hingga 5 bagian kegiatan bisnis sesuai kesepakatan',
+  'Access settings for 2 types of user': 'Pengaturan akses untuk 2 jenis pengguna',
+  'Access settings for 3 types of user': 'Pengaturan akses untuk 3 jenis pengguna',
+  'Access settings for 5 types of user': 'Pengaturan akses untuk 5 jenis pengguna',
+  'For reviewing the structure and look of key pages before development begins.':
+    'Untuk meninjau susunan dan tampilan halaman utama sebelum pengembangan dimulai.',
+  'For reviewing more pages and trying out the main user flow before it is built.':
+    'Untuk meninjau lebih banyak halaman dan mencoba alur penggunaan sebelum dikembangkan.',
+  'For a wider digital product with consistent design elements across its main screens.':
+    'Untuk produk digital yang lebih luas dengan elemen desain konsisten pada halaman utamanya.',
+  'Page structure and navigation planning': 'Perencanaan susunan halaman dan navigasi',
+  'Interface designs for the agreed pages': 'Desain tampilan untuk halaman yang disepakati',
+  'Design variants for different screen sizes': 'Penyesuaian desain untuk berbagai ukuran layar',
+  'Editable design files in Figma': 'Berkas desain Figma yang dapat diedit',
+  'A clickable prototype to review the user flow':
+    'Rancangan interaktif yang dapat diklik untuk meninjau alur penggunaan',
+  'Reusable design elements for a consistent interface':
+    'Kumpulan elemen desain yang dapat digunakan ulang agar tampilan konsisten',
+  'Designs for up to 3 main screens': 'Desain mencakup hingga 3 layar utama',
+  'Designs for up to 6 main screens': 'Desain mencakup hingga 6 layar utama',
+  'Designs for up to 12 main screens': 'Desain mencakup hingga 12 layar utama',
+  'For occasional content changes and minor website fixes within a monthly allowance.':
+    'Untuk pembaruan konten sesekali dan perbaikan website ringan dengan alokasi kerja bulanan.',
+  'For businesses making more frequent updates that need a larger monthly work allowance.':
+    'Untuk bisnis yang lebih sering memperbarui website dan membutuhkan alokasi kerja lebih besar.',
+  'For websites with a fuller monthly list of content changes and minor fixes.':
+    'Untuk website dengan kebutuhan pembaruan konten dan perbaikan ringan yang lebih banyak setiap bulan.',
+  'Update existing website content': 'Pembaruan konten pada website yang sudah berjalan',
+  'Address minor website issues': 'Penanganan kendala ringan pada website',
+  'Check technical aspects of the website': 'Pemeriksaan teknis website',
+  'A monthly summary of the work carried out': 'Ringkasan pekerjaan yang dilakukan setiap bulan',
+  'Up to 1 hour of work per month, shared across the listed tasks':
+    'Alokasi hingga 1 jam kerja per bulan untuk keseluruhan pekerjaan yang tercantum',
+  'Up to 3 hours of work per month, shared across the listed tasks':
+    'Alokasi hingga 3 jam kerja per bulan untuk keseluruhan pekerjaan yang tercantum',
+  'Up to 6 hours of work per month, shared across the listed tasks':
+    'Alokasi hingga 6 jam kerja per bulan untuk keseluruhan pekerjaan yang tercantum',
+  'All prices are starting prices in Rupiah. The final price and scope are confirmed before work begins. First-year domain and basic hosting apply to website and web application packages only; renewal, upgrades, premium licenses, and third-party fees are separate.':
+    'Seluruh harga merupakan harga mulai dalam Rupiah. Harga akhir dan ruang lingkup dikonfirmasi sebelum pekerjaan dimulai. Domain serta hosting dasar tahun pertama hanya berlaku untuk paket website dan aplikasi web; perpanjangan, peningkatan kapasitas, lisensi premium, dan biaya pihak ketiga dihitung terpisah.',
+  'Before we begin': 'Sebelum memulai',
+  'A Few Things to Know.': 'Hal yang Perlu Anda Ketahui.',
+  'How do I choose a package?': 'Bagaimana memilih paket yang sesuai?',
+  'Choose based on what your business needs: an introduction, an online store, or help with daily operations. Each package explains who it suits and what is included. Open Delivery scope for the work allowance, then confirm the details and final price with us before starting.':
+    'Pilih berdasarkan kebutuhan bisnis Anda: memperkenalkan usaha, berjualan online, atau membantu kegiatan operasional. Setiap paket menjelaskan kebutuhan yang dilayani dan fitur yang termasuk. Buka Rincian cakupan untuk melihat alokasi pengerjaan, lalu sepakati detail dan harga akhir bersama kami sebelum memulai.',
+  'Are domain and hosting included?': 'Apakah domain dan hosting sudah termasuk?',
+  'A standard domain and basic hosting for the first year are included in website and web application packages. Renewal from the second year and any capacity upgrades are charged separately according to your requirements.':
+    'Domain standar dan hosting dasar tahun pertama termasuk dalam paket website serta aplikasi web. Perpanjangan mulai tahun kedua dan peningkatan kapasitas dihitung terpisah sesuai kebutuhan.',
+  'Are there additional costs?': 'Apakah ada biaya tambahan?',
+  'Premium licenses, payment transaction fees, and third-party subscriptions are separate. UI/UX packages cover design, not website development. Maintenance follows the monthly work allowance shown in Delivery scope; it does not include unlimited support or a guaranteed emergency response.':
+    'Lisensi premium, biaya transaksi pembayaran, dan langganan pihak ketiga dihitung terpisah. Paket UI/UX mencakup desain, bukan pembuatan website. Pemeliharaan mengikuti alokasi jam kerja bulanan pada Rincian cakupan, tanpa dukungan tak terbatas atau jaminan penanganan darurat.',
+  'What if my requirements change?': 'Bagaimana jika kebutuhan saya berubah?',
+  'Tell us what you would like to add or change. We explain any effect on the agreed work and price before proceeding. For business applications, we agree which activities and types of user the application will support before development.':
+    'Sampaikan kebutuhan yang ingin ditambahkan atau diubah. Pengaruhnya terhadap pekerjaan dan harga dibahas sebelum dilanjutkan. Untuk aplikasi bisnis, kegiatan dan jenis pengguna yang akan dilayani disepakati sebelum pengembangan.',
+  'Need a Different Scope?': 'Butuh Ruang Lingkup Berbeda?',
+  'Share the pages, features, and integrations you have in mind. We can help define a package around your actual requirements.':
+    'Sampaikan halaman, fitur, dan integrasi yang Anda perlukan. Kami membantu menyusun paket berdasarkan kebutuhan Anda.',
+  'Discuss on WhatsApp': 'Diskusikan melalui WhatsApp',
   'Website Services': 'Layanan Website',
   'Company websites, online stores, and supporting web applications.':
     'Website perusahaan, toko online, dan aplikasi web pendukung.',

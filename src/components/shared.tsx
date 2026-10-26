@@ -66,16 +66,19 @@ export function SectionHeading({
   );
 }
 export function ProjectCard({ project }: { project: Project }) {
-  const { locale, t } = useI18n();
+  const { t } = useI18n();
   return (
-    <Link
-      href="/portfolio"
+    <a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
       className="project-card"
+      aria-label={t('{0} website (opens in a new tab)', project.name)}
     >
       <div className="project-card-image">
         <Image
-          src={localizedImage(project.image, locale)}
-          alt={t('{0} digital interface concept', project.name)}
+          src={project.image}
+          alt={t('{0} website preview', project.name)}
           fill
           sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
         />
@@ -85,14 +88,14 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
       <div className="project-card-meta">
         <span>{t(project.category)}</span>
-        <span>{t('Interface concept')}</span>
+        <span>{t('Visit website')}</span>
       </div>
       <h3>
         {project.name}
         <ArrowUpRight size={17} />
       </h3>
       <p>{t(project.description)}</p>
-    </Link>
+    </a>
   );
 }
 export function ContactCTA() {

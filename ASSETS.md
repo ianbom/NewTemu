@@ -37,6 +37,10 @@ The generator also creates thirty-six Indonesian-language variants in `public/im
 
 `scripts/generate-brand.mjs` creates the TemuWeb social cover at 1200 by 630 pixels, retaining the existing dark background, typography placement, and separator composition. The favicon uses a T glyph in the existing icon dimensions and colors. Existing photography is unchanged by the TemuWeb rebrand.
 
+## Portfolio Screenshots
+
+The eleven PNG screenshots in `web-ss` are supplied by the user, together with their destination URLs in `src/lib/data.ts`. `scripts/prepare-portfolio.mjs` preserves those files and uses the installed Sharp package to create WebP previews in `public/images/portfolio`. Each preview is cropped from the top to 1920 by 4180 pixels without resizing, matching the supplied Northform screenshot. These previews are shared by both languages. Supporting SVG illustrations remain in use outside the portfolio.
+
 ## Typography And Icons
 
 Geist: loaded through `next/font/google`. Lucide: interface icons. Radix primitives support shadcn-style accessible dialog and navigation components. Their installed packages retain upstream license files.

@@ -4,7 +4,6 @@ import { test } from 'node:test';
 import ts from 'typescript';
 import { whatsappHref } from '../src/lib/behavior.ts';
 import {
-  categories,
   expertise,
   navigation,
   projects,
@@ -28,8 +27,8 @@ test('locale paths preserve page, query, hash, and external destinations', () =>
   assert.equal(localeHref('/', 'id'), '/id');
   assert.equal(localeHref('/en/portfolio?view=2#gallery', 'id'), '/id/portfolio?view=2#gallery');
   assert.equal(
-    localeHref('/id/services?type=Web%20Application#main', 'en'),
-    '/en/services?type=Web%20Application#main',
+    localeHref('/id/pricing?type=Web%20Application#main', 'en'),
+    '/en/pricing?type=Web%20Application#main',
   );
   assert.equal(stripLocale('/id/portfolio'), '/portfolio');
   assert.equal(stripLocale('/identity'), '/identity');
@@ -79,14 +78,14 @@ test('all catalog copy and literal UI messages have reviewed Indonesian translat
     assert.ok(Object.hasOwn(indonesian, key), `Missing translation: ${key}`);
   };
   function catalog(value: unknown, field = '') {
-    if (['slug', 'name', 'href', 'image', 'heroImage', 'closingImage', 'gallery'].includes(field))
+    if (['slug', 'name', 'href', 'url', 'image', 'heroImage', 'closingImage'].includes(field))
       return;
     if (typeof value === 'string') check(value);
     else if (Array.isArray(value)) value.forEach((item) => catalog(item));
     else if (value && typeof value === 'object')
       Object.entries(value).forEach(([key, item]) => catalog(item, key));
   }
-  [navigation, projects, services, expertise, categories, editorial].forEach(
+  [navigation, projects, services, expertise, editorial].forEach(
     (value) => catalog(value),
   );
   for (const file of readdirSync('src', { recursive: true, encoding: 'utf8' }).filter((file) =>
@@ -99,6 +98,19 @@ test('all catalog copy and literal UI messages have reviewed Indonesian translat
       true,
     );
     function visit(node: ts.Node) {
+      if (
+        file.replaceAll('\\', '/') === 'components/pricing.tsx' &&
+        ts.isVariableDeclaration(node) &&
+        ts.isIdentifier(node.name) &&
+        node.name.text === 'questions' &&
+        node.initializer
+      ) {
+        function reviewQuestion(child: ts.Node) {
+          if (ts.isStringLiteral(child)) check(child.text);
+          ts.forEachChild(child, reviewQuestion);
+        }
+        reviewQuestion(node.initializer);
+      }
       if (
         ts.isCallExpression(node) &&
         ts.isIdentifier(node.expression) &&
@@ -113,17 +125,12 @@ test('all catalog copy and literal UI messages have reviewed Indonesian translat
   }
 });
 
-test('project artwork resolves locally in both languages without double prefixes', () => {
+test('portfolio screenshots are shared across languages without SVG locale prefixes', () => {
   for (const project of projects) {
-    for (const image of project.gallery) {
-      assert.equal(localizedImage(image, 'en'), image);
-      const localized = localizedImage(image, 'id');
-      assert.ok(readFileSync(`public${localized}`).length > 1000);
-      assert.equal(localizedImage(localized, 'id'), localized);
-      assert.notEqual(
-        readFileSync(`public${image}`, 'utf8'),
-        readFileSync(`public${localized}`, 'utf8'),
-      );
+    for (const locale of ['id', 'en'] as const) {
+      assert.equal(localizedImage(project.image, locale), project.image);
+      assert.ok(readFileSync(`public${project.image}`).length > 1000);
+      assert.equal(localeHref(project.url, locale), project.url);
     }
   }
 });

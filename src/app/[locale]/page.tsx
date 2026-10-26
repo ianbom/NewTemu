@@ -122,10 +122,10 @@ export default async function Home({ params }: LocaleParams) {
           <SectionHeading
             center
             eyebrow={t('Portfolio')}
-            title={t('Website & Application Concepts.')}
+            title={t('Website Portfolio.')}
           >
             {t(
-              'Explore our original interface concepts for company websites, online stores, and business applications. These are design explorations, not commissioned client projects.',
+              'Explore website layouts and storefronts. Open each project to visit the website.',
             )}
           </SectionHeading>
           <FeaturedProjects />
@@ -162,7 +162,7 @@ export default async function Home({ params }: LocaleParams) {
                 ],
               ].map(([title, description], index) => (
                 <Link
-                  href="/services"
+                  href="/pricing"
                   key={title}
                 >
                   <span className="service-number">0{index + 1}</span>

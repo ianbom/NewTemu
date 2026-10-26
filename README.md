@@ -30,9 +30,17 @@ npm start
 - `scripts/generate-projects.mjs`: regenerate the original local SVG interface studies.
 - `ASSETS.md`: photography sources and asset provenance.
 
-All pages use `/id` or `/en`: the home page, `/about-us`, `/our-process`, `/services`, `/portfolio`, and `/our-approach`.
+All pages use `/id` or `/en`: the home page, `/about-us`, `/our-process`, `/pricing`, `/portfolio`, and `/our-approach`.
 
-Portfolio retains the mixed-image gallery, category filters, and keyboard-accessible image previews. There are no separate project detail pages. Careers, Selected Work, project categories, and project detail URLs return 404. Former `/showcase` URLs permanently redirect to `/portfolio` in the corresponding language; the unprefixed gallery redirects to `/id/portfolio`.
+Pricing shows six services with Starter, Pro, and Business packages, starting at Rp1.000.000 for a company profile website. Prices and feature limits live in `src/lib/data.ts`. Project packages are one-time work; maintenance is priced per month. Domain and basic hosting for the first year are included in website and web application packages; renewals, upgrades, premium licenses, and third-party fees are separate. Pricing is text-only, including its introduction and final CTA. Each package prepares a localized WhatsApp message containing its service, tier, starting price, and billing period.
+
+Each package has a benefit-led `description` and `features`, with numerical delivery limits in `scopeDetails`. Native Delivery scope disclosures keep those limits accessible without making them the main sales copy. Both languages retain the same prices and deliverables; no additional services are implied.
+
+The former `/services`, `/id/services`, and `/en/services` URLs permanently redirect directly to the corresponding pricing page. `/pricing` redirects to `/id/pricing`.
+
+Portfolio displays all eleven supplied website screenshots without filters or a result counter. A localized introduction sits above the grid: two columns below 1024px, three columns on desktop. Gallery tiles and homepage cards open the corresponding websites in a new tab, without preview dialogs or detail pages. The unused interactive showcase is removed rather than reintroduced on the homepage. Careers, Selected Work, project categories, and project detail URLs return 404. Former `/showcase` URLs permanently redirect to `/portfolio` in the corresponding language; the unprefixed gallery redirects to `/id/portfolio`.
+
+Run `node scripts/prepare-portfolio.mjs` to prepare the screenshots from `web-ss`. It preserves the originals and writes WebP previews to `public/images/portfolio`, cropped from the top to 1920 by 4180 pixels, matching Northform. Both languages use these same screenshots. Supporting industry and service illustrations remain separate from portfolio data.
 
 `/` and the remaining unprefixed page routes permanently redirect to Indonesian. The former `/contact`, `/id/contact`, and `/en/contact` URLs permanently redirect directly to WhatsApp. The ID / EN controls preserve the current page, query parameters, and hash. Browser language does not override the selected URL. Service-type values stay language-independent; their visible labels and inquiry messages follow the active language.
 
@@ -40,7 +48,7 @@ Set `NEXT_PUBLIC_SITE_URL` to the deployed origin for canonical and alternate-la
 
 Regenerate both artwork languages with `node scripts/generate-projects.mjs`. English artwork remains in `public/images/projects`; Indonesian artwork is generated under `public/images/projects/id`. Regenerate the TemuWeb social cover with `node scripts/generate-brand.mjs`.
 
-All contact actions open WhatsApp at `https://wa.me/6285151994724` in a new tab, with a professional message in the active language. Service actions include the service type. There is no contact page or form; visitors review and send messages themselves in WhatsApp. The informational email link remains available. No messages are sent, stored, or submitted to a server. Projects are original interface concepts, not commissioned client work. Project technologies describe the intended implementation direction; the portfolio previews are original interface illustrations.
+All contact actions open WhatsApp at `https://wa.me/6285151994724` in a new tab, with a professional message in the active language. Service actions include the service type. There is no contact page or form; visitors review and send messages themselves in WhatsApp. The informational email link remains available. No messages are sent, stored, or submitted to a server. Portfolio screenshots and website destinations are supplied by the user; their presentation does not assert commissioned-client relationships, technology stacks, or business results.
 
 No analytics, database, external account configuration, or deployment is required. The first build downloads Geist through `next/font`; runtime photography is served locally.
 

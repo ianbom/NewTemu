@@ -9,12 +9,17 @@ const config: NextConfig = {
       ...[
         'about-us',
         'our-process',
-        'services',
+        'pricing',
         'portfolio',
         'our-approach',
       ].map((page) => ({
         source: `/${page}`,
         destination: `/id/${page}`,
+        permanent: true,
+      })),
+      ...['/services', '/id/services', '/en/services'].map((source) => ({
+        source,
+        destination: source.startsWith('/en/') ? '/en/pricing' : '/id/pricing',
         permanent: true,
       })),
       ...['/contact', '/id/contact', '/en/contact'].map((source) => ({
