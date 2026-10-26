@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ),
   title: { default: 'TemuWeb', template: '%s | TemuWeb' },
   applicationName: 'TemuWeb',
-  icons: { icon: '/icon.svg' },
+  icons: { icon: '/favicon.ico' },
   twitter: { card: 'summary_large_image' },
 };
 
