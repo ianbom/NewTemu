@@ -189,9 +189,9 @@ export function Footer() {
           </div>
           <div className="footer-contact">
             <h2>{t('Get In Touch')}</h2>
-            <a href="mailto:mail@agency.site">
+            <a href="mailto:mail@temuweb.site">
               <Mail size={14} />
-              {t('mail@agency.site')}
+              {t('mail@temuweb.site')}
             </a>
             <a
               href={whatsappHref(locale)}

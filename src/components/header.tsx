@@ -129,7 +129,7 @@ export function Header() {
               </nav>
               <div className="mobile-menu-bottom">
                 <span>{t('Surabaya, Indonesia')}</span>
-                <a href="mailto:mail@agency.site">{t('mail@agency.site')}</a>
+                <a href="mailto:mail@temuweb.site">{t('mail@temuweb.site')}</a>
               </div>
             </DialogContent>
           </Dialog>
