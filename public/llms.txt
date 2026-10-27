@@ -1,0 +1,25 @@
+# LiniWeb
+
+> LiniWeb adalah software house di Surabaya, Jawa Timur, Indonesia yang menyediakan jasa pembuatan website profesional, landing page, toko online (e-commerce), aplikasi web kustom, serta pemeliharaan dan desain antarmuka (UI/UX).
+
+## Layanan Utama
+
+- [Jasa Pembuatan Website](https://www.liniweb.site/id/pricing#company-profile): Pembuatan website company profile dan landing page dengan desain responsif, domain dan hosting tahun pertama, serta integrasi WhatsApp.
+- [Jasa Pembuatan Toko Online](https://www.liniweb.site/id/pricing#e-commerce): Website e-commerce dan katalog produk dengan pengelolaan pesanan dan integrasi pembayaran.
+- [Aplikasi Web Kustom](https://www.liniweb.site/id/pricing#web-application): Dashboard operasional, sistem manajemen data, dan integrasi alur bisnis.
+- [UI/UX & Pemeliharaan Website](https://www.liniweb.site/id/pricing#maintenance): Pembaruan konten berkala, perbaikan kendala ringan, dan pemeriksaan kesehatan website.
+
+## Halaman Penting
+
+- [Beranda](https://www.liniweb.site/id): Gambaran umum software house dan penawaran layanan.
+- [Harga & Paket Layanan](https://www.liniweb.site/id/pricing): Daftar transparansi harga dan rincian cakupan paket mulai dari Rp1.000.000.
+- [Portofolio](https://www.liniweb.site/id/portfolio): Contoh proyek website dan toko online yang telah dibangun.
+- [Tentang Kami](https://www.liniweb.site/id/about-us): Informasi studio, komitmen kerja, dan lokasi di Surabaya.
+- [Proses Kerja](https://www.liniweb.site/id/our-process): Tahapan pengerjaan mulai dari perencanaan, desain, pengembangan, hingga peluncuran.
+- [Pendekatan Kami](https://www.liniweb.site/id/our-approach): Standar teknis, aksesibilitas, dan kemudahan pemeliharaan kode.
+
+## Kontak
+
+- WhatsApp: https://wa.me/6285151994724
+- Telepon: +62 851-5199-4724
+- Lokasi: Surabaya, Jawa Timur, Indonesia

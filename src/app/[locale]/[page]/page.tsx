@@ -6,6 +6,7 @@ import { editorial } from '@/lib/editorial';
 import { getTranslator, localizedImage } from '@/lib/i18n';
 import { getLocale } from '@/lib/locale-server';
 import { pageMetadata } from '@/lib/metadata';
+import { getBreadcrumbSchema, getFaqSchema } from '@/lib/structured-data';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 const additional = {
@@ -37,8 +38,13 @@ export default async function ContentPage({
   const t = getTranslator(locale);
   if (Object.hasOwn(editorial, page)) {
     const content = editorial[page as keyof typeof editorial];
+    const breadcrumbSchema = getBreadcrumbSchema(locale, t(content.title), '/' + page);
     return (
       <div className={`editorial-page ${page}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
         <Hero
           title={t(content.title)}
           description={t(content.intro)}
@@ -118,11 +124,32 @@ export default async function ContentPage({
       </div>
     );
   }
-  if (page === 'pricing') return <Pricing locale={locale} />;
+  if (page === 'pricing') {
+    const faqSchema = getFaqSchema(locale);
+    const breadcrumbSchema = getBreadcrumbSchema(locale, t(additional.pricing.title), '/pricing');
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <Pricing locale={locale} />
+      </>
+    );
+  }
   if (page !== 'portfolio') notFound();
   const content = additional.portfolio;
+  const breadcrumbSchema = getBreadcrumbSchema(locale, t(content.title), '/portfolio');
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Hero
         title={t(content.title)}
         description={t(content.description)}

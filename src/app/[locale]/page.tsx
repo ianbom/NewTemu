@@ -4,13 +4,19 @@ import { ContactCTA, Hero, SectionHeading } from '@/components/shared';
 import { getTranslator, localizedImage, type LocaleParams } from '@/lib/i18n';
 import { getLocale } from '@/lib/locale-server';
 import { pageMetadata } from '@/lib/metadata';
+import { getServicesSchema } from '@/lib/structured-data';
 import { Code2, Compass } from 'lucide-react';
 import Image from 'next/image';
 export default async function Home({ params }: LocaleParams) {
   const locale = await getLocale(params);
   const t = getTranslator(locale);
+  const servicesSchema = getServicesSchema(locale);
   return (
     <div className="home-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
       <Hero
         title={
           <>

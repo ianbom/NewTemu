@@ -25,7 +25,22 @@ export function pageMetadata(
       locale: locale === 'id' ? 'id_ID' : 'en_US',
       alternateLocale: locale === 'id' ? 'en_US' : 'id_ID',
       url: localeHref(path, locale),
-      images: [{ url: '/images/social-cover.jpg', width: 1200, height: 630, alt: 'LiniWeb' }],
+      siteName: 'LiniWeb',
+      type: 'website',
+      images: [
+        {
+          url: '/images/social-cover.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'LiniWeb - Jasa Pembuatan Website & Software House di Surabaya',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${t(title)} | LiniWeb`,
+      description: t(description),
+      images: ['/images/social-cover.jpg'],
     },
   };
 }

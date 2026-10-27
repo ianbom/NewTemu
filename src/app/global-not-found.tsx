@@ -4,6 +4,10 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Halaman Tidak Ditemukan | LiniWeb',
   description: 'Halaman yang Anda cari tidak ditemukan. Kembali ke beranda LiniWeb.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 import './globals.css';
 
