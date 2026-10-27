@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return [
       {
         url: idUrl,
-        lastModified: new Date('2026-10-27'),
+        lastModified: new Date(),
         changeFrequency: page === '' || page === 'pricing' ? 'weekly' : 'monthly',
         priority: page === '' ? 1.0 : page === 'pricing' ? 0.9 : 0.8,
         alternates: {
@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
       {
         url: enUrl,
-        lastModified: new Date('2026-10-27'),
+        lastModified: new Date(),
         changeFrequency: page === '' || page === 'pricing' ? 'weekly' : 'monthly',
         priority: page === '' ? 0.9 : page === 'pricing' ? 0.8 : 0.7,
         alternates: {
