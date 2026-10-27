@@ -12,7 +12,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#000000',
     icons: [
       {
-        src: '/favicon.ico',
+        src: '/liniweb.ico',
         sizes: 'any',
         type: 'image/x-icon',
       },

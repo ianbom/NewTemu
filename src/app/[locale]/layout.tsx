@@ -14,7 +14,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.liniweb.site'),
   title: { default: 'LiniWeb', template: '%s | LiniWeb' },
   applicationName: 'LiniWeb',
-  icons: { icon: '/favicon.ico' },
+  icons: {
+    icon: '/liniweb.ico',
+    shortcut: '/liniweb.ico',
+    apple: '/liniweb.ico',
+  },
   robots: {
     index: true,
     follow: true,
