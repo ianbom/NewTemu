@@ -34,13 +34,13 @@ export default async function Home({ params }: LocaleParams) {
         <div className="container split-grid">
           <div>
             <SectionHeading
-              eyebrow={t('About TemuWeb')}
+              eyebrow={t('About LiniWeb')}
               title={t('Your Website Development Partner.')}
             />
             <div className="prose">
               <p>
                 {t(
-                  'TemuWeb is a software house in Surabaya focused on website development. We help you present your business, explain your services, and make it easier for customers to get in touch.',
+                  'LiniWeb is a software house in Surabaya focused on website development. We help you present your business, explain your services, and make it easier for customers to get in touch.',
                 )}
               </p>
               <p>
@@ -69,7 +69,7 @@ export default async function Home({ params }: LocaleParams) {
               href="/about-us"
               className="button button-outline"
             >
-              {t('Get to Know TemuWeb')}
+              {t('Get to Know LiniWeb')}
             </Link>
           </div>
           <div className="portrait-image">
@@ -160,6 +160,6 @@ export async function generateMetadata({ params }: LocaleParams) {
     locale,
     '/',
     'Website Development & Software House',
-    'TemuWeb is a software house in Surabaya offering company profile websites, landing pages, e-commerce development, web applications, and website maintenance.',
+    'LiniWeb is a software house in Surabaya offering company profile websites, landing pages, e-commerce development, web applications, and website maintenance.',
   );
 }

@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 export function Wordmark() {
   return (
     <span className="wordmark">
-      TemuWeb
+      LiniWeb
     </span>
   );
 }
@@ -39,7 +39,7 @@ export function Header() {
         <Link
           className="logo-link"
           href="/"
-          aria-label={t('TemuWeb home')}
+          aria-label={t('LiniWeb home')}
         >
           <Wordmark />
         </Link>
@@ -98,7 +98,7 @@ export function Header() {
                 <Wordmark />
               </DialogTitle>
               <DialogDescription className="sr-only">
-                {t('Explore TemuWeb services, process, and portfolio.')}
+                {t('Explore LiniWeb services, process, and portfolio.')}
               </DialogDescription>
               <LanguageSwitcher onChange={() => setOpen(false)} />
               <nav aria-label={t('Mobile navigation')}>
@@ -129,7 +129,6 @@ export function Header() {
               </nav>
               <div className="mobile-menu-bottom">
                 <span>{t('Surabaya, Indonesia')}</span>
-                <a href="mailto:mail@temuweb.site">{t('mail@temuweb.site')}</a>
               </div>
             </DialogContent>
           </Dialog>

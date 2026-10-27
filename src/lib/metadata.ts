@@ -9,7 +9,7 @@ export function pageMetadata(
 ): Metadata {
   const t = getTranslator(locale);
   return {
-    title: { absolute: `${t(title)} | TemuWeb` },
+    title: { absolute: `${t(title)} | LiniWeb` },
     description: t(description),
     alternates: {
       canonical: localeHref(path, locale),
@@ -20,12 +20,12 @@ export function pageMetadata(
       },
     },
     openGraph: {
-      title: `${t(title)} | TemuWeb`,
+      title: `${t(title)} | LiniWeb`,
       description: t(description),
       locale: locale === 'id' ? 'id_ID' : 'en_US',
       alternateLocale: locale === 'id' ? 'en_US' : 'id_ID',
       url: localeHref(path, locale),
-      images: [{ url: '/images/social-cover.jpg', width: 1200, height: 630, alt: 'TemuWeb' }],
+      images: [{ url: '/images/social-cover.jpg', width: 1200, height: 630, alt: 'LiniWeb' }],
     },
   };
 }

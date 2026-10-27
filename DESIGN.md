@@ -1,10 +1,10 @@
-# TemuWeb Design Reference
+# LiniWeb Design Reference
 
 ## Authority
 
 Reference: https://equa-2.vercel.app/
 
-Preserve the existing dark palette, composition, typography, photographs, animations, routes, and interaction patterns. TemuWeb replaces the former identity and copy only, with website development as the primary offering and web applications, integrations, UI/UX, and maintenance as supporting services.
+Preserve the existing dark palette, composition, typography, photographs, animations, routes, and interaction patterns. LiniWeb replaces the former identity and copy only, with website development as the primary offering and web applications, integrations, UI/UX, and maintenance as supporting services.
 
 ## Observed Geometry
 
@@ -39,7 +39,7 @@ The original geographical export map becomes an interactive industry/interface p
 - Every service has Starter, Pro, and Business pricing in IDR. Company profile Starter begins at Rp1.000.000. Maintenance uses monthly work-hour limits; other services are priced per project. Domain/basic hosting inclusion and separate renewal/third-party costs are stated explicitly. No popularity badges, artificial discounts, checkout, or automatic message submission.
 - Package descriptions use 6-10 words and short benefit lists. All website tiers include first-year domain/hosting, SSL while hosting is active, an admin dashboard, and WhatsApp integration. Mobile tiers cover Android and iOS with first-year backend domain/hosting; developer accounts and app-store publication costs are separate. Native Delivery scope disclosures retain the existing work limits. Prices, the pricing introduction, and layout remain unchanged.
 
-- Professional Indonesian and English; Indonesian is the default. TemuWeb; Surabaya, East Java, Indonesia; mail@temuweb.site; +62 851-5199-4724.
+- Professional Indonesian and English; Indonesian is the default. LiniWeb; Surabaya, East Java, Indonesia; +62 851-5199-4724.
 - Eleven supplied website previews. No commissioned-client claims, testimonials, fabricated team, invented history, or software house performance metrics.
 - Six service categories, two portfolio disciplines, four process phases, four approach principles.
 - Portfolio shows all eleven websites, nine Websites and two E-Commerce entries, without filters or a result counter. A centered bilingual introduction replaces the controls. All project previews link directly to their supplied websites in a new tab, without lightboxes or detail pages. The homepage carousel uses the same data; industry illustrations are independent. The unused interactive showcase is removed, not reintroduced as a new homepage section.
@@ -52,6 +52,6 @@ The original geographical export map becomes an interactive industry/interface p
 
 `artifacts/reference/measurements.json` records forty reference page/viewport inspections. `artifacts/browser-qa-id.json` and `artifacts/browser-qa-en.json` record local route, responsive, geometry, accessibility, and interaction checks. `artifacts/whatsapp-http.json` records active pages, removed routes, WhatsApp destinations, legacy redirects, and internal-link checks. Reference screenshots and local screenshots are kept separately under `artifacts/`; they are not production assets.
 
-The TemuWeb rebrand is verified in `artifacts/temuweb-visual-qa.json` (48 bilingual route/viewports), `artifacts/temuweb-http.json` (active pages, links, redirects, and removed pages), and `artifacts/temuweb-preservation.json` (unchanged CSS, photographs, and mockup compositions). Updated desktop and mobile screenshots use the `temuweb-` prefix.
+The LiniWeb rebrand is verified in `artifacts/temuweb-visual-qa.json` (48 bilingual route/viewports), `artifacts/temuweb-http.json` (active pages, links, redirects, and removed pages), and `artifacts/temuweb-preservation.json` (unchanged CSS, photographs, and mockup compositions). Updated desktop and mobile screenshots use the `temuweb-` prefix.
 
 Visual comparison prioritizes geometry and rhythm. Different copy lengths and original interface imagery necessarily produce different text wraps and image compositions; color and content identity are intentionally not matched.

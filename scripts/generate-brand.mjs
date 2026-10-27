@@ -5,7 +5,7 @@ const cover = `
   <rect width="1200" height="630" fill="#08090b" />
   <g font-family="Arial, sans-serif" font-weight="400">
     <text x="80" y="120" fill="#c7b59a" font-size="28" letter-spacing="3">
-      TemuWeb
+      LiniWeb
     </text>
     <g fill="#f5f3ef" font-size="64">
       <text x="80" y="290">Jasa Pembuatan Website</text>

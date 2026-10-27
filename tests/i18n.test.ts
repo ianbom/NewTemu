@@ -34,7 +34,7 @@ test('locale paths preserve page, query, hash, and external destinations', () =>
   assert.equal(stripLocale('/identity'), '/identity');
   for (const href of [
     'https://wa.me/6285151994724',
-    'mailto:mail@temuweb.site',
+    'mailto:hello@example.com',
     '#main',
     '//example.com',
   ]) {
@@ -63,7 +63,6 @@ test('all catalog copy and literal UI messages have reviewed Indonesian translat
   const preserved = new Set([
     'Indonesia',
     'Surabaya, Indonesia',
-    'mail@temuweb.site',
     'you@company.com',
     "07\u00b015' S \u00a0 112\u00b045' E",
     'Figma',

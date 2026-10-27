@@ -2,13 +2,13 @@ export const editorial = {
   'about-us': {
     title: 'About Us',
     intro:
-      'Get to know TemuWeb, a software house focused on websites and web applications that support everyday business needs.',
+      'Get to know LiniWeb, a software house focused on websites and web applications that support everyday business needs.',
     heroImage: '/images/about-hero.jpg',
-    eyebrow: 'About TemuWeb',
+    eyebrow: 'About LiniWeb',
     heading: 'Website Development With a Clear Purpose.',
     image: '/images/about-the-studio.jpg',
     paragraphs: [
-      'TemuWeb is a software house based in Surabaya, East Java. We develop company profiles, landing pages, e-commerce websites, and custom web applications for businesses with different requirements.',
+      'LiniWeb is a software house based in Surabaya, East Java. We develop company profiles, landing pages, e-commerce websites, and custom web applications for businesses with different requirements.',
       'Before designing or writing code, we discuss your audience, content, required features, and existing tools. This helps establish a practical scope and a shared understanding of what the website should do.',
     ],
     principleHeading: 'How We Develop Your Website',
@@ -30,7 +30,7 @@ export const editorial = {
         'Before launch, we review device compatibility and key user flows. We explain the handover, account access, and maintenance options according to the agreed scope.',
       ],
     ],
-    closingEyebrow: 'Working with TemuWeb',
+    closingEyebrow: 'Working with LiniWeb',
     closingTitle: 'Clear Scope. Shared Decisions.',
     closingImage: '/images/about-shared-perspective.jpg',
     closingCopy:

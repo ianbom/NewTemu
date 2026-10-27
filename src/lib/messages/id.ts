@@ -184,13 +184,13 @@ export const indonesian: Record<string, string> = {
     'Website perusahaan dengan informasi terstruktur dan bagian yang menonjolkan gambar.',
   Pricing: 'Harga',
   'Website Development Pricing': 'Harga Jasa Pembuatan Website',
-  'Compare TemuWeb website, e-commerce, web application, UI/UX, and maintenance packages. Company profile websites start at Rp1.000.000, including first-year domain and basic hosting.':
-    'Bandingkan paket website, e-commerce, aplikasi web, UI/UX, dan pemeliharaan TemuWeb. Website company profile mulai Rp1.000.000, termasuk domain dan hosting dasar tahun pertama.',
+  'Compare LiniWeb website, e-commerce, web application, UI/UX, and maintenance packages. Company profile websites start at Rp1.000.000, including first-year domain and basic hosting.':
+    'Bandingkan paket website, e-commerce, aplikasi web, UI/UX, dan pemeliharaan LiniWeb. Website company profile mulai Rp1.000.000, termasuk domain dan hosting dasar tahun pertama.',
   'Website Packages for Your Business.': 'Paket Website untuk Kebutuhan Bisnis Anda.',
   'Package prices can change based on agreement.':
     'Harga setiap paket bisa berubah sesuai dengan kesepakatan',
   'A clear scope before we build.': 'Ruang lingkup jelas sebelum pengembangan.',
-  'Choose the pages and features your business needs. Compare our starting prices, then discuss the details with TemuWeb.':
+  'Choose the pages and features your business needs. Compare our starting prices, then discuss the details with LiniWeb.':
     'Harga setiap paket bisa berubah sesuai dengan kesepakatan',
   'Six services. Three package levels.': 'Enam layanan. Tiga pilihan paket.',
   'Compare packages': 'Bandingkan paket',
@@ -365,10 +365,10 @@ export const indonesian: Record<string, string> = {
   'Company websites, online stores, and supporting web applications.':
     'Website perusahaan, toko online, dan aplikasi web pendukung.',
   'Built for your business.': 'Dibangun untuk bisnis Anda.',
-  'Explore TemuWeb services, process, and portfolio.':
-    'Jelajahi layanan, proses kerja, dan portofolio TemuWeb.',
+  'Explore LiniWeb services, process, and portfolio.':
+    'Jelajahi layanan, proses kerja, dan portofolio LiniWeb.',
   'About Us': 'Tentang Kami',
-  'About TemuWeb': 'Tentang TemuWeb',
+  'About LiniWeb': 'Tentang LiniWeb',
   'Our Process': 'Proses Kerja',
   Portfolio: 'Portofolio',
   'Explore Our Portfolio': 'Jelajahi Portofolio Kami',
@@ -408,7 +408,7 @@ export const indonesian: Record<string, string> = {
   'View All Projects': 'Lihat Semua Proyek',
   'Explore Our Work': 'Jelajahi Karya Kami',
   'Explore our work': 'Jelajahi karya kami',
-  'Get to Know TemuWeb': 'Kenali TemuWeb',
+  'Get to Know LiniWeb': 'Kenali LiniWeb',
   'Our Expertise': 'Keahlian Kami',
   'Websites, Applications, Integrations.': 'Website, Aplikasi, dan Integrasi.',
   'Your Website Development Partner.': 'Mitra Pengembangan Website Anda.',
@@ -416,8 +416,8 @@ export const indonesian: Record<string, string> = {
   'for Your Business.': 'untuk Kebutuhan Bisnis Anda.',
   'We build company websites, landing pages, and online stores, with web applications and integrations tailored to your business processes.':
     'Kami mengembangkan website perusahaan, landing page, dan toko online, serta aplikasi web dan integrasi yang disesuaikan dengan proses bisnis Anda.',
-  'TemuWeb is a software house in Surabaya focused on website development. We help you present your business, explain your services, and make it easier for customers to get in touch.':
-    'TemuWeb adalah software house di Surabaya yang berfokus pada jasa pembuatan website. Kami membantu Anda memperkenalkan bisnis, menjelaskan layanan, dan memudahkan pelanggan menghubungi Anda.',
+  'LiniWeb is a software house in Surabaya focused on website development. We help you present your business, explain your services, and make it easier for customers to get in touch.':
+    'LiniWeb adalah software house di Surabaya yang berfokus pada jasa pembuatan website. Kami membantu Anda memperkenalkan bisnis, menjelaskan layanan, dan memudahkan pelanggan menghubungi Anda.',
   'From company profiles to custom web applications, we define the content, features, and technical requirements with you before development begins.':
     'Dari company profile hingga aplikasi web khusus, kami menyusun kebutuhan konten, fitur, dan teknis bersama Anda sebelum pengembangan dimulai.',
   'Clear Website Structure': 'Struktur Website yang Jelas',
@@ -478,14 +478,14 @@ export const indonesian: Record<string, string> = {
   'Direct WhatsApp Inquiry': 'Diskusi Melalui WhatsApp',
   'Design with intention.': 'Desain dengan tujuan yang jelas.',
   'All rights reserved.': 'Seluruh hak cipta dilindungi.',
-  'TemuWeb. All rights reserved.': 'TemuWeb. Seluruh hak cipta dilindungi.',
-  'TemuWeb home': 'Beranda TemuWeb',
+  'LiniWeb. All rights reserved.': 'LiniWeb. Seluruh hak cipta dilindungi.',
+  'LiniWeb home': 'Beranda LiniWeb',
   'Main navigation': 'Navigasi utama',
   'Mobile navigation': 'Navigasi seluler',
   'Open project categories': 'Buka kategori proyek',
   'Open navigation menu': 'Buka menu navigasi',
   'Close dialog': 'Tutup dialog',
-  'Explore TemuWeb and our work.': 'Kenali TemuWeb dan karya kami.',
+  'Explore LiniWeb and our work.': 'Kenali LiniWeb dan karya kami.',
   'Skip to content': 'Lewati ke konten',
   Breadcrumb: 'Jejak navigasi',
   'Previous projects': 'Proyek sebelumnya',
@@ -524,15 +524,15 @@ export const indonesian: Record<string, string> = {
   'Project Category': 'Kategori Proyek',
   'Different ideas. Thoughtfully brought to life. Explore our original studio concepts in design and technology.':
     'Beragam ide yang diwujudkan dengan cermat. Jelajahi konsep orisinal studio kami dalam desain dan teknologi.',
-  'Original TemuWeb concepts in websites, web applications, e-commerce, and UI/UX design.':
-    'Konsep orisinal TemuWeb untuk situs web, aplikasi web, e-commerce, dan desain UI/UX.',
+  'Original LiniWeb concepts in websites, web applications, e-commerce, and UI/UX design.':
+    'Konsep orisinal LiniWeb untuk situs web, aplikasi web, e-commerce, dan desain UI/UX.',
   'A considered collection of original studio concepts. Explore the details, ideas, and interfaces behind the work.':
     'Kumpulan konsep orisinal studio yang dirancang dengan cermat. Jelajahi detail, gagasan, dan antarmuka di balik setiap karya.',
-  'Get to know TemuWeb, a software house focused on websites and web applications that support everyday business needs.':
-    'Kenali TemuWeb, software house yang berfokus pada website dan aplikasi web untuk mendukung kebutuhan operasional bisnis.',
+  'Get to know LiniWeb, a software house focused on websites and web applications that support everyday business needs.':
+    'Kenali LiniWeb, software house yang berfokus pada website dan aplikasi web untuk mendukung kebutuhan operasional bisnis.',
   'Website Development With a Clear Purpose.': 'Pengembangan Website dengan Tujuan yang Jelas.',
-  'TemuWeb is a software house based in Surabaya, East Java. We develop company profiles, landing pages, e-commerce websites, and custom web applications for businesses with different requirements.':
-    'TemuWeb adalah software house berbasis di Surabaya, Jawa Timur. Kami mengembangkan company profile, landing page, website e-commerce, dan aplikasi web khusus untuk beragam kebutuhan bisnis.',
+  'LiniWeb is a software house based in Surabaya, East Java. We develop company profiles, landing pages, e-commerce websites, and custom web applications for businesses with different requirements.':
+    'LiniWeb adalah software house berbasis di Surabaya, Jawa Timur. Kami mengembangkan company profile, landing page, website e-commerce, dan aplikasi web khusus untuk beragam kebutuhan bisnis.',
   'Before designing or writing code, we discuss your audience, content, required features, and existing tools. This helps establish a practical scope and a shared understanding of what the website should do.':
     'Sebelum merancang tampilan atau menulis kode, kami mendiskusikan audiens, konten, fitur, dan perangkat yang sudah Anda gunakan. Tahap ini membantu menentukan ruang lingkup serta fungsi website yang perlu dikembangkan.',
   'How We Develop Your Website': 'Cara Kami Mengembangkan Website Anda',
@@ -548,7 +548,7 @@ export const indonesian: Record<string, string> = {
   'Prepare the Handover': 'Menyiapkan Serah Terima',
   'Before launch, we review device compatibility and key user flows. We explain the handover, account access, and maintenance options according to the agreed scope.':
     'Sebelum peluncuran, kami memeriksa kompatibilitas perangkat dan alur pengguna utama. Serah terima, akses akun, serta pilihan pemeliharaan dijelaskan sesuai ruang lingkup yang disepakati.',
-  'Working with TemuWeb': 'Bekerja sama dengan TemuWeb',
+  'Working with LiniWeb': 'Bekerja sama dengan LiniWeb',
   'Clear Scope. Shared Decisions.': 'Ruang Lingkup Jelas. Keputusan Bersama.',
   'We agree on the deliverables, content responsibilities, and review stages before development. When requirements change, we discuss the impact on the scope and next steps rather than adding features without a shared decision.':
     'Kami menyepakati hasil pekerjaan, tanggung jawab konten, dan tahapan peninjauan sebelum pengembangan. Jika kebutuhan berubah, kami membahas dampaknya pada ruang lingkup serta langkah berikutnya sebelum menambahkan fitur.',
@@ -606,7 +606,7 @@ export const indonesian: Record<string, string> = {
   Next: 'Berikutnya',
   Previous: 'Sebelumnya',
   'Open Email Draft': 'Buka Draf Email',
-  'Original TemuWeb concept.': 'Konsep orisinal TemuWeb.',
+  'Original LiniWeb concept.': 'Konsep orisinal LiniWeb.',
   'Show image {0}': 'Tampilkan gambar {0}',
   'Portfolio categories': 'Kategori portofolio',
   "I'd like to discuss a project with a similar direction to {0}.":
@@ -911,8 +911,8 @@ export const indonesian: Record<string, string> = {
   'Connect your website to existing systems, simplify data entry, or develop a web-based workflow. Share your requirements so we can review the scope and integration needs.':
     'Hubungkan website dengan sistem yang sudah digunakan, sederhanakan pengisian data, atau kembangkan alur kerja berbasis web. Sampaikan kebutuhan Anda agar kami dapat meninjau ruang lingkup dan integrasinya.',
   "Let's Discuss It": 'Mari Diskusikan',
-  'Tell TemuWeb about your website, web application, or custom digital project. Based in Surabaya, East Java, Indonesia.':
-    'Diskusikan kebutuhan situs web, aplikasi web, atau proyek digital khusus Anda bersama TemuWeb di Surabaya, Jawa Timur, Indonesia.',
+  'Tell LiniWeb about your website, web application, or custom digital project. Based in Surabaya, East Java, Indonesia.':
+    'Diskusikan kebutuhan situs web, aplikasi web, atau proyek digital khusus Anda bersama LiniWeb di Surabaya, Jawa Timur, Indonesia.',
   'A new idea, a complex challenge, or a digital experience ready for its next chapter. It starts with a conversation.':
     'Ide baru, tantangan yang kompleks, atau pengalaman digital yang siap dikembangkan. Semuanya dimulai dari sebuah diskusi.',
   'Find the Studio': 'Temukan Studio Kami',
@@ -933,8 +933,8 @@ export const indonesian: Record<string, string> = {
   'Website Development & Software House': 'Jasa Pembuatan Website & Software House',
   'Website Development for Your Business.':
     'Jasa Pembuatan Website untuk Kebutuhan Bisnis Anda.',
-  'TemuWeb is a software house in Surabaya offering company profile websites, landing pages, e-commerce development, web applications, and website maintenance.':
-    'TemuWeb adalah software house di Surabaya yang menyediakan jasa pembuatan website company profile, landing page, toko online, aplikasi web, dan pemeliharaan website.',
+  'LiniWeb is a software house in Surabaya offering company profile websites, landing pages, e-commerce development, web applications, and website maintenance.':
+    'LiniWeb adalah software house di Surabaya yang menyediakan jasa pembuatan website company profile, landing page, toko online, aplikasi web, dan pemeliharaan website.',
   'A considered creative workspace': 'Ruang kerja kreatif yang tertata',
   'An architectural workspace filled with natural light':
     'Ruang kerja arsitektural dengan pencahayaan alami',
@@ -956,10 +956,10 @@ export const indonesian: Record<string, string> = {
   'Switch to Indonesian': 'Ganti ke bahasa Indonesia',
   'Switch to English': 'Ganti ke bahasa Inggris',
   'Project inquiry: {0}': 'Permintaan proyek: {0}',
-  'Hello TemuWeb, I would like to discuss my website requirements.':
-    'Halo TemuWeb, saya ingin berdiskusi mengenai kebutuhan pembuatan website.',
-  'Hello TemuWeb, I would like to discuss {0}.':
-    'Halo TemuWeb, saya ingin berdiskusi mengenai layanan {0}.',
+  'Hello LiniWeb, I would like to discuss my website requirements.':
+    'Halo LiniWeb, saya ingin berdiskusi mengenai kebutuhan pembuatan website.',
+  'Hello LiniWeb, I would like to discuss {0}.':
+    'Halo LiniWeb, saya ingin berdiskusi mengenai layanan {0}.',
   Name: 'Nama',
   Email: 'Email',
   'Phone / WhatsApp:': 'Telepon / WhatsApp:',

@@ -12,7 +12,7 @@ const additional = {
   pricing: {
     title: 'Website Development Pricing',
     description:
-      'Compare TemuWeb website, e-commerce, web application, UI/UX, and maintenance packages. Company profile websites start at Rp1.000.000, including first-year domain and basic hosting.',
+      'Compare LiniWeb website, e-commerce, web application, UI/UX, and maintenance packages. Company profile websites start at Rp1.000.000, including first-year domain and basic hosting.',
   },
   portfolio: {
     title: 'Portfolio',

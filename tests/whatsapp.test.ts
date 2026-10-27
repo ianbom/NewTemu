@@ -12,7 +12,7 @@ test('WhatsApp messages use the active language and preserve service context', (
     assert.equal(general.pathname, '/6285151994724');
     assert.match(
       general.searchParams.get('text')!,
-      locale === 'id' ? /Halo TemuWeb/ : /Hello TemuWeb/,
+      locale === 'id' ? /Halo LiniWeb/ : /Hello LiniWeb/,
     );
     const service = new URL(behavior.whatsappHref(locale, 'Web Application'));
     assert.ok(

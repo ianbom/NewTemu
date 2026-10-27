@@ -185,7 +185,7 @@ test('package inquiries preserve language, service, tier, price, and billing per
         const url = new URL(whatsappHref(locale, context));
         assert.equal(url.pathname, '/6285151994724');
         assert.ok(url.searchParams.get('text')!.includes(context));
-        assert.match(url.searchParams.get('text')!, locale === 'id' ? /^Halo TemuWeb/ : /^Hello TemuWeb/);
+        assert.match(url.searchParams.get('text')!, locale === 'id' ? /^Halo LiniWeb/ : /^Hello LiniWeb/);
       }
     }
   }

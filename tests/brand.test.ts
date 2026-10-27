@@ -5,17 +5,17 @@ import { whatsappHref } from '../src/lib/behavior.ts';
 import { expertise } from '../src/lib/data.ts';
 import { getTranslator } from '../src/lib/i18n.ts';
 
-test('TemuWeb replaces legacy identity in source and generated artwork', () => {
+test('LiniWeb replaces legacy identity in source and generated artwork', () => {
   for (const root of ['src', 'public/images/projects', 'scripts']) {
     for (const file of readdirSync(root, { recursive: true, encoding: 'utf8' })) {
       if (!/\.(tsx?|svg|mjs|py)$/.test(file)) continue;
-      assert.doesNotMatch(readFileSync(`${root}/${file}`, 'utf8'), /kivora/i, file);
+      assert.doesNotMatch(readFileSync(`${root}/${file}`, 'utf8'), /kivora|temuweb/i, file);
     }
   }
   const header = readFileSync('src/components/header.tsx', 'utf8');
-  assert.match(header, /TemuWeb/);
+  assert.match(header, /LiniWeb/);
   assert.doesNotMatch(header, /wordmark-studio/);
-  assert.equal(JSON.parse(readFileSync('package.json', 'utf8')).name, 'temuweb');
+  assert.equal(JSON.parse(readFileSync('package.json', 'utf8')).name, 'liniweb');
 });
 
 test('website-first copy supports both languages and web capabilities', () => {
@@ -25,7 +25,7 @@ test('website-first copy supports both languages and web capabilities', () => {
   assert.ok(expertise.every((item) => !/mobile/i.test(JSON.stringify(item))));
   for (const locale of ['id', 'en'] as const) {
     const message = new URL(whatsappHref(locale)).searchParams.get('text')!;
-    assert.match(message, /TemuWeb/);
+    assert.match(message, /LiniWeb/);
     assert.match(message, /website/);
   }
 });

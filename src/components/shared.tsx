@@ -5,7 +5,7 @@ import Link from '@/components/localized-link';
 import { whatsappHref } from '@/lib/behavior';
 import { navigation, services, type Project } from '@/lib/data';
 import { localizedImage } from '@/lib/i18n';
-import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowUpRight, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 export function Hero({
   title,
@@ -139,7 +139,7 @@ export function Footer() {
           <div className="footer-brand">
             <Link
               href="/"
-              aria-label={t('TemuWeb home')}
+              aria-label={t('LiniWeb home')}
             >
               <Wordmark />
             </Link>
@@ -168,7 +168,7 @@ export function Footer() {
             ))}
           </div>
           <div>
-            <h2>{t('About TemuWeb')}</h2>
+            <h2>{t('About LiniWeb')}</h2>
             {navigation
               .filter((item) => !['/pricing', '/portfolio'].includes(item.href))
               .map((item) => (
@@ -189,10 +189,6 @@ export function Footer() {
           </div>
           <div className="footer-contact">
             <h2>{t('Get In Touch')}</h2>
-            <a href="mailto:mail@temuweb.site">
-              <Mail size={14} />
-              {t('mail@temuweb.site')}
-            </a>
             <a
               href={whatsappHref(locale)}
               target="_blank"
@@ -224,8 +220,7 @@ export function Footer() {
         </div>
         <div className="footer-bottom">
           <span>
-            &copy; {new Date().getFullYear()}
-            {t(' TemuWeb. All rights reserved.')}
+            &copy; {new Date().getFullYear()} {t('LiniWeb. All rights reserved.')}
           </span>
           <div>
             {[services[0], services[3], services[4]].map((service) => (

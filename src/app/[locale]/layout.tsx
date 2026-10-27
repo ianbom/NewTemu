@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ||
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3017'),
   ),
-  title: { default: 'TemuWeb', template: '%s | TemuWeb' },
-  applicationName: 'TemuWeb',
+  title: { default: 'LiniWeb', template: '%s | LiniWeb' },
+  applicationName: 'LiniWeb',
   icons: { icon: '/favicon.ico' },
   twitter: { card: 'summary_large_image' },
 };
