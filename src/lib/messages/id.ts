@@ -162,6 +162,8 @@ export const indonesian: Record<string, string> = {
   '{0} interface illustration': 'Ilustrasi antarmuka untuk {0}',
   'An online storefront with product collections and editorial presentation.':
     'Toko online dengan koleksi produk dan penyajian bergaya editorial.',
+  'An online storefront for reusable water bottles and everyday essentials.':
+    'Toko online botol minum ramah lingkungan dan perlengkapan harian bergaya minimalis.',
   'An image-led website with a considered visual hierarchy.':
     'Website yang menonjolkan fotografi dengan hierarki visual yang tertata.',
   'A website that brings photography, content, and navigation together.':

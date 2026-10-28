@@ -1,7 +1,7 @@
 'use client';
 import { useI18n } from '@/components/i18n-provider';
 import { ProjectCard } from '@/components/shared';
-import { projects } from '@/lib/data';
+import { projects, portfolioProjects } from '@/lib/data';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -111,6 +111,7 @@ export function IndustryExplorer() {
 }
 export function PortfolioGallery() {
   const { t } = useI18n();
+  const projects = portfolioProjects;
   return (
     <section className="section">
       <div className="container">

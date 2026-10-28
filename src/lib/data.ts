@@ -102,6 +102,18 @@ export const projects: Project[] = entries.map(
     url,
   }),
 );
+export const portfolioProjects: Project[] = [
+  ...projects,
+  {
+    slug: 'folvia',
+    name: 'FOLVIA',
+    category: 'E-Commerce',
+    description:
+      'An online storefront for reusable water bottles and everyday essentials.',
+    image: '/images/portfolio/folvia.webp',
+    url: 'https://folvia.vercel.app/',
+  },
+];
 export const services = [
   {
     slug: 'company-profile',
